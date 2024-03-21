@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bse2lf7qyjyrm"]
+
+[sub_resource type="Environment" id="Environment_5ie3n"]
+background_mode = 1
+background_color = Color(0.113725, 0.12549, 0.164706, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.4, 0.607843, 0.807843, 1)
+tonemap_mode = 3
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.27451, 0.305882, 0.376471, 1)
+fog_density = 0.05
+adjustment_enabled = true
+adjustment_brightness = 1.26
+adjustment_contrast = 1.26
+adjustment_saturation = 1.21
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_5ie3n")
