@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711496927
+::res://::1711497157
 README.md::TextFile::-1::1711041544::0::1::::<><>::
 ::res://addons/::1711041566
 ::res://addons/anthonyec.camera_preview/::1711041566
@@ -113,21 +113,19 @@ texture_10.svg::CompressedTexture2D::4739314574165685591::1710953488::1710953494
 texture_11.svg::CompressedTexture2D::558993228019520250::1710953488::1710953494::1::::<><>::
 texture_12.svg::CompressedTexture2D::904075752136780319::1710953488::1710953494::1::::<><>::
 texture_13.svg::CompressedTexture2D::5132199954486241987::1710953488::1710953494::1::::<><>::
-::res://Scenes/::1711496924
-custom_pp.tscn::PackedScene::139681572504982150::1711496924::0::1::::<><>::res://Shaders/blurX.gdshader<>res://Shaders/blurY.gdshader<>res://Shaders/scanlines.gdshader<>res://Shaders/bloom.gdshader<>uid://c2u28c0hu6kod::::res://Sprites/Palettes/ammo-8-1x.png<>res://Shaders/grid mask.gdshader<>res://Shaders/dithering.gdshader
+::res://Scenes/::1711497120
+custom_pp.tscn::PackedScene::139681572504982150::1711497120::0::1::::<><>::res://Shaders/blurX.gdshader<>res://Shaders/blurY.gdshader<>res://Shaders/scanlines.gdshader<>res://Shaders/bloom.gdshader<>uid://c2u28c0hu6kod::::res://Sprites/Palettes/ammo-8-1x.png<>res://Shaders/grid mask.gdshader<>res://Shaders/dithering.gdshader
 main_3d.tscn::PackedScene::3311976952341423711::1711496324::0::1::::<><>::uid://dir0wq0ywxd3a::::res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png<>uid://wsbtrss7n6g1::::res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png<>res://Scripts/fps counter.gd<>uid://dutn6fxrdrmfb::::res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png<>uid://b8wsgth6yvc5::::res://Scenes/custom_pp.tscn<>uid://cm5vjjf0qigef::::res://Sprites/N5SwAull6m.png
 world_environment.tscn::PackedScene::3659736695541484406::1711496324::0::1::::<><>::
 ::res://Scripts/::1711492091
 fps counter.gd::GDScript::-1::1711492091::0::1::::<>Label<>::
-::res://Shaders/::1711496924
-bloom.gdshader::Shader::-1::1711496924::0::1::::<><>::
-blurX.gdshader::Shader::-1::1711496924::0::1::::<><>::
-blurY.gdshader::Shader::-1::1711496924::0::1::::<><>::
-dither.gdshaderinc::ShaderInclude::-1::1711495825::0::1::::<><>::
-dithering.gdshader::Shader::-1::1711496924::0::1::::<><>::
-grid mask.gdshader::Shader::-1::1711496924::0::1::::<><>::
-quantize.gdshaderinc::ShaderInclude::-1::1711495825::0::1::::<><>::
-scanlines.gdshader::Shader::-1::1711496924::0::1::::<><>::
+::res://Shaders/::1711497145
+bloom.gdshader::Shader::-1::1711497145::0::1::::<><>::
+blurX.gdshader::Shader::-1::1711497145::0::1::::<><>::
+blurY.gdshader::Shader::-1::1711497145::0::1::::<><>::
+dithering.gdshader::Shader::-1::1711497145::0::1::::<><>::
+grid mask.gdshader::Shader::-1::1711497145::0::1::::<><>::
+scanlines.gdshader::Shader::-1::1711497145::0::1::::<><>::
 ::res://Sprites/::1711496927
 2ni9FDGinl.png::CompressedTexture2D::3006628393116023153::1711034450::1711036167::1::::<><>::
 N5SwAull6m.png::CompressedTexture2D::5678330434249385669::1711487323::1711487327::1::::<><>::
