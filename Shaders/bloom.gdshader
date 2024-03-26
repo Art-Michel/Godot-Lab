@@ -5,7 +5,7 @@ uniform float BLOOM_THRESHOLD = 0.3;
 uniform float BLOOM_INTENSITY = 0.5;
 
 uniform int BLUR_ITERATIONS: hint_range(0,300) = 1;
-uniform float BLUR_SIZE: hint_range(0,0.001, 0.0001) = 0.0003;
+uniform float BLUR_SIZE: hint_range(0,0.05, 0.0001) = 0.0003;
 uniform int BLUR_SUBDIVISIONS = 16;
 
 vec3 getHDR(vec3 tex) {

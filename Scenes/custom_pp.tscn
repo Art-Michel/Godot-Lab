@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8wsgth6yvc5"]
+[gd_scene load_steps=11 format=3 uid="uid://b8wsgth6yvc5"]
 
 [ext_resource type="Shader" path="res://Shaders/blurX.gdshader" id="1_skha1"]
 [ext_resource type="Shader" path="res://Shaders/blurY.gdshader" id="2_e6ypi"]
 [ext_resource type="Shader" path="res://Shaders/crt.gdshader" id="3_vauoh"]
-[ext_resource type="Shader" path="res://Shaders/new_shader.gdshader" id="4_es3sh"]
+[ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="4_es3sh"]
+[ext_resource type="Shader" path="res://Shaders/smask.gdshader" id="5_j06xo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]
 shader = ExtResource("1_skha1")
@@ -16,11 +17,15 @@ shader = ExtResource("3_vauoh")
 shader_parameter/scanline_space = 3.0
 shader_parameter/scanline_opacity = 0.355
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyaop"]
+shader = ExtResource("5_j06xo")
+shader_parameter/brightness = 1.085
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ftfy"]
 shader = ExtResource("4_es3sh")
-shader_parameter/BLOOM_THRESHOLD = 0.3
-shader_parameter/BLOOM_INTENSITY = 0.535
-shader_parameter/BLUR_ITERATIONS = 1
+shader_parameter/BLOOM_THRESHOLD = 0.39
+shader_parameter/BLOOM_INTENSITY = 1.005
+shader_parameter/BLUR_ITERATIONS = 2
 shader_parameter/BLUR_SIZE = 0.0003
 shader_parameter/BLUR_SUBDIVISIONS = 16
 
@@ -30,11 +35,9 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="Horizontal Blur" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Horizontal Blur"]
 auto_translate_mode = 1
-visible = false
 material = SubResource("ShaderMaterial_ijeux")
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,13 +46,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Vertical Blur" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Vertical Blur"]
 auto_translate_mode = 1
-visible = false
 material = SubResource("ShaderMaterial_huafe")
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,13 +60,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Scanlines" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Scanlines"]
 auto_translate_mode = 1
-visible = false
 material = SubResource("ShaderMaterial_depa4")
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,13 +74,23 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="smask" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="smask"]
+material = SubResource("ShaderMaterial_yyaop")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Bloom" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Bloom"]
 auto_translate_mode = 1
-visible = false
 material = SubResource("ShaderMaterial_4ftfy")
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,3 +99,4 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true

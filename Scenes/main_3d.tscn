@@ -311,9 +311,6 @@ transform = Transform3D(1, 0, 0, 0, 0.890435, 0.45511, 0, -0.45511, 0.890435, -0
 current = true
 fov = 91.0
 
-[node name="Custom PP" parent="." instance=ExtResource("3_qpg45")]
-visible = false
-
 [node name="fps counter" type="Label" parent="."]
 offset_right = 200.0
 offset_bottom = 89.0
@@ -323,10 +320,12 @@ script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="."]
 position = Vector2(500, 328)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="."]
-position = Vector2(490, 169)
-scale = Vector2(1.2, 1)
+position = Vector2(200, 174)
+scale = Vector2(3.5, 3)
 texture = ExtResource("8_x0xhg")
+
+[node name="PostProcess" parent="." instance=ExtResource("3_qpg45")]

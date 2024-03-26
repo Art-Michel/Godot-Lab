@@ -1,7 +1,9 @@
-res://Scenes/main_3d.tscn
+res://Scenes/custom_pp.tscn
 res://Shaders/blurX.gdshader
 res://Shaders/blurY.gdshader
 res://Shaders/crt.gdshader
 res://Shaders/new_shader.gdshader
+res://Shaders/smask.gdshader
+res://Scenes/main_3d.tscn
 res://Scenes/world_environment.tscn
-res://Scenes/custom_pp.tscn
+res://Shaders/bloom.gdshader
