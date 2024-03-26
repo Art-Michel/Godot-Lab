@@ -16,8 +16,6 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 [display]
 
-window/size/viewport_width=771
-window/size/viewport_height=573
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
@@ -29,4 +27,6 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-scaling_3d/scale=0.5
+scaling_3d/scale=0.25
+scaling_3d/fsr_sharpness=0.0
+rendering/scaling_3d/mode=1

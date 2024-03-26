@@ -1,9 +1,11 @@
 res://Scenes/custom_pp.tscn
 res://Shaders/blurX.gdshader
 res://Shaders/blurY.gdshader
-res://Shaders/crt.gdshader
-res://Shaders/new_shader.gdshader
-res://Shaders/smask.gdshader
+res://Shaders/scanlines.gdshader
+res://Shaders/bloom.gdshader
+res://Shaders/grid mask.gdshader
+res://Shaders/dithering.gdshader
 res://Scenes/main_3d.tscn
 res://Scenes/world_environment.tscn
-res://Shaders/bloom.gdshader
+res://Shaders/shaderinclude1.gdshader
+res://Shaders/shaderinclude2.gdshader
