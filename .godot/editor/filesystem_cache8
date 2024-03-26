@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711476914
+::res://::1711487184
 README.md::TextFile::-1::1711041544::0::1::::<><>::
 ::res://addons/::1711041566
 ::res://addons/anthonyec.camera_preview/::1711041566
@@ -113,18 +113,19 @@ texture_10.svg::CompressedTexture2D::4739314574165685591::1710953488::1710953494
 texture_11.svg::CompressedTexture2D::558993228019520250::1710953488::1710953494::1::::<><>::
 texture_12.svg::CompressedTexture2D::904075752136780319::1710953488::1710953494::1::::<><>::
 texture_13.svg::CompressedTexture2D::5132199954486241987::1710953488::1710953494::1::::<><>::
-::res://Scenes/::1711477385
-custom_pp.tscn::PackedScene::139681572504982150::1711477857::0::1::::<><>::res://Shaders/blurX.gdshader<>res://Shaders/blurY.gdshader<>res://Shaders/crt.gdshader<>res://Shaders/new_shader.gdshader<>res://Shaders/smask.gdshader
-main_3d.tscn::PackedScene::3311976952341423711::1711477385::0::1::::<><>::uid://dir0wq0ywxd3a::::res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png<>uid://wsbtrss7n6g1::::res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png<>uid://b8wsgth6yvc5::::res://Scenes/custom_pp.tscn<>res://Scripts/fps counter.gd<>uid://dutn6fxrdrmfb::::res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png<>uid://cm5vjjf0qigef::::res://Sprites/N5SwAull6m.png
-world_environment.tscn::PackedScene::3659736695541484406::1711477385::0::1::::<><>::
+::res://Scenes/::1711487184
+custom_pp.tscn::PackedScene::139681572504982150::1711487192::0::1::::<><>::res://Shaders/blurX.gdshader<>res://Shaders/blurY.gdshader<>res://Shaders/crt.gdshader<>res://Shaders/bloom.gdshader<>res://Shaders/grid mask.gdshader
+main_3d.tscn::PackedScene::3311976952341423711::1711486738::0::1::::<><>::uid://dir0wq0ywxd3a::::res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png<>uid://wsbtrss7n6g1::::res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png<>uid://b8wsgth6yvc5::::res://Scenes/custom_pp.tscn<>res://Scripts/fps counter.gd<>uid://dutn6fxrdrmfb::::res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png<>uid://cm5vjjf0qigef::::res://Sprites/N5SwAull6m.png
+world_environment.tscn::PackedScene::3659736695541484406::1711486738::0::1::::<><>::
 ::res://Scripts/::1711041566
 fps counter.gd::GDScript::-1::1711035172::0::1::::<>Label<>::
-::res://Shaders/::1711477385
-blurX.gdshader::Shader::-1::1711477857::0::1::::<><>::
-blurY.gdshader::Shader::-1::1711477857::0::1::::<><>::
-crt.gdshader::Shader::-1::1711477857::0::1::::<><>::
-new_shader.gdshader::Shader::-1::1711477857::0::1::::<><>::
-smask.gdshader::Shader::-1::1711477857::0::1::::<><>::
+::res://Shaders/::1711487184
+bloom.gdshader::Shader::-1::1711487192::0::1::::<><>::
+blurX.gdshader::Shader::-1::1711487192::0::1::::<><>::
+blurY.gdshader::Shader::-1::1711487192::0::1::::<><>::
+crt.gdshader::Shader::-1::1711487192::0::1::::<><>::
+grid mask.gdshader::Shader::-1::1711487184::0::1::::<><>::
+smask.gdshader::Shader::-1::1711487192::0::1::::<><>::
 ::res://Sprites/::1711041566
 2ni9FDGinl.png::CompressedTexture2D::3006628393116023153::1711034450::1711036167::1::::<><>::
 N5SwAull6m.png::CompressedTexture2D::5678330434249385669::1711031709::1711036167::1::::<><>::

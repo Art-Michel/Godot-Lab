@@ -2,9 +2,9 @@
 
 [ext_resource type="Shader" path="res://Shaders/blurX.gdshader" id="1_skha1"]
 [ext_resource type="Shader" path="res://Shaders/blurY.gdshader" id="2_e6ypi"]
-[ext_resource type="Shader" path="res://Shaders/crt.gdshader" id="3_vauoh"]
+[ext_resource type="Shader" path="res://Shaders/scanlines.gdshader" id="3_vauoh"]
 [ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="4_es3sh"]
-[ext_resource type="Shader" path="res://Shaders/smask.gdshader" id="5_j06xo"]
+[ext_resource type="Shader" path="res://Shaders/grid mask.gdshader" id="5_j06xo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]
 shader = ExtResource("1_skha1")
@@ -23,10 +23,10 @@ shader_parameter/brightness = 1.085
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ftfy"]
 shader = ExtResource("4_es3sh")
-shader_parameter/BLOOM_THRESHOLD = 0.39
-shader_parameter/BLOOM_INTENSITY = 1.005
-shader_parameter/BLUR_ITERATIONS = 2
-shader_parameter/BLUR_SIZE = 0.0003
+shader_parameter/BLOOM_THRESHOLD = 0.125
+shader_parameter/BLOOM_INTENSITY = 1.855
+shader_parameter/BLUR_ITERATIONS = 5
+shader_parameter/BLUR_SIZE = 0.0026
 shader_parameter/BLUR_SUBDIVISIONS = 16
 
 [node name="PostProcess" type="Control"]
@@ -76,9 +76,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="smask" type="CanvasLayer" parent="."]
+[node name="grid mask" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="smask"]
+[node name="ColorRect" type="ColorRect" parent="grid mask"]
 material = SubResource("ShaderMaterial_yyaop")
 anchors_preset = 15
 anchor_right = 1.0
