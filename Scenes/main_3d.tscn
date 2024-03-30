@@ -317,18 +317,20 @@ label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(937, 438)
-scale = Vector2(0.192188, 0.192188)
+position = Vector2(439, 296.367)
+scale = Vector2(0.220313, 0.220313)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(176, 244)
-scale = Vector2(0.5, 0.5)
+position = Vector2(165, 293)
+scale = Vector2(0.503461, 0.503461)
 texture = ExtResource("8_x0xhg")
 
 [node name="PostProcess" parent="Décor" instance=ExtResource("6_upyx1")]
+offset_left = 79.0
+offset_top = 70.0
+offset_right = 79.0
+offset_bottom = 70.0
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.890435, 0.45511, 0, -0.45511, 0.890435, -0.133026, 2.43076, 1.47811)
