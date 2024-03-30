@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
+[ext_resource type="Script" path="res://Scenes/box_2.gd" id="3_2ohe0"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
 [ext_resource type="PackedScene" uid="uid://b8wsgth6yvc5" path="res://Scenes/custom_pp.tscn" id="6_upyx1"]
-[ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/N5SwAull6m.png" id="8_x0xhg"]
 
 [sub_resource type="Environment" id="Environment_vl8a5"]
@@ -281,82 +281,59 @@ font_size = 36
 
 [node name="Node3D" type="Node3D"]
 
-[node name="Décor" type="Node3D" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Décor"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vl8a5")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Décor"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.85888, -0.202978, 0.470239, -0.281572, 0.579803, 0.764556, -0.427834, -0.789068, 0.440828, 0, 10.7901, 0)
 light_energy = 1.5
 shadow_enabled = true
 
-[node name="Floor" type="CSGBox3D" parent="Décor"]
+[node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(0.999999, 0.0013115, 0.000753232, -0.00131088, 0.999999, -0.000799355, -0.000754299, 0.000798348, 0.999999, -0.319938, -0.303135, -2.13613)
 size = Vector3(150, 0.1, 150)
 material = SubResource("StandardMaterial3D_0ulw7")
 
-[node name="Box3" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.141716, 1.56445, -1.12819)
+[node name="Box" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.510167, 0.562209, -0.476599)
 material = SubResource("StandardMaterial3D_2n0dr")
 
-[node name="Box" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51017, 0.562209, -0.476597)
-material = SubResource("StandardMaterial3D_2n0dr")
-
-[node name="Box2" type="CSGBox3D" parent="Décor"]
+[node name="Box2" type="CSGBox3D" parent="."]
 transform = Transform3D(0.897266, 0, 0.44149, 0, 1, 0, -0.44149, 0, 0.897266, 0.595593, 0.551164, -1.02138)
 size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
+script = ExtResource("3_2ohe0")
 
-[node name="fps counter" type="Label" parent="Décor"]
-offset_right = 200.0
-offset_bottom = 89.0
-text = "dsadsa"
-label_settings = SubResource("LabelSettings_b3fj5")
-script = ExtResource("5_mfeuk")
-
-[node name="pikach" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(937, 438)
-scale = Vector2(0.192188, 0.192188)
-texture = ExtResource("6_ufvoi")
-
-[node name="Drac" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(176, 244)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_x0xhg")
-
-[node name="PostProcess" parent="Décor" instance=ExtResource("6_upyx1")]
+[node name="Box3" type="CSGBox3D" parent="Box2"]
+transform = Transform3D(-0.44149, 0, -0.897266, 0, 1, 0, 0.897266, 0, -0.44149, -0.360093, 1.01329, -0.296219)
+material = SubResource("StandardMaterial3D_2n0dr")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.890435, 0.45511, 0, -0.45511, 0.890435, -0.133026, 2.43076, 1.47811)
 current = true
 fov = 91.0
 
-[node name="CamManager" type="Node" parent="." node_paths=PackedStringArray("positions", "camera")]
-script = ExtResource("7_ong2f")
-positions = [NodePath("Position"), NodePath("Position2"), NodePath("Position3"), NodePath("Position4"), NodePath("Position5"), NodePath("Position6"), NodePath("Position7")]
-camera = NodePath("../Camera3D2")
+[node name="fps counter" type="Label" parent="."]
+offset_right = 200.0
+offset_bottom = 89.0
+text = "dsadsa"
+label_settings = SubResource("LabelSettings_b3fj5")
+script = ExtResource("5_mfeuk")
+metadata/_edit_use_anchors_ = true
 
-[node name="Position" type="Node3D" parent="CamManager"]
-transform = Transform3D(-0.967864, -0.0140625, -0.25108, 0, 0.998435, -0.0559205, 0.251474, -0.0541234, -0.96635, -1.31937, 1.00926, -5.34942)
+[node name="pikach" type="Sprite2D" parent="."]
+position = Vector2(937, 438)
+scale = Vector2(0.192188, 0.192188)
+texture = ExtResource("6_ufvoi")
 
-[node name="Position2" type="Node3D" parent="CamManager"]
-transform = Transform3D(-0.651269, 0.75881, -0.00749341, 0, 0.00987474, 0.999951, 0.758847, 0.651237, -0.00643111, 0.127397, 7.87001, 0.440965)
+[node name="Drac" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(176, 244)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_x0xhg")
 
-[node name="Position3" type="Node3D" parent="CamManager"]
-transform = Transform3D(-0.62781, 0.423539, 0.653047, 0, 0.838996, -0.544137, -0.778367, -0.341615, -0.52673, 2.97274, 0.430194, -2.5691)
+[node name="PostProcess" parent="." instance=ExtResource("6_upyx1")]
 
-[node name="Position4" type="Node3D" parent="CamManager"]
-transform = Transform3D(0.451926, 0.0598308, 0.890047, 0, 0.997748, -0.0670707, -0.892055, 0.030311, 0.450909, 2.21574, 0.881425, 1.05627)
-
-[node name="Position5" type="Node3D" parent="CamManager"]
-transform = Transform3D(0.880462, 0.403792, -0.248471, 0, 0.524072, 0.851674, 0.474116, -0.749867, 0.461426, -0.440954, 3.60195, 1.36987)
-
-[node name="Position6" type="Node3D" parent="CamManager"]
-transform = Transform3D(0.266582, 0.73217, -0.626786, 0, 0.65032, 0.75966, 0.963812, -0.202512, 0.173364, -1.4255, 3.20042, 0.241001)
-
-[node name="Position7" type="Node3D" parent="CamManager"]
-transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.783956, 0.469915, -0.405701, -1.35126, 2.94185, -1.33015)
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17648, 1.08733)
+debug_shape_custom_color = Color(1, 0.423529, 0, 1)
