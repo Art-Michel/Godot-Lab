@@ -2,36 +2,40 @@ extends Node
 
 @export var positions: Array[Node3D] = []
 @export var camera: Camera3D
-var previousCamPos: Vector3
-var previousCamRot: Quaternion
-var targetPos: int = 0
+var currPos: int
+var prevTrans: Transform3D
+var targetTrans: Transform3D
 var t: float = 0.0
 var moving: bool = false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_left"):
-		MoveCamB()
+		MoveCam(-1)
 	if event.is_action_pressed("ui_right"):
-		MoveCamF()
+		MoveCam(1)
 
 func _ready() -> void:
-	previousCamPos = 0
-	targetPos = 0
-	camera.position = positions[0].position
-	camera.rotation = positions[0].rotation
+	prevTrans = positions[0].transform
+	targetTrans = positions[0].transform
 
 func _process(delta: float) -> void:
 	if moving:
-		MovingCam()
+		MovingCam(delta)
 
-func MoveCamF() -> void:
-	if(targetPos+1 > positions.size()-1):
-		targetPos = 0
+func MoveCam(i: int) -> void:
+	if(currPos+i > positions.size()-1):
+		currPos = 0
+	elif currPos+i <0:
+		currPos = positions.size()-1
 	else:
-		targetPos += 1
+		currPos = currPos + i
 	moving = true
-	camera.position = positions[targetPos].position
-	camera.rotation = positions[targetPos].rotation
+	t = 0
+	prevTrans = camera.transform
+	targetTrans = positions[currPos].transform
 
-func MovingCam(from: int, to: int) -> void:
-	
+func MovingCam(delta: float) -> void:
+	t+= delta *3
+	camera.transform = prevTrans.interpolate_with(targetTrans, t)
+	if t>= 1:
+		moving = false

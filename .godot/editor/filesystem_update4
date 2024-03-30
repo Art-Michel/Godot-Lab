@@ -1,4 +1,4 @@
-res://Scenes/custom_pp.tscn
+res://Scenes/main_3d.tscn
 res://Shaders/blurX.gdshader
 res://Shaders/blurY.gdshader
 res://Shaders/scanlines.gdshader
@@ -6,3 +6,4 @@ res://Shaders/bloom.gdshader
 res://Shaders/grid mask.gdshader
 res://Shaders/dithering.gdshader
 res://Scripts/cam_manager.gd
+res://Scenes/custom_pp.tscn
