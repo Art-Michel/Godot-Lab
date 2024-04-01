@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=14 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
 [ext_resource type="PackedScene" uid="uid://b8wsgth6yvc5" path="res://Scenes/custom_pp.tscn" id="6_upyx1"]
+[ext_resource type="Texture2D" uid="uid://bky4r13ym6ycv" path="res://Sprites/cABmVMDCFl.png" id="6_yohe3"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/N5SwAull6m.png" id="8_x0xhg"]
 
@@ -292,20 +293,20 @@ light_energy = 1.5
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(0.999999, 0.0013115, 0.000753232, -0.00131088, 0.999999, -0.000799355, -0.000754299, 0.000798348, 0.999999, -0.319938, -0.303135, -2.13613)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32, -0.2, -2.136)
 size = Vector3(150, 0.1, 150)
 material = SubResource("StandardMaterial3D_0ulw7")
 
 [node name="Box3" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.141716, 1.56445, -1.12819)
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.141716, 1.37111, -1.12819)
 material = SubResource("StandardMaterial3D_2n0dr")
 
 [node name="Box" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51017, 0.562209, -0.476597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51017, 0.368864, -0.476597)
 material = SubResource("StandardMaterial3D_2n0dr")
 
 [node name="Box2" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(0.897266, 0, 0.44149, 0, 1, 0, -0.44149, 0, 0.897266, 0.595593, 0.551164, -1.02138)
+transform = Transform3D(0.897266, 0, 0.44149, 0, 1, 0, -0.44149, 0, 0.897266, 0.595593, 0.357819, -1.02138)
 size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
 
@@ -317,14 +318,22 @@ label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="Décor"]
+visible = false
 position = Vector2(439, 296.367)
 scale = Vector2(0.220313, 0.220313)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
+visible = false
 position = Vector2(165, 293)
 scale = Vector2(0.503461, 0.503461)
 texture = ExtResource("8_x0xhg")
+
+[node name="maup" type="Sprite2D" parent="Décor"]
+visible = false
+position = Vector2(298.05, 224)
+scale = Vector2(0.365808, 0.365416)
+texture = ExtResource("6_yohe3")
 
 [node name="PostProcess" parent="Décor" instance=ExtResource("6_upyx1")]
 offset_left = 79.0
