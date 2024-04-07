@@ -49,9 +49,9 @@ auto_translate_mode = 1
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Horizontal Blur" type="CanvasLayer" parent="."]
+[node name="HBlur" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Horizontal Blur"]
+[node name="ColorRect" type="ColorRect" parent="HBlur"]
 auto_translate_mode = 1
 material = SubResource("ShaderMaterial_ijeux")
 anchors_preset = 15
@@ -63,9 +63,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Vertical Blur" type="CanvasLayer" parent="."]
+[node name="VBlur" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Vertical Blur"]
+[node name="ColorRect" type="ColorRect" parent="VBlur"]
 auto_translate_mode = 1
 material = SubResource("ShaderMaterial_huafe")
 anchors_preset = 15
@@ -91,10 +91,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="Dithering and Palette" type="CanvasLayer" parent="."]
+[node name="Dithering" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Dithering and Palette"]
+[node name="ColorRect" type="ColorRect" parent="Dithering"]
 material = SubResource("ShaderMaterial_sftxa")
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,9 +102,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="grid mask" type="CanvasLayer" parent="."]
+[node name="Grid" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="grid mask"]
+[node name="ColorRect" type="ColorRect" parent="Grid"]
 material = SubResource("ShaderMaterial_yyaop")
 anchors_preset = 15
 anchor_right = 1.0

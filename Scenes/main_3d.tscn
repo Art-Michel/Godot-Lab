@@ -1,13 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=13 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
-[ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
-[ext_resource type="PackedScene" uid="uid://b8wsgth6yvc5" path="res://Scenes/custom_pp.tscn" id="6_upyx1"]
-[ext_resource type="Texture2D" uid="uid://bky4r13ym6ycv" path="res://Sprites/cABmVMDCFl.png" id="6_yohe3"]
+[ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
+[ext_resource type="Texture2D" uid="uid://bky4r13ym6ycv" path="res://Sprites/Tests/cABmVMDCFl.png" id="6_yohe3"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
-[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/N5SwAull6m.png" id="8_x0xhg"]
+[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
 
 [sub_resource type="Environment" id="Environment_vl8a5"]
 background_mode = 1
@@ -334,12 +333,6 @@ visible = false
 position = Vector2(298.05, 224)
 scale = Vector2(0.365808, 0.365416)
 texture = ExtResource("6_yohe3")
-
-[node name="PostProcess" parent="Décor" instance=ExtResource("6_upyx1")]
-offset_left = 79.0
-offset_top = 70.0
-offset_right = 79.0
-offset_bottom = 70.0
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.890435, 0.45511, 0, -0.45511, 0.890435, -0.133026, 2.43076, 1.47811)
