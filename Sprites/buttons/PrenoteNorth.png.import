@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cm5vjjf0qigef"
-path="res://.godot/imported/N5SwAull6m.png-ae4510adbae579b6ae83878f890ecf10.ctex"
+uid="uid://ofxs0tkyh5ac"
+path="res://.godot/imported/PrenoteNorth.png-0644345ffb6b62f0942b857bf5470905.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/N5SwAull6m.png"
-dest_files=["res://.godot/imported/N5SwAull6m.png-ae4510adbae579b6ae83878f890ecf10.ctex"]
+source_file="res://Sprites/buttons/PrenoteNorth.png"
+dest_files=["res://.godot/imported/PrenoteNorth.png-0644345ffb6b62f0942b857bf5470905.ctex"]
 
 [params]
 

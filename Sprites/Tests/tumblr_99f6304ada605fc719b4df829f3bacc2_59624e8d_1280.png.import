@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bky4r13ym6ycv"
-path="res://.godot/imported/cABmVMDCFl.png-50eddcf355ba1605e2f4dfcf9eea4475.ctex"
+uid="uid://dutn6fxrdrmfb"
+path="res://.godot/imported/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png-e442555c5610fc29eb8fe85c383fa960.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/cABmVMDCFl.png"
-dest_files=["res://.godot/imported/cABmVMDCFl.png-50eddcf355ba1605e2f4dfcf9eea4475.ctex"]
+source_file="res://Sprites/Tests/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png"
+dest_files=["res://.godot/imported/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png-e442555c5610fc29eb8fe85c383fa960.ctex"]
 
 [params]
 

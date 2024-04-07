@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dutn6fxrdrmfb"
-path="res://.godot/imported/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png-038edac94a1e4984ac65a3f9f84738a7.ctex"
+uid="uid://td876qd65hdm"
+path="res://.godot/imported/BB.png-026ece9e396fa755bb92804e7f6755fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png"
-dest_files=["res://.godot/imported/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png-038edac94a1e4984ac65a3f9f84738a7.ctex"]
+source_file="res://Sprites/buttons/BB.png"
+dest_files=["res://.godot/imported/BB.png-026ece9e396fa755bb92804e7f6755fa.ctex"]
 
 [params]
 
