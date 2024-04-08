@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sp2nbhithkga"
-path="res://.godot/imported/shinx.png-f0b53e077fee35b8b41800aedec3de51.ctex"
+uid="uid://7j2ce72lswc4"
+path="res://.godot/imported/shinx.png-174739236b46a6beefd71d260711aeb5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tests/shinx.png"
-dest_files=["res://.godot/imported/shinx.png-f0b53e077fee35b8b41800aedec3de51.ctex"]
+source_file="res://Sprites/shinx.png"
+dest_files=["res://.godot/imported/shinx.png-174739236b46a6beefd71d260711aeb5.ctex"]
 
 [params]
 
