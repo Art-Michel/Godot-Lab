@@ -1,43 +1,41 @@
 [gd_scene load_steps=11 format=3 uid="uid://b8wsgth6yvc5"]
 
-[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/blurX.gdshader" id="1_skha1"]
-[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/blurY.gdshader" id="2_e6ypi"]
-[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/scanlines.gdshader" id="3_vauoh"]
-[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/bloom.gdshader" id="4_es3sh"]
-[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/grid mask.gdshader" id="5_j06xo"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurX.gdshader" id="1_xk8ye"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurY.gdshader" id="2_fjd3w"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/scanlines.gdshader" id="3_halsk"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/grid mask.gdshader" id="4_x2sop"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/bloom.gdshader" id="5_jm6c0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]
-shader = ExtResource("1_skha1")
+shader = ExtResource("1_xk8ye")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huafe"]
-shader = ExtResource("2_e6ypi")
+shader = ExtResource("2_fjd3w")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_depa4"]
-shader = ExtResource("3_vauoh")
+shader = ExtResource("3_halsk")
 shader_parameter/scanline_space = 3.0
 shader_parameter/scanline_opacity = 0.355
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yyaop"]
-shader = ExtResource("5_j06xo")
+shader = ExtResource("4_x2sop")
 shader_parameter/brightness = 1.085
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ftfy"]
-shader = ExtResource("4_es3sh")
+shader = ExtResource("5_jm6c0")
 shader_parameter/BLOOM_THRESHOLD = 0.125
 shader_parameter/BLOOM_INTENSITY = 1.855
 shader_parameter/BLUR_ITERATIONS = 5
 shader_parameter/BLUR_SIZE = 0.0026
 shader_parameter/BLUR_SUBDIVISIONS = 16
 
-[node name="PostProcess" type="Control"]
-auto_translate_mode = 1
+[node name="crt_pp" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 
 [node name="HBlur" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="HBlur"]
-auto_translate_mode = 1
 material = SubResource("ShaderMaterial_ijeux")
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +49,6 @@ metadata/_edit_use_anchors_ = true
 [node name="VBlur" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="VBlur"]
-auto_translate_mode = 1
 material = SubResource("ShaderMaterial_huafe")
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +62,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Scanlines" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Scanlines"]
-auto_translate_mode = 1
 material = SubResource("ShaderMaterial_depa4")
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +86,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Bloom" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Bloom"]
-auto_translate_mode = 1
 material = SubResource("ShaderMaterial_4ftfy")
 anchors_preset = 15
 anchor_right = 1.0

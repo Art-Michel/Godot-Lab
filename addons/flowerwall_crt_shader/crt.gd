@@ -9,11 +9,8 @@ func _unhandled_key_input(event):
 			enable_crt()
 
 func enable_crt() -> void:
-	if !get_node_or_null("crt_pp"):
-		crt_pp = crt_pp_packed.instantiate()
-		add_child(crt_pp)
-
-	else:
+	if get_node_or_null("crt_pp"):
+		print("Toggled CRT Filter")
 		if crt_pp.visible:
 			for node in crt_pp.get_children():
 				node.visible = false
@@ -22,3 +19,8 @@ func enable_crt() -> void:
 			for node in crt_pp.get_children():
 				node.visible = true
 			crt_pp.visible = true
+
+	else:
+		print ("Could not find CRT Filter node, creating one") 
+		crt_pp = crt_pp_packed.instantiate()
+		add_child(crt_pp)

@@ -17,7 +17,7 @@ config/icon="res://Sprites/shinx.png"
 
 [autoload]
 
-CrtLoader="*res://addons/flowerwalls_crt/crt.gd"
+crt_autload="*res://addons/flowerwall_crt_shader/crt.gd"
 
 [display]
 
@@ -29,7 +29,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/flowerwall_crt_shader/plugin.cfg")
 
 [rendering]
 
