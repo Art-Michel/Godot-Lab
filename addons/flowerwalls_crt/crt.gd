@@ -9,7 +9,7 @@ func _unhandled_key_input(event):
 			enable_crt()
 
 func enable_crt() -> void:
-	if !$PostProcess:
+	if !get_node_or_null("crt_pp"):
 		crt_pp = crt_pp_packed.instantiate()
 		add_child(crt_pp)
 
