@@ -17,7 +17,7 @@ config/icon="res://Sprites/shinx.png"
 
 [autoload]
 
-CrtLoader="*res://Scripts/CRT_loader.gd"
+CrtLoader="*res://addons/flowerwalls_crt/crt.gd"
 
 [display]
 

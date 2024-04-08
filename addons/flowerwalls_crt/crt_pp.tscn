@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8wsgth6yvc5"]
+[gd_scene load_steps=11 format=3 uid="uid://b8wsgth6yvc5"]
 
-[ext_resource type="Shader" path="res://Shaders/blurX.gdshader" id="1_skha1"]
-[ext_resource type="Shader" path="res://Shaders/blurY.gdshader" id="2_e6ypi"]
-[ext_resource type="Shader" path="res://Shaders/scanlines.gdshader" id="3_vauoh"]
-[ext_resource type="Shader" path="res://Shaders/bloom.gdshader" id="4_es3sh"]
-[ext_resource type="Texture2D" uid="uid://c2u28c0hu6kod" path="res://Sprites/Palettes/ammo-8-1x.png" id="5_0iy82"]
-[ext_resource type="Shader" path="res://Shaders/grid mask.gdshader" id="5_j06xo"]
-[ext_resource type="Shader" path="res://Shaders/dithering.gdshader" id="6_c6e38"]
+[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/blurX.gdshader" id="1_skha1"]
+[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/blurY.gdshader" id="2_e6ypi"]
+[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/scanlines.gdshader" id="3_vauoh"]
+[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/bloom.gdshader" id="4_es3sh"]
+[ext_resource type="Shader" path="res://addons/flowerwalls_crt/shaders/grid mask.gdshader" id="5_j06xo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]
 shader = ExtResource("1_skha1")
@@ -18,19 +16,6 @@ shader = ExtResource("2_e6ypi")
 shader = ExtResource("3_vauoh")
 shader_parameter/scanline_space = 3.0
 shader_parameter/scanline_opacity = 0.355
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sftxa"]
-shader = ExtResource("6_c6e38")
-shader_parameter/quantize_size = 3.0
-shader_parameter/handle_scale = false
-shader_parameter/dither_enabled = true
-shader_parameter/bayer_pattern = 1.0
-shader_parameter/divisions = 9.0
-shader_parameter/contrast = 1.351
-shader_parameter/shift = 4.75e-08
-shader_parameter/grayscale = false
-shader_parameter/use_palette = false
-shader_parameter/palette = ExtResource("5_0iy82")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yyaop"]
 shader = ExtResource("5_j06xo")
@@ -90,17 +75,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="Dithering" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Dithering"]
-material = SubResource("ShaderMaterial_sftxa")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Grid" type="CanvasLayer" parent="."]
 
