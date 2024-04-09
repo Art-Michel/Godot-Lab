@@ -2616,7 +2616,7 @@ material = SubResource("StandardMaterial3D_2n0dr")
 [node name="fps counter" type="Label" parent="Décor"]
 offset_right = 200.0
 offset_bottom = 89.0
-text = "dsadsa"
+text = "144"
 label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
