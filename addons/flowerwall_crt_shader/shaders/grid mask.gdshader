@@ -9,7 +9,7 @@ void fragment()
 	float r;
 	float g;
 	float b;
-    int rgbIndex = int(UV.x/SCREEN_PIXEL_SIZE.x) % 3;
+    int rgbIndex = int(FRAGCOORD.x) % 3;
 	if(rgbIndex == 0)
 		r = 1.;
 	else
