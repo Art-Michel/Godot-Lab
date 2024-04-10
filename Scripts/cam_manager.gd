@@ -35,7 +35,8 @@ func MoveCam(i: int) -> void:
 	targetTrans = positions[currPos].transform
 
 func MovingCam(delta: float) -> void:
-	t+= delta *4
+	var movement: Vector3 = targetTrans.origin - prevTrans.origin
+	t+= delta *4 / movement.length()
 	camera.transform = prevTrans.interpolate_with(targetTrans, t)
 	if t>= 1:
 		moving = false
