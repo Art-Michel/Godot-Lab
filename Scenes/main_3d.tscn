@@ -2621,15 +2621,13 @@ label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(439, 296.367)
-scale = Vector2(0.220313, 0.220313)
+position = Vector2(504, 356)
+scale = Vector2(0.115625, 0.115625)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(165, 293)
-scale = Vector2(0.503461, 0.503461)
+position = Vector2(77, 348)
+scale = Vector2(0.31589, 0.31589)
 texture = ExtResource("8_x0xhg")
 
 [node name="maup" type="Sprite2D" parent="Décor"]

@@ -1,6 +1,6 @@
 extends Control
 
-var crt_pp_packed = preload("crt_pp.tscn")
+var crt_pp_packed: PackedScene = preload("res://addons/flowerwall_crt_shader/crt_pp.tscn")
 var crt_pp: Control
 
 func _unhandled_key_input(event):
