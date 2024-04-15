@@ -86,7 +86,7 @@ scale = Vector2(0.30293, 0.30293)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
-position = Vector2(275.902, 693.018)
+position = Vector2(454, 691)
 scale = Vector2(0.774769, 0.774769)
 texture = ExtResource("8_x0xhg")
 
