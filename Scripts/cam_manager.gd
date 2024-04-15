@@ -40,3 +40,8 @@ func MovingCam(delta: float) -> void:
 	camera.transform = prevTrans.interpolate_with(targetTrans, t)
 	if t>= 1:
 		moving = false
+
+func _unhandled_key_input(event):
+	if event is InputEventKey and !event.is_echo() and event.is_pressed():
+		if event.keycode == KEY_F4:
+			get_tree().reload_current_scene()

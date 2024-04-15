@@ -21,8 +21,8 @@ crt_autload="*res://addons/flowerwall_crt_shader/crt.gd"
 
 [display]
 
-window/size/viewport_width=596
-window/size/viewport_height=448
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 

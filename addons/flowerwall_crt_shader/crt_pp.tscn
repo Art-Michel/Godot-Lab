@@ -1,16 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8wsgth6yvc5"]
+[gd_scene load_steps=14 format=3 uid="uid://b8wsgth6yvc5"]
 
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurX.gdshader" id="1_xk8ye"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurY.gdshader" id="2_fjd3w"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/scanlines.gdshader" id="3_halsk"]
+[ext_resource type="Texture2D" uid="uid://kg7cwwcckt4w" path="res://shaders/CRTFrame.png" id="4_dkgfi"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/grid mask.gdshader" id="4_x2sop"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/bloom.gdshader" id="5_jm6c0"]
+[ext_resource type="Shader" path="res://shaders/curve.gdshader" id="6_2u0lr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]
 shader = ExtResource("1_xk8ye")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_huafe"]
 shader = ExtResource("2_fjd3w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aerem"]
+shader = ExtResource("6_2u0lr")
+shader_parameter/BarrelPower = 1.03
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_depa4"]
 shader = ExtResource("3_halsk")
@@ -34,6 +40,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="HBlur" type="CanvasLayer" parent="."]
+layer = 92
 
 [node name="ColorRect" type="ColorRect" parent="HBlur"]
 material = SubResource("ShaderMaterial_ijeux")
@@ -47,6 +54,7 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="VBlur" type="CanvasLayer" parent="."]
+layer = 93
 
 [node name="ColorRect" type="ColorRect" parent="VBlur"]
 material = SubResource("ShaderMaterial_huafe")
@@ -59,7 +67,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
+[node name="CurvatureVignette" type="CanvasLayer" parent="."]
+layer = 98
+
+[node name="TextureRect" type="TextureRect" parent="CurvatureVignette"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_dkgfi")
+expand_mode = 1
+
+[node name="Curvature" type="CanvasLayer" parent="."]
+layer = 94
+
+[node name="ColorRect" type="ColorRect" parent="Curvature"]
+material = SubResource("ShaderMaterial_aerem")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Scanlines" type="CanvasLayer" parent="."]
+layer = 95
 
 [node name="ColorRect" type="ColorRect" parent="Scanlines"]
 material = SubResource("ShaderMaterial_depa4")
@@ -73,6 +102,7 @@ size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="Grid" type="CanvasLayer" parent="."]
+layer = 96
 
 [node name="ColorRect" type="ColorRect" parent="Grid"]
 material = SubResource("ShaderMaterial_yyaop")
@@ -84,6 +114,7 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Bloom" type="CanvasLayer" parent="."]
+layer = 97
 
 [node name="ColorRect" type="ColorRect" parent="Bloom"]
 material = SubResource("ShaderMaterial_4ftfy")

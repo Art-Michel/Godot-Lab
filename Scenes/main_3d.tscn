@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=14 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
 [ext_resource type="Texture2D" uid="uid://bky4r13ym6ycv" path="res://Sprites/Tests/cABmVMDCFl.png" id="6_yohe3"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
+[ext_resource type="Texture2D" uid="uid://7j2ce72lswc4" path="res://Sprites/shinx.png" id="8_mv7r6"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
 
 [sub_resource type="Environment" id="Environment_vl8a5"]
@@ -37,7 +38,7 @@ albedo_texture = ExtResource("2_s43xh")
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
 font = ExtResource("3_muouy")
-font_size = 36
+font_size = 56
 
 [node name="Node3D" type="Node3D"]
 
@@ -70,20 +71,23 @@ size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
 
 [node name="fps counter" type="Label" parent="Décor"]
-offset_right = 196.0
-offset_bottom = 84.0
-text = "FPS: 144"
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 199.0
+offset_bottom = 116.0
+text = "FPS: 144
+Wahoo!"
 label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="Décor"]
-position = Vector2(504, 356)
-scale = Vector2(0.115625, 0.115625)
+position = Vector2(1580, 753)
+scale = Vector2(0.30293, 0.30293)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
-position = Vector2(77, 348)
-scale = Vector2(0.31589, 0.31589)
+position = Vector2(275.902, 693.018)
+scale = Vector2(0.774769, 0.774769)
 texture = ExtResource("8_x0xhg")
 
 [node name="maup" type="Sprite2D" parent="Décor"]
@@ -122,3 +126,12 @@ transform = Transform3D(0.266582, 0.73217, -0.626786, 0, 0.65032, 0.75966, 0.963
 
 [node name="Position7" type="Node3D" parent="CamManager"]
 transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.783956, 0.469915, -0.405701, -1.35126, 2.94185, -1.33015)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="shinx" type="TextureRect" parent="CanvasLayer"]
+offset_left = -1.0
+offset_top = 682.0
+offset_right = 399.0
+offset_bottom = 1082.0
+texture = ExtResource("8_mv7r6")

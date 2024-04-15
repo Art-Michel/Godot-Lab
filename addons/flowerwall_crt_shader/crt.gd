@@ -24,3 +24,6 @@ func enable_crt() -> void:
 		print ("Could not find CRT Filter node, creating one") 
 		crt_pp = crt_pp_packed.instantiate()
 		add_child(crt_pp)
+		var C: Node = $crt_pp
+		C.get_parent().get_parent().move_child(C.get_parent(),-1)
+		
