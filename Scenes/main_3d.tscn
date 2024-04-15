@@ -37,7 +37,7 @@ albedo_texture = ExtResource("2_s43xh")
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
 font = ExtResource("3_muouy")
-font_size = 24
+font_size = 36
 
 [node name="Node3D" type="Node3D"]
 
@@ -72,10 +72,7 @@ material = SubResource("StandardMaterial3D_2n0dr")
 [node name="fps counter" type="Label" parent="Décor"]
 offset_right = 196.0
 offset_bottom = 84.0
-text = "144
-fps
-fdsfsd
-ghfhgf"
+text = "FPS: 144"
 label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
