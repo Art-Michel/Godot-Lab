@@ -20,7 +20,7 @@ shader_parameter/curve_power = 1.025
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yyaop"]
 shader = ExtResource("4_x2sop")
-shader_parameter/brightness_multiplier = 1.1
+shader_parameter/brightness_multiplier = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_depa4"]
 shader = ExtResource("3_halsk")
@@ -33,7 +33,7 @@ shader = ExtResource("5_jm6c0")
 shader_parameter/BLOOM_THRESHOLD = 0.125
 shader_parameter/BLOOM_INTENSITY = 2.0
 shader_parameter/bloom_blur_iterations = 5
-shader_parameter/bloom_blur_size = 0.0026
+shader_parameter/bloom_blur_size = 0.0024
 shader_parameter/bloom_blur_subdivisions = 16
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yf6qn"]
@@ -47,6 +47,7 @@ anchors_preset = 0
 
 [node name="HBlur" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="HBlur"]
 material = SubResource("ShaderMaterial_ijeux")
@@ -61,6 +62,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBlur" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="VBlur"]
 material = SubResource("ShaderMaterial_huafe")
@@ -112,6 +114,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Bloom" type="CanvasLayer" parent="."]
 layer = 104
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Bloom"]
 material = SubResource("ShaderMaterial_4ftfy")

@@ -5,7 +5,7 @@ uniform float BLOOM_THRESHOLD:hint_range(0.0, 1.0, 0.01) = 0.125;
 uniform float BLOOM_INTENSITY:hint_range(0.0, 3.0, 0.01) = 2.0;
 
 uniform int bloom_blur_iterations: hint_range(1, 10, 1.0) = 5;
-uniform float bloom_blur_size: hint_range(0, 0.005, 0.0001) = 0.0026;
+uniform float bloom_blur_size: hint_range(0, 0.005, 0.0001) = 0.0024;
 uniform int bloom_blur_subdivisions = 16;
 
 vec3 getHDR(vec3 tex) {
