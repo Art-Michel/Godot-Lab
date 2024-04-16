@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float brightness:hint_range(0,3.0) = 1.4;
+uniform float brightness_multiplier:hint_range(0.7,2.0, 0.05) = 1.1;
 
 void fragment()
 {
@@ -24,7 +24,7 @@ void fragment()
 		b = 0.;
     vec3 mask = vec3(r,g,b);
 
-    vec3 colorOut = colorIn * mask * brightness;
+    vec3 colorOut = colorIn * mask * brightness_multiplier;
 
     COLOR = vec4(colorOut, 1.0);
 }

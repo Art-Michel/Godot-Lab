@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=28 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
@@ -9,6 +9,13 @@
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Texture2D" uid="uid://7j2ce72lswc4" path="res://Sprites/shinx.png" id="8_mv7r6"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurX.gdshader" id="9_lkq7q"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurY.gdshader" id="10_vr00w"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/curvature.gdshader" id="11_f087y"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/grid mask.gdshader" id="12_1arme"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/bloom.gdshader" id="13_1e2dv"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/scanlines.gdshader" id="14_aw0mn"]
+[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/vignette.gdshader" id="15_fpxsq"]
 
 [sub_resource type="Environment" id="Environment_vl8a5"]
 background_mode = 1
@@ -39,6 +46,39 @@ albedo_texture = ExtResource("2_s43xh")
 line_spacing = -8.0
 font = ExtResource("3_muouy")
 font_size = 56
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]
+shader = ExtResource("9_lkq7q")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_huafe"]
+shader = ExtResource("10_vr00w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aerem"]
+shader = ExtResource("11_f087y")
+shader_parameter/curve_power = 1.025
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyaop"]
+shader = ExtResource("12_1arme")
+shader_parameter/brightness_multiplier = 1.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_depa4"]
+shader = ExtResource("14_aw0mn")
+shader_parameter/scanlines_interval = 6.0
+shader_parameter/scanline_opacity = 0.6
+shader_parameter/scanline_thickness = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ftfy"]
+shader = ExtResource("13_1e2dv")
+shader_parameter/BLOOM_THRESHOLD = 0.125
+shader_parameter/BLOOM_INTENSITY = 2.0
+shader_parameter/bloom_blur_iterations = 5
+shader_parameter/bloom_blur_size = 0.0026
+shader_parameter/bloom_blur_subdivisions = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yf6qn"]
+shader = ExtResource("15_fpxsq")
+shader_parameter/vignette_size = 5.0
+shader_parameter/vignette_attenuation = 1.05
 
 [node name="Node3D" type="Node3D"]
 
@@ -82,12 +122,12 @@ script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="Décor"]
 position = Vector2(1580, 753)
-scale = Vector2(0.30293, 0.30293)
+scale = Vector2(0.385077, 0.385077)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
-position = Vector2(454, 691)
-scale = Vector2(0.774769, 0.774769)
+position = Vector2(576, 715)
+scale = Vector2(0.936331, 0.936331)
 texture = ExtResource("8_x0xhg")
 
 [node name="maup" type="Sprite2D" parent="Décor"]
@@ -135,3 +175,102 @@ offset_top = 682.0
 offset_right = 399.0
 offset_bottom = 1082.0
 texture = ExtResource("8_mv7r6")
+
+[node name="crt_pp" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 182.583
+offset_top = 555.522
+offset_right = 182.583
+offset_bottom = 555.522
+
+[node name="HBlur" type="CanvasLayer" parent="crt_pp"]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/HBlur"]
+material = SubResource("ShaderMaterial_ijeux")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="VBlur" type="CanvasLayer" parent="crt_pp"]
+layer = 100
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/VBlur"]
+material = SubResource("ShaderMaterial_huafe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Curvature" type="CanvasLayer" parent="crt_pp"]
+layer = 101
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/Curvature"]
+material = SubResource("ShaderMaterial_aerem")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grid" type="CanvasLayer" parent="crt_pp"]
+layer = 102
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/Grid"]
+material = SubResource("ShaderMaterial_yyaop")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Scanlines" type="CanvasLayer" parent="crt_pp"]
+layer = 103
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/Scanlines"]
+material = SubResource("ShaderMaterial_depa4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Bloom" type="CanvasLayer" parent="crt_pp"]
+layer = 104
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/Bloom"]
+material = SubResource("ShaderMaterial_4ftfy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Vignette" type="CanvasLayer" parent="crt_pp"]
+layer = 105
+
+[node name="ColorRect" type="ColorRect" parent="crt_pp/Vignette"]
+material = SubResource("ShaderMaterial_yf6qn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0.0156863, 1)

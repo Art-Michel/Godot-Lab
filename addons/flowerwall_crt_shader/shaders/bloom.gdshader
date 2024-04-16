@@ -1,12 +1,12 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float BLOOM_THRESHOLD = 0.3;
-uniform float BLOOM_INTENSITY = 0.5;
+uniform float BLOOM_THRESHOLD:hint_range(0.0, 1.0, 0.01) = 0.125;
+uniform float BLOOM_INTENSITY:hint_range(0.0, 3.0, 0.01) = 2.0;
 
-uniform int BLUR_ITERATIONS: hint_range(0,300) = 1;
-uniform float BLUR_SIZE: hint_range(0,0.005, 0.0001) = 0.0003;
-uniform int BLUR_SUBDIVISIONS = 16;
+uniform int bloom_blur_iterations: hint_range(1, 10, 1.0) = 5;
+uniform float bloom_blur_size: hint_range(0, 0.005, 0.0001) = 0.0026;
+uniform int bloom_blur_subdivisions = 16;
 
 vec3 getHDR(vec3 tex) {
     return max((tex - BLOOM_THRESHOLD) * BLOOM_INTENSITY, vec3(0.0));
@@ -15,11 +15,11 @@ vec3 getHDR(vec3 tex) {
 vec3 gaussian(sampler2D sampler, vec2 uv) {
     vec3 sum = vec3(0.0);
 
-    for (int i = 1; i <= BLUR_ITERATIONS; i++) {
-        float angle = 360.0 / float(BLUR_SUBDIVISIONS);
+    for (int i = 1; i <= bloom_blur_iterations; i++) {
+        float angle = 360.0 / float(bloom_blur_subdivisions);
 
-        for (int j = 0; j < BLUR_SUBDIVISIONS; j++) {
-            float dist = BLUR_SIZE * float(i + 1) / float(BLUR_ITERATIONS);
+        for (int j = 0; j < bloom_blur_subdivisions; j++) {
+            float dist = bloom_blur_size * float(i + 1) / float(bloom_blur_iterations);
             float s = sin(angle * float(j));
             float c = cos(angle * float(j));
 
@@ -27,7 +27,7 @@ vec3 gaussian(sampler2D sampler, vec2 uv) {
         }
     }
 
-    sum /= float(BLUR_ITERATIONS * BLUR_SUBDIVISIONS);
+    sum /= float(bloom_blur_iterations * bloom_blur_subdivisions);
     return sum * BLOOM_INTENSITY;
 }
 
