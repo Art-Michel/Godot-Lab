@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc1fomjf362h5"]
+[gd_scene load_steps=11 format=3 uid="uid://cc1fomjf362h5"]
 
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurX.gdshader" id="1_ibell"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurY.gdshader" id="2_cn5kd"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/flowerwall_crt.gdshader" id="3_c3jlp"]
 [ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/bloom.gdshader" id="4_pls0h"]
+[ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="5_ubqb7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
 shader = ExtResource("1_ibell")
@@ -29,6 +30,10 @@ shader_parameter/bloom_blur_iterations = 5
 shader_parameter/bloom_blur_size = 0.0024
 shader_parameter/bloom_blur_subdivisions = 16
 
+[sub_resource type="LabelSettings" id="LabelSettings_esv14"]
+line_spacing = 3.05
+font_size = 47
+
 [node name="crt_pp" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -37,11 +42,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBlur" type="CanvasLayer" parent="."]
+[node name="preblur_x" type="CanvasLayer" parent="."]
 layer = 100
 visible = false
 
-[node name="x_blur" type="ColorRect" parent="HBlur"]
+[node name="x_blur" type="ColorRect" parent="preblur_x"]
 material = SubResource("ShaderMaterial_fjm1h")
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,11 +59,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="VBlur" type="CanvasLayer" parent="."]
+[node name="preblur_y" type="CanvasLayer" parent="."]
 layer = 100
 visible = false
 
-[node name="y_blur" type="ColorRect" parent="VBlur"]
+[node name="y_blur" type="ColorRect" parent="preblur_y"]
 material = SubResource("ShaderMaterial_ax85r")
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,10 +85,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Bloom" type="CanvasLayer" parent="."]
+[node name="post_bloom" type="CanvasLayer" parent="."]
 layer = 102
 
-[node name="bloom" type="ColorRect" parent="Bloom"]
+[node name="bloom" type="ColorRect" parent="post_bloom"]
 material = SubResource("ShaderMaterial_pilqa")
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,3 +98,22 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="Chrono" type="Sprite2D" parent="."]
+position = Vector2(471, 167)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_ubqb7")
+
+[node name="Chrono2" type="Sprite2D" parent="."]
+position = Vector2(931, -198)
+scale = Vector2(0.304936, 0.304936)
+texture = ExtResource("5_ubqb7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 282.0
+offset_top = -71.0
+offset_right = 659.0
+offset_bottom = -5.0
+text = "Without Pre-blur"
+label_settings = SubResource("LabelSettings_esv14")
