@@ -25,7 +25,7 @@ shader_parameter/brightness_multiplier = 1.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_depa4"]
 shader = ExtResource("3_halsk")
 shader_parameter/scanlines_interval = 6.0
-shader_parameter/scanline_opacity = 0.6
+shader_parameter/scanline_opacity = 0.5
 shader_parameter/scanline_thickness = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ftfy"]
@@ -38,7 +38,7 @@ shader_parameter/bloom_blur_subdivisions = 16
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yf6qn"]
 shader = ExtResource("7_q0vd4")
-shader_parameter/vignette_size = 5.0
+shader_parameter/vignette_size = 8.0
 shader_parameter/vignette_attenuation = 1.05
 
 [node name="crt_pp" type="Control"]

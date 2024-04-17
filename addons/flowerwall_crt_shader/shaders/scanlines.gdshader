@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform float scanlines_interval:hint_range(0.0, 20.0, 1.0) = 6.0;
-uniform float scanline_opacity: hint_range(0, 1, 0.01) = 0.6;
+uniform float scanline_opacity: hint_range(0, 1, 0.01) = 0.5;
 uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
 
 void fragment()

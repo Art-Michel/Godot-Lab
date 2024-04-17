@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 5.0;
+uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 8.0;
 uniform float vignette_attenuation: hint_range(0.05, 5.0, 0.05) = 1.05;
 
 void fragment()

@@ -38,7 +38,7 @@ albedo_texture = ExtResource("2_s43xh")
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
 font = ExtResource("3_muouy")
-font_size = 56
+font_size = 112
 
 [node name="Node3D" type="Node3D"]
 
