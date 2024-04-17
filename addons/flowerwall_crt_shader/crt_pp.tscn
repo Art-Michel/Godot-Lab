@@ -48,11 +48,13 @@ anchors_preset = 0
 [node name="HBlur" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="ColorRect" type="ColorRect" parent="HBlur"]
+[node name="x_blur" type="ColorRect" parent="HBlur"]
 material = SubResource("ShaderMaterial_ijeux")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -62,7 +64,7 @@ metadata/_edit_use_anchors_ = true
 [node name="VBlur" type="CanvasLayer" parent="."]
 layer = 100
 
-[node name="ColorRect" type="ColorRect" parent="VBlur"]
+[node name="y_blur" type="ColorRect" parent="VBlur"]
 material = SubResource("ShaderMaterial_huafe")
 anchors_preset = 15
 anchor_right = 1.0
@@ -76,7 +78,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Curvature" type="CanvasLayer" parent="."]
 layer = 101
 
-[node name="ColorRect" type="ColorRect" parent="Curvature"]
+[node name="curvature" type="ColorRect" parent="Curvature"]
 material = SubResource("ShaderMaterial_aerem")
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,7 +89,7 @@ grow_vertical = 2
 [node name="Grid" type="CanvasLayer" parent="."]
 layer = 102
 
-[node name="ColorRect" type="ColorRect" parent="Grid"]
+[node name="grid" type="ColorRect" parent="Grid"]
 material = SubResource("ShaderMaterial_yyaop")
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +101,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Scanlines" type="CanvasLayer" parent="."]
 layer = 103
 
-[node name="ColorRect" type="ColorRect" parent="Scanlines"]
+[node name="scanlines" type="ColorRect" parent="Scanlines"]
 material = SubResource("ShaderMaterial_depa4")
 anchors_preset = 15
 anchor_right = 1.0
@@ -113,7 +115,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Bloom" type="CanvasLayer" parent="."]
 layer = 104
 
-[node name="ColorRect" type="ColorRect" parent="Bloom"]
+[node name="bloom" type="ColorRect" parent="Bloom"]
 material = SubResource("ShaderMaterial_4ftfy")
 anchors_preset = 15
 anchor_right = 1.0
@@ -127,7 +129,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Vignette" type="CanvasLayer" parent="."]
 layer = 105
 
-[node name="ColorRect" type="ColorRect" parent="Vignette"]
+[node name="vignette" type="ColorRect" parent="Vignette"]
 material = SubResource("ShaderMaterial_yf6qn")
 anchors_preset = 15
 anchor_right = 1.0
