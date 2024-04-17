@@ -8,9 +8,11 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_F3:
 			enable_crt()
 		if event.keycode == KEY_F1:
-			get_window().scaling_3d_scale = 0.2
+			get_window().scaling_3d_scale = 0.5
+			get_window().use_taa = false
 		if event.keycode == KEY_F2:
 			get_window().scaling_3d_scale = 1.0
+			get_window().use_taa = true
 
 func enable_crt() -> void:
 	if get_node_or_null("crt_pp"):

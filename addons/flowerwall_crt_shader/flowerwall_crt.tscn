@@ -39,6 +39,7 @@ grow_vertical = 2
 
 [node name="HBlur" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="x_blur" type="ColorRect" parent="HBlur"]
 material = SubResource("ShaderMaterial_fjm1h")
@@ -55,6 +56,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBlur" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="y_blur" type="ColorRect" parent="VBlur"]
 material = SubResource("ShaderMaterial_ax85r")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=20 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
+[ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
 [ext_resource type="FontFile" uid="uid://c2b6djjjes10q" path="res://fonts/Silver.ttf" id="3_muouy"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
@@ -9,13 +10,14 @@
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Texture2D" uid="uid://7j2ce72lswc4" path="res://Sprites/Tests/shinx.png" id="8_mv7r6"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
+[ext_resource type="Texture2D" uid="uid://bi3oy3kdk1bmf" path="res://Sprites/Tests/2ni9FDGinl.png" id="11_ew8kl"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_71oja"]
-sky_top_color = Color(0.694118, 0.745098, 0.823529, 1)
-sun_angle_max = 360.0
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
+panorama = ExtResource("2_g2afp")
+filter = false
 
 [sub_resource type="Sky" id="Sky_j6wtq"]
-sky_material = SubResource("ProceduralSkyMaterial_71oja")
+sky_material = SubResource("PanoramaSkyMaterial_xnnwy")
 
 [sub_resource type="Environment" id="Environment_vl8a5"]
 background_mode = 2
@@ -26,13 +28,9 @@ ambient_light_color = Color(0.4, 0.607843, 0.807843, 1)
 tonemap_mode = 3
 ssao_enabled = true
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0.327621, 0.36289, 0.442149, 1)
-fog_density = 0.02
+volumetric_fog_sky_affect = 0.0
 adjustment_enabled = true
-adjustment_brightness = 1.26
-adjustment_contrast = 1.26
-adjustment_saturation = 1.21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ulw7"]
 albedo_color = Color(0.364706, 0.376471, 0.419608, 1)
@@ -46,7 +44,7 @@ albedo_texture = ExtResource("2_s43xh")
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
 font = ExtResource("3_muouy")
-font_size = 90
+font_size = 96
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjtb4"]
 albedo_color = Color(1, 1, 0, 1)
@@ -85,7 +83,7 @@ transform = Transform3D(0.266582, 0.73217, -0.626786, 0, 0.65032, 0.75966, 0.963
 transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.783956, 0.469915, -0.405701, -1.35126, 2.94185, -1.33015)
 
 [node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.977885, 0.209141, 0, -0.209141, 0.977885, 1.63437, 1.93092, 0.0626006)
+transform = Transform3D(1, 0, 0, 0, 0.998695, -0.0510807, 0, 0.0510807, 0.998695, 1.63437, 1.91854, 0.0626006)
 current = true
 fov = 90.2
 
@@ -117,25 +115,32 @@ transform = Transform3D(0.99848, 0, -0.0551072, 0, 1, 0, 0.0551072, 0, 0.99848, 
 size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
 
-[node name="fps counter" type="Label" parent="Décor"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 201.0
-offset_bottom = 123.0
-text = "FPS: 144
-Wahoo!"
-label_settings = SubResource("LabelSettings_b3fj5")
-script = ExtResource("5_mfeuk")
-
 [node name="pikach" type="Sprite2D" parent="Décor"]
+visible = false
 position = Vector2(1664, 248)
 scale = Vector2(0.342599, 0.342599)
 texture = ExtResource("6_ufvoi")
 
+[node name="shinx" type="Sprite2D" parent="Décor"]
+visible = false
+position = Vector2(616, 139)
+scale = Vector2(0.608258, 0.608258)
+texture = ExtResource("8_mv7r6")
+
 [node name="Drac" type="Sprite2D" parent="Décor"]
-position = Vector2(1671, 797)
-scale = Vector2(0.946495, 0.946495)
+visible = false
+position = Vector2(246, 276)
+scale = Vector2(0.92369, 0.92369)
 texture = ExtResource("8_x0xhg")
+
+[node name="fps counter" type="Label" parent="Décor"]
+offset_left = 483.0
+offset_top = 15.0
+offset_right = 698.0
+offset_bottom = 122.0
+text = "FPS: 144"
+label_settings = SubResource("LabelSettings_b3fj5")
+script = ExtResource("5_mfeuk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -3.92111)
@@ -221,12 +226,8 @@ script = ExtResource("8_4hn4g")
 speed = 1.5
 amplitude = 0.1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="shinx" type="TextureRect" parent="CanvasLayer"]
-offset_left = 26.0
-offset_top = 815.0
-offset_right = 426.0
-offset_bottom = 1215.0
-scale = Vector2(0.606708, 0.606708)
-texture = ExtResource("8_mv7r6")
+[node name="2Ni9fdGinl" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(933, 643)
+scale = Vector2(0.689551, 0.689551)
+texture = ExtResource("11_ew8kl")
