@@ -5,11 +5,11 @@ uniform float brightness_multiplier:hint_range(0.7,2.0, 0.05) = 1.0;
 
 void fragment()
 {
-    vec3 colorIn = texture(screen_texture, UV).xyz;
+	vec3 colorIn = texture(screen_texture, UV).xyz;
 	float r;
 	float g;
 	float b;
-    int rgbIndex = int(FRAGCOORD.x) % 3;
+	int rgbIndex = int(FRAGCOORD.x) % 3;
 	if(rgbIndex == 0)
 		r = 1.;
 	else
@@ -22,9 +22,7 @@ void fragment()
 		b = 1.;
 	else
 		b = 0.;
-    vec3 mask = vec3(r,g,b);
-
-    vec3 colorOut = colorIn * mask * brightness_multiplier;
-
-    COLOR = vec4(colorOut, 1.0);
+	vec3 mask = vec3(r,g,b);
+	vec3 colorOut = colorIn * mask * brightness_multiplier;
+	COLOR = vec4(colorOut, 1.0);
 }

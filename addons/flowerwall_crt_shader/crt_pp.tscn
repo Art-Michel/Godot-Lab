@@ -47,6 +47,7 @@ anchors_preset = 0
 
 [node name="HBlur" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="x_blur" type="ColorRect" parent="HBlur"]
 material = SubResource("ShaderMaterial_ijeux")
@@ -63,6 +64,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBlur" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="y_blur" type="ColorRect" parent="VBlur"]
 material = SubResource("ShaderMaterial_huafe")
@@ -120,6 +122,8 @@ material = SubResource("ShaderMaterial_4ftfy")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
+offset_right = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

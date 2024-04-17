@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=13 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
 [ext_resource type="FontFile" uid="uid://c2b6djjjes10q" path="res://fonts/Silver.ttf" id="3_muouy"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
-[ext_resource type="Texture2D" uid="uid://bky4r13ym6ycv" path="res://Sprites/Tests/cABmVMDCFl.png" id="6_yohe3"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Texture2D" uid="uid://7j2ce72lswc4" path="res://Sprites/Tests/shinx.png" id="8_mv7r6"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
@@ -38,7 +37,7 @@ albedo_texture = ExtResource("2_s43xh")
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
 font = ExtResource("3_muouy")
-font_size = 112
+font_size = 56
 
 [node name="Node3D" type="Node3D"]
 
@@ -71,30 +70,24 @@ size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
 
 [node name="fps counter" type="Label" parent="Décor"]
-offset_left = 47.0
-offset_top = 36.0
-offset_right = 243.0
-offset_bottom = 154.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 123.0
 text = "FPS: 144
 Wahoo!"
 label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
 
 [node name="pikach" type="Sprite2D" parent="Décor"]
-position = Vector2(1580, 778)
-scale = Vector2(0.385077, 0.385077)
+position = Vector2(931, 505)
+scale = Vector2(0.279613, 0.279613)
 texture = ExtResource("6_ufvoi")
 
 [node name="Drac" type="Sprite2D" parent="Décor"]
-position = Vector2(593, 725)
-scale = Vector2(0.936331, 0.936331)
+position = Vector2(223, 445)
+scale = Vector2(0.715, 0.715)
 texture = ExtResource("8_x0xhg")
-
-[node name="maup" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(298.05, 224)
-scale = Vector2(0.365808, 0.365416)
-texture = ExtResource("6_yohe3")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.890435, 0.45511, 0, -0.45511, 0.890435, -0.133026, 2.43076, 1.47811)
@@ -130,8 +123,9 @@ transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.78
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="shinx" type="TextureRect" parent="CanvasLayer"]
-offset_left = -1.0
-offset_top = 682.0
-offset_right = 399.0
-offset_bottom = 1082.0
+offset_left = 459.0
+offset_top = 376.0
+offset_right = 859.0
+offset_bottom = 776.0
+scale = Vector2(0.603849, 0.603849)
 texture = ExtResource("8_mv7r6")

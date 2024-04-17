@@ -1,12 +1,17 @@
 extends Control
 
-var crt_pp_packed: PackedScene = preload("res://addons/flowerwall_crt_shader/crt_pp.tscn")
+# var crt_pp_packed: PackedScene = preload("res://addons/flowerwall_crt_shader/crt_pp.tscn")
+var crt_pp_packed: PackedScene = preload("res://Scenes/flowerwall_crt.tscn")
 var crt_pp: Control
 
 func _unhandled_key_input(event):
 	if event is InputEventKey and !event.is_echo() and event.is_pressed():
 		if event.keycode == KEY_F3:
 			enable_crt()
+		if event.keycode == KEY_F1:
+			get_window().scaling_3d_scale = 0.3333
+		if event.keycode == KEY_F2:
+			get_window().scaling_3d_scale = 1.0
 
 func enable_crt() -> void:
 	if get_node_or_null("crt_pp"):
