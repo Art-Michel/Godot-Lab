@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=18 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
@@ -6,20 +6,29 @@
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
+[ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Texture2D" uid="uid://7j2ce72lswc4" path="res://Sprites/Tests/shinx.png" id="8_mv7r6"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_71oja"]
+sky_top_color = Color(0.694118, 0.745098, 0.823529, 1)
+sun_angle_max = 360.0
+
+[sub_resource type="Sky" id="Sky_j6wtq"]
+sky_material = SubResource("ProceduralSkyMaterial_71oja")
+
 [sub_resource type="Environment" id="Environment_vl8a5"]
-background_mode = 1
-background_color = Color(0.113725, 0.12549, 0.164706, 1)
+background_mode = 2
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_j6wtq")
 ambient_light_source = 2
 ambient_light_color = Color(0.4, 0.607843, 0.807843, 1)
 tonemap_mode = 3
 ssao_enabled = true
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.27451, 0.305882, 0.376471, 1)
-fog_density = 0.05
+fog_light_color = Color(0.327621, 0.36289, 0.442149, 1)
+fog_density = 0.02
 adjustment_enabled = true
 adjustment_brightness = 1.26
 adjustment_contrast = 1.26
@@ -37,62 +46,17 @@ albedo_texture = ExtResource("2_s43xh")
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
 font = ExtResource("3_muouy")
-font_size = 56
+font_size = 90
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjtb4"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_ju6hj"]
+material = SubResource("StandardMaterial3D_vjtb4")
+inner_radius = 0.1
+outer_radius = 0.175
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Décor" type="Node3D" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Décor"]
-environment = SubResource("Environment_vl8a5")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Décor"]
-transform = Transform3D(0.85888, -0.202978, 0.470239, -0.281572, 0.579803, 0.764556, -0.427834, -0.789068, 0.440828, 0, 10.7901, 0)
-light_energy = 1.5
-shadow_enabled = true
-
-[node name="Floor" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32, -0.2, -2.136)
-size = Vector3(150, 0.1, 150)
-material = SubResource("StandardMaterial3D_0ulw7")
-
-[node name="Box3" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0.141716, 1.37111, -1.12819)
-material = SubResource("StandardMaterial3D_2n0dr")
-
-[node name="Box" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51017, 0.368864, -0.476597)
-material = SubResource("StandardMaterial3D_2n0dr")
-
-[node name="Box2" type="CSGBox3D" parent="Décor"]
-transform = Transform3D(0.897266, 0, 0.44149, 0, 1, 0, -0.44149, 0, 0.897266, 0.595593, 0.357819, -1.02138)
-size = Vector3(1, 1, 2)
-material = SubResource("StandardMaterial3D_2n0dr")
-
-[node name="fps counter" type="Label" parent="Décor"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 201.0
-offset_bottom = 123.0
-text = "FPS: 144
-Wahoo!"
-label_settings = SubResource("LabelSettings_b3fj5")
-script = ExtResource("5_mfeuk")
-
-[node name="pikach" type="Sprite2D" parent="Décor"]
-position = Vector2(931, 505)
-scale = Vector2(0.279613, 0.279613)
-texture = ExtResource("6_ufvoi")
-
-[node name="Drac" type="Sprite2D" parent="Décor"]
-position = Vector2(223, 445)
-scale = Vector2(0.715, 0.715)
-texture = ExtResource("8_x0xhg")
-
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.890435, 0.45511, 0, -0.45511, 0.890435, -0.133026, 2.43076, 1.47811)
-current = true
-fov = 91.0
 
 [node name="CamManager" type="Node" parent="." node_paths=PackedStringArray("positions", "camera")]
 script = ExtResource("7_ong2f")
@@ -120,12 +84,149 @@ transform = Transform3D(0.266582, 0.73217, -0.626786, 0, 0.65032, 0.75966, 0.963
 [node name="Position7" type="Node3D" parent="CamManager"]
 transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.783956, 0.469915, -0.405701, -1.35126, 2.94185, -1.33015)
 
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.977885, 0.209141, 0, -0.209141, 0.977885, 1.63437, 1.93092, 0.0626006)
+current = true
+fov = 90.2
+
+[node name="Décor" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Décor"]
+environment = SubResource("Environment_vl8a5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Décor"]
+transform = Transform3D(0.85888, -0.202978, 0.470239, -0.281572, 0.579803, 0.764556, -0.427834, -0.789068, 0.440828, 0, 10.7901, 0)
+light_energy = 1.5
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+size = Vector3(150, 0.1, 150)
+material = SubResource("StandardMaterial3D_0ulw7")
+
+[node name="Box3" type="CSGBox3D" parent="Décor"]
+transform = Transform3D(-0.490265, 0, -0.871574, 0, 1, 0, 0.871574, 0, -0.490265, 3.79879, 1.64079, -2.99984)
+material = SubResource("StandardMaterial3D_2n0dr")
+
+[node name="Box" type="CSGBox3D" parent="Décor"]
+transform = Transform3D(0.871574, 0, -0.490265, 0, 1, 0, 0.490265, 0, 0.871574, 2.91117, 0.638542, -2.75153)
+material = SubResource("StandardMaterial3D_2n0dr")
+
+[node name="Box2" type="CSGBox3D" parent="Décor"]
+transform = Transform3D(0.99848, 0, -0.0551072, 0, 1, 0, 0.0551072, 0, 0.99848, 4.14201, 0.627497, -2.68423)
+size = Vector3(1, 1, 2)
+material = SubResource("StandardMaterial3D_2n0dr")
+
+[node name="fps counter" type="Label" parent="Décor"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 201.0
+offset_bottom = 123.0
+text = "FPS: 144
+Wahoo!"
+label_settings = SubResource("LabelSettings_b3fj5")
+script = ExtResource("5_mfeuk")
+
+[node name="pikach" type="Sprite2D" parent="Décor"]
+position = Vector2(1664, 248)
+scale = Vector2(0.342599, 0.342599)
+texture = ExtResource("6_ufvoi")
+
+[node name="Drac" type="Sprite2D" parent="Décor"]
+position = Vector2(1671, 797)
+scale = Vector2(0.946495, 0.946495)
+texture = ExtResource("8_x0xhg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -3.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -4.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -5.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -6.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -2.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -1.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -3.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -4.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -5.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -6.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -2.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Décor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -1.92111)
+mesh = SubResource("TorusMesh_ju6hj")
+script = ExtResource("8_4hn4g")
+speed = 1.5
+amplitude = 0.1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="shinx" type="TextureRect" parent="CanvasLayer"]
-offset_left = 459.0
-offset_top = 376.0
-offset_right = 859.0
-offset_bottom = 776.0
-scale = Vector2(0.603849, 0.603849)
+offset_left = 26.0
+offset_top = 815.0
+offset_right = 426.0
+offset_bottom = 1215.0
+scale = Vector2(0.606708, 0.606708)
 texture = ExtResource("8_mv7r6")

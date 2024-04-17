@@ -1,7 +1,6 @@
 extends Control
 
-# var crt_pp_packed: PackedScene = preload("res://addons/flowerwall_crt_shader/crt_pp.tscn")
-var crt_pp_packed: PackedScene = preload("res://Scenes/flowerwall_crt.tscn")
+var crt_pp_packed: PackedScene = preload("res://addons/flowerwall_crt_shader/flowerwall_crt.tscn")
 var crt_pp: Control
 
 func _unhandled_key_input(event):
@@ -9,7 +8,7 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_F3:
 			enable_crt()
 		if event.keycode == KEY_F1:
-			get_window().scaling_3d_scale = 0.3333
+			get_window().scaling_3d_scale = 0.2
 		if event.keycode == KEY_F2:
 			get_window().scaling_3d_scale = 1.0
 
@@ -29,6 +28,6 @@ func enable_crt() -> void:
 		print ("Could not find CRT Filter node, creating one") 
 		crt_pp = crt_pp_packed.instantiate()
 		add_child(crt_pp)
-		var C: Node = $crt_pp
-		C.get_parent().get_parent().move_child(C.get_parent(),-1)
+		# var C: Node = $crt_pp
+		# C.get_parent().get_parent().move_child(C.get_parent(),-1)
 		
