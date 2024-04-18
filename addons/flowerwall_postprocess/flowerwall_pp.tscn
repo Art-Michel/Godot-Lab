@@ -21,12 +21,12 @@ shader = ExtResource("3_6nin8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pli6x"]
 shader = ExtResource("4_kpd3d")
-shader_parameter/noise_strength = 0.3
+shader_parameter/noise_strength = 0.5
 shader_parameter/curve_power = 1.02
 shader_parameter/vignette_size = 6.0
 shader_parameter/vignette_attenuation = 2.0
 shader_parameter/scanlines_interval = 6.0
-shader_parameter/scanline_opacity = 0.4
+shader_parameter/scanline_opacity = 1.0
 shader_parameter/scanline_thickness = 3.0
 shader_parameter/brightness_multiplier = 1.2
 
@@ -38,7 +38,7 @@ shader_parameter/bloom_blur_iterations = 5
 shader_parameter/bloom_blur_size = 0.0024
 shader_parameter/bloom_blur_subdivisions = 8
 
-[node name="flowerwall_pp" type="Control"]
+[node name="flowerwall_pp" type="Control" node_paths=PackedStringArray("dither", "preblur_x", "preblur_y", "crt", "bloom")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,8 +46,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_86jhl")
+dither = NodePath("dithering")
+preblur_x = NodePath("preblur_x")
+preblur_y = NodePath("preblur_y")
+crt = NodePath("CRT")
+bloom = NodePath("post_bloom")
 
 [node name="dithering" type="CanvasLayer" parent="."]
+layer = 99
 
 [node name="dither" type="ColorRect" parent="dithering"]
 material = SubResource("ShaderMaterial_vcmfx")
@@ -56,6 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="preblur_x" type="CanvasLayer" parent="."]
 layer = 100
@@ -65,8 +72,6 @@ material = SubResource("ShaderMaterial_fjm1h")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 2.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -112,4 +117,43 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
+
+[node name="downscale" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 1124.0
+offset_top = 665.0
+offset_right = 1681.0
+offset_bottom = 736.0
+max_value = 1.0
+step = 0.1
+value = 0.3
+
+[node name="noise_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 1124.0
+offset_top = 743.0
+offset_right = 1681.0
+offset_bottom = 814.0
+max_value = 1.0
+step = 0.1
+value = 0.3
+
+[node name="scanlines_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 822.0
+offset_right = 1683.0
+offset_bottom = 895.0
+max_value = 1.0
+step = 0.1
+value = 0.3
+
+[node name="curvature" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 1126.0
+offset_top = 910.0
+offset_right = 1683.0
+offset_bottom = 983.0
+max_value = 1.0
+step = 0.1
+value = 0.3

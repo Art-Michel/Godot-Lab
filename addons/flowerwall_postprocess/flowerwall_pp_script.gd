@@ -1,69 +1,35 @@
 extends Control
 
-@export var dither_shader: Material
-@export var crt_shader: Material
-
 @export var dither: CanvasLayer
 @export var preblur_x: CanvasLayer
 @export var preblur_y: CanvasLayer
 @export var crt: CanvasLayer
 @export var bloom: CanvasLayer
 
+@onready var dither_shader: Material = dither.get_child(0).get_material()
+@onready var crt_shader: Material= crt.get_child(0).get_material()
+
+
 func _ready():
-    pass
-	# connect(FlowerwallAutoload.)
+	print (crt_shader.get("shader_parameter/noise_strength"))
+	print (crt_shader.get("shader_parameter/scanline_opacity"))
+	$noise_slider.connect("value_changed", _on_noise_changed)
+	$scanlines_slider.connect("value_changed", _on_scanlines_changed)
 
 
+func _on_noise_changed(value:float) -> void:
+	crt_shader.set("shader_parameter/noise_strength", value)
+	update_brightness()
 
 
-# extends Control
+func _on_scanlines_changed(value:float) -> void:
+	crt_shader.set("shader_parameter/scanline_opacity", value)
+	update_brightness()
 
-# var crt_pp_packed: PackedScene = preload("res://addons/flowerwall_postprocess/flowerwall_pp.tscn")
-# var crt_pp: Control
-# var crt_shader: Material
 
-# signal wahoo
-
-# func _ready() -> void:
-# 	create_crt_pp()
-# 	enable_crt()
-
-# func create_crt_pp() -> void:
-# 	crt_pp = crt_pp_packed.instantiate()
-# 	add_child(crt_pp)
-# 	crt_shader = crt_pp.get_node("CRT/crt_shader").get_material()
-
-# func _unhandled_key_input(event):
-# 	if event is InputEventKey and !event.is_echo() and event.is_pressed():
-# 		if event.keycode == KEY_F3:
-# 			enable_crt()
-# 		if event.keycode == KEY_F2:
-# 			change_value("shader_param/noise_strength", 1.0)
-
-# func enable_crt() -> void:
-# 	if get_node_or_null("crt_pp"):
-# 		print("Toggled CRT Filter")
-# 		if crt_pp.visible:
-# 			for node in crt_pp.get_children():
-# 				node.visible = false
-# 			crt_pp.visible = false
-# 		else:
-# 			for node in crt_pp.get_children():
-# 				node.visible = true
-# 			crt_pp.visible = true
-# 	else:
-# 		print ("Could not find CRT Filter node, creating one") 
-# 		create_crt_pp()
-
-# func enable_preblur() -> void:
-# 	if get_node_or_null("crt_pp"):
-# 		pass
-
-# func change_value(variable: String, value: float) -> void:
-# 	if get_node_or_null("crt_pp"):
-# 		crt_shader.set(variable, value)
+func update_brightness() -> void:
+	var noise_str: float = crt_shader.get("shader_parameter/noise_strength")
+	var sc_opacity: float = crt_shader.get("shader_parameter/scanline_opacity")
 	
-# 	else:
-# 		print ("Could not find CRT Filter node, creating one") 
-# 		create_crt_pp()
-# 		change_value(variable, value)
+	var value: float = 0.8 + sc_opacity * 0.5 + noise_str / 1.5
+	crt_shader.set("shader_parameter/brightness_multiplier", value)

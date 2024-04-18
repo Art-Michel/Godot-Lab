@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=17 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -8,7 +8,11 @@
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Texture2D" uid="uid://upeof6jpbemu" path="res://Sprites/Tests/station square.png" id="8_kh6ls"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="9_sxu1j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
+line_spacing = -8.0
+font = ExtResource("3_muouy")
+font_size = 96
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -39,11 +43,6 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2n0dr"]
 albedo_texture = ExtResource("2_s43xh")
 
-[sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
-line_spacing = -8.0
-font = ExtResource("3_muouy")
-font_size = 96
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjtb4"]
 albedo_color = Color(1, 1, 0, 1)
 
@@ -51,26 +50,6 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_vjtb4")
 inner_radius = 0.1
 outer_radius = 0.175
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usptw"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_ii574"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_5yj0l"]
-font = ExtResource("3_muouy")
-font_size = 96
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4h77s"]
-shader = ExtResource("9_sxu1j")
-shader_parameter/color_depth = 5
-shader_parameter/dithering = true
-shader_parameter/resolution_scale = 4
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4cal"]
-shader = ExtResource("9_sxu1j")
-shader_parameter/color_depth = 4
-shader_parameter/dithering = true
-shader_parameter/resolution_scale = 5
 
 [node name="Node3D" type="Node3D"]
 
@@ -105,6 +84,15 @@ transform = Transform3D(1, 0, 0, 0, 0.998695, -0.0510807, 0, 0.0510807, 0.998695
 current = true
 fov = 90.2
 
+[node name="fps counter" type="Label" parent="."]
+offset_left = 1346.0
+offset_top = 943.0
+offset_right = 1561.0
+offset_bottom = 1050.0
+text = "FPS: 144"
+label_settings = SubResource("LabelSettings_b3fj5")
+script = ExtResource("5_mfeuk")
+
 [node name="Décor" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Décor"]
@@ -132,15 +120,6 @@ material = SubResource("StandardMaterial3D_2n0dr")
 transform = Transform3D(0.99848, 0, -0.0551072, 0, 1, 0, 0.0551072, 0, 0.99848, 4.14201, 0.627497, -2.68423)
 size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
-
-[node name="fps counter" type="Label" parent="Décor"]
-offset_left = 1346.0
-offset_top = 943.0
-offset_right = 1561.0
-offset_bottom = 1050.0
-text = "FPS: 144"
-label_settings = SubResource("LabelSettings_b3fj5")
-script = ExtResource("5_mfeuk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -3.92111)
@@ -231,170 +210,3 @@ visible = false
 position = Vector2(962, 545)
 scale = Vector2(1.0315, 1.0315)
 texture = ExtResource("8_kh6ls")
-
-[node name="crt menu" type="ColorRect" parent="."]
-offset_left = 70.0
-offset_top = 56.0
-offset_right = 661.0
-offset_bottom = 445.0
-mouse_filter = 2
-color = Color(0.196078, 0.196078, 0.196078, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="crt menu"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -308.0
-grow_horizontal = 0
-grow_vertical = 2
-alignment = 1
-
-[node name="preblur" type="Button" parent="crt menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/pressed = SubResource("StyleBoxFlat_usptw")
-toggle_mode = true
-icon = SubResource("ImageTexture_ii574")
-icon_alignment = 1
-
-[node name="Label" type="Label" parent="crt menu/VBoxContainer/preblur"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -571.0
-offset_top = -53.5
-offset_right = -321.0
-offset_bottom = 53.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Preblur"
-label_settings = SubResource("LabelSettings_5yj0l")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="downscale" type="HSlider" parent="crt menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 0.25
-max_value = 1.0
-step = 0.05
-value = 1.0
-
-[node name="Label" type="Label" parent="crt menu/VBoxContainer/downscale"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -461.0
-offset_top = -53.5
-offset_right = -321.0
-offset_bottom = 53.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Downscale
-"
-label_settings = SubResource("LabelSettings_5yj0l")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="noise3" type="HSlider" parent="crt menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-
-[node name="Label" type="Label" parent="crt menu/VBoxContainer/noise3"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -461.0
-offset_top = -53.5
-offset_right = -321.0
-offset_bottom = 53.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Noise"
-label_settings = SubResource("LabelSettings_5yj0l")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="sc" type="HSlider" parent="crt menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-
-[node name="Label" type="Label" parent="crt menu/VBoxContainer/sc"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -571.0
-offset_top = -53.5
-offset_right = -321.0
-offset_bottom = 53.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Scanlines"
-label_settings = SubResource("LabelSettings_5yj0l")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Curving" type="HSlider" parent="crt menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-
-[node name="Label" type="Label" parent="crt menu/VBoxContainer/Curving"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -461.0
-offset_top = -53.5
-offset_right = -321.0
-offset_bottom = 53.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "Curving
-"
-label_settings = SubResource("LabelSettings_5yj0l")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_4h77s")
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-scaling_3d_scale = 0.5
-size = Vector2i(1920, 1080)
-render_target_update_mode = 0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_b4cal")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
