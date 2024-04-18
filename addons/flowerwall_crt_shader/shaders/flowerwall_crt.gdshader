@@ -1,16 +1,18 @@
 shader_type canvas_item;
-
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.025;
+
+uniform float noise_strength: hint_range(0.0, 1.0, 0.05) = 0.3;
+
+uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.02;
 uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 6.0;
 uniform float vignette_attenuation: hint_range(0.05, 5.0, 0.05) = 2.0;
 
 uniform float scanlines_interval:hint_range(0.0, 20.0, 1.0) = 6.0;
-uniform float scanline_opacity: hint_range(0, 1, 0.01) = 0.5;
+uniform float scanline_opacity: hint_range(0, 1, 0.01) = 0.4;
 uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
 
 
-uniform float brightness_multiplier:hint_range(0.7,2.0, 0.05) = 1.05;
+uniform float brightness_multiplier:hint_range(0.7,2.0, 0.05) = 1.2;
 
 vec2 distort(vec2 p) 
 {
@@ -24,8 +26,14 @@ vec2 distort(vec2 p)
 	return 0.5 * (p + vec2(1.0,1.0));
 }
 
+float filmGrainNoise(in float time, in vec2 uv)
+{
+    return fract(sin(dot(uv, vec2(12.9898, 78.233) * time)) * 43758.5453);
+}
+
 void fragment()
 {
+	//curvature
 	vec4 color = texture(screen_texture, SCREEN_UV);
 	vec2 xy = SCREEN_UV * 2.0;
 	xy.x -= 1.0;
@@ -40,6 +48,10 @@ void fragment()
 	}
 	color = texture(screen_texture, xy);
 	//curvature end
+	
+	//noise
+	color.rgb = mix(color.rgb ,vec3(0.0), filmGrainNoise(TIME, SCREEN_UV) * noise_strength);
+	//noise end
 	
 	//mask
 	float r;
@@ -70,7 +82,7 @@ void fragment()
 	//scanlines end
 	
 	//vignette
-	vec2 uv = UV;
+	vec2 uv = SCREEN_UV;
 	uv *=  1.0 - uv.yx;   //vec2(1.0)- uv.yx; -> 1.-u.yx; Thanks FabriceNeyret !
 	float vig = uv.x*uv.y * vignette_size * 1000.0; // multiply with sth for intensityvig = pow(vig, 0.25); // change pow for modifying the extend of the  vignette
 	vig = pow(vig, vignette_attenuation);

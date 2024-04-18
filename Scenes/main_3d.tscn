@@ -5,12 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
 [ext_resource type="FontFile" uid="uid://c2b6djjjes10q" path="res://fonts/Silver.ttf" id="3_muouy"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
-[ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/tumblr_99f6304ada605fc719b4df829f3bacc2_59624e8d_1280.png" id="6_ufvoi"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
-[ext_resource type="Texture2D" uid="uid://7j2ce72lswc4" path="res://Sprites/Tests/shinx.png" id="8_mv7r6"]
-[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="8_x0xhg"]
-[ext_resource type="Texture2D" uid="uid://bi3oy3kdk1bmf" path="res://Sprites/Tests/2ni9FDGinl.png" id="11_ew8kl"]
+[ext_resource type="Texture2D" uid="uid://upeof6jpbemu" path="res://Sprites/Tests/station square.png" id="8_kh6ls"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -53,6 +50,14 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_vjtb4")
 inner_radius = 0.1
 outer_radius = 0.175
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usptw"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ii574"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5yj0l"]
+font = ExtResource("3_muouy")
+font_size = 96
 
 [node name="Node3D" type="Node3D"]
 
@@ -115,29 +120,11 @@ transform = Transform3D(0.99848, 0, -0.0551072, 0, 1, 0, 0.0551072, 0, 0.99848, 
 size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
 
-[node name="pikach" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(1664, 248)
-scale = Vector2(0.342599, 0.342599)
-texture = ExtResource("6_ufvoi")
-
-[node name="shinx" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(616, 139)
-scale = Vector2(0.608258, 0.608258)
-texture = ExtResource("8_mv7r6")
-
-[node name="Drac" type="Sprite2D" parent="Décor"]
-visible = false
-position = Vector2(246, 276)
-scale = Vector2(0.92369, 0.92369)
-texture = ExtResource("8_x0xhg")
-
 [node name="fps counter" type="Label" parent="Décor"]
-offset_left = 483.0
-offset_top = 15.0
-offset_right = 698.0
-offset_bottom = 122.0
+offset_left = 1346.0
+offset_top = 943.0
+offset_right = 1561.0
+offset_bottom = 1050.0
 text = "FPS: 144"
 label_settings = SubResource("LabelSettings_b3fj5")
 script = ExtResource("5_mfeuk")
@@ -226,8 +213,153 @@ script = ExtResource("8_4hn4g")
 speed = 1.5
 amplitude = 0.1
 
-[node name="2Ni9fdGinl" type="Sprite2D" parent="."]
+[node name="StationSquare" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(933, 643)
-scale = Vector2(0.689551, 0.689551)
-texture = ExtResource("11_ew8kl")
+position = Vector2(962, 545)
+scale = Vector2(1.0315, 1.0315)
+texture = ExtResource("8_kh6ls")
+
+[node name="crt menu" type="ColorRect" parent="."]
+offset_left = 70.0
+offset_top = 56.0
+offset_right = 661.0
+offset_bottom = 445.0
+mouse_filter = 2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="crt menu"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -308.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="preblur" type="Button" parent="crt menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_usptw")
+toggle_mode = true
+icon = SubResource("ImageTexture_ii574")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="crt menu/VBoxContainer/preblur"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -53.5
+offset_right = -321.0
+offset_bottom = 53.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Preblur"
+label_settings = SubResource("LabelSettings_5yj0l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="downscale" type="HSlider" parent="crt menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 0.25
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Label" type="Label" parent="crt menu/VBoxContainer/downscale"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -461.0
+offset_top = -53.5
+offset_right = -321.0
+offset_bottom = 53.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Downscale
+"
+label_settings = SubResource("LabelSettings_5yj0l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="noise3" type="HSlider" parent="crt menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+
+[node name="Label" type="Label" parent="crt menu/VBoxContainer/noise3"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -461.0
+offset_top = -53.5
+offset_right = -321.0
+offset_bottom = 53.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Noise"
+label_settings = SubResource("LabelSettings_5yj0l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="sc" type="HSlider" parent="crt menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+
+[node name="Label" type="Label" parent="crt menu/VBoxContainer/sc"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -53.5
+offset_right = -321.0
+offset_bottom = 53.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Scanlines"
+label_settings = SubResource("LabelSettings_5yj0l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Curving" type="HSlider" parent="crt menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+
+[node name="Label" type="Label" parent="crt menu/VBoxContainer/Curving"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -461.0
+offset_top = -53.5
+offset_right = -321.0
+offset_bottom = 53.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Curving
+"
+label_settings = SubResource("LabelSettings_5yj0l")
+horizontal_alignment = 2
+vertical_alignment = 1
