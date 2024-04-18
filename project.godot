@@ -35,5 +35,4 @@ enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "r
 
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
-scaling_3d/scale=0.5
 rendering/scaling_3d/mode=1
