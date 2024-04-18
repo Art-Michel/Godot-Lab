@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://b8wsgth6yvc5"]
 
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurX.gdshader" id="1_xk8ye"]
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurY.gdshader" id="2_fjd3w"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blurX.gdshader" id="1_xk8ye"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blurY.gdshader" id="2_fjd3w"]
 [ext_resource type="Shader" path="res://shaders/scanlines.gdshader" id="3_halsk"]
 [ext_resource type="Shader" path="res://shaders/curvature.gdshader" id="3_jb606"]
 [ext_resource type="Shader" path="res://shaders/grid mask.gdshader" id="4_x2sop"]
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/bloom.gdshader" id="5_jm6c0"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_jm6c0"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="7_q0vd4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijeux"]

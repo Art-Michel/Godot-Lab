@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=23 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Texture2D" uid="uid://upeof6jpbemu" path="res://Sprites/Tests/station square.png" id="8_kh6ls"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="9_sxu1j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -58,6 +59,18 @@ outer_radius = 0.175
 [sub_resource type="LabelSettings" id="LabelSettings_5yj0l"]
 font = ExtResource("3_muouy")
 font_size = 96
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4h77s"]
+shader = ExtResource("9_sxu1j")
+shader_parameter/color_depth = 5
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4cal"]
+shader = ExtResource("9_sxu1j")
+shader_parameter/color_depth = 4
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 5
 
 [node name="Node3D" type="Node3D"]
 
@@ -363,3 +376,25 @@ text = "Curving
 label_settings = SubResource("LabelSettings_5yj0l")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_4h77s")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+scaling_3d_scale = 0.5
+size = Vector2i(1920, 1080)
+render_target_update_mode = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_b4cal")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -16,10 +16,6 @@ config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Sprites/Tests/im not gonna sugarcoat it.png"
 config/icon="res://Sprites/Tests/shinx.png"
 
-[autoload]
-
-flowerwall_crt_autload="*res://addons/flowerwall_crt_shader/flowerwall_crt_autoload.gd"
-
 [display]
 
 window/size/viewport_width=1920
@@ -29,10 +25,11 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/flowerwall_crt_shader/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
 textures/vram_compression/import_etc2_astc=true
+scaling_3d/scale=0.5
 rendering/scaling_3d/mode=1

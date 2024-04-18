@@ -1,18 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://cc1fomjf362h5"]
+[gd_scene load_steps=12 format=3 uid="uid://cc1fomjf362h5"]
 
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurX.gdshader" id="1_u508e"]
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/blurY.gdshader" id="2_vjdb6"]
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/flowerwall_crt.gdshader" id="3_2ga5m"]
-[ext_resource type="Shader" path="res://addons/flowerwall_crt_shader/shaders/bloom.gdshader" id="4_muj36"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/flowerwall_pp_script.gd" id="1_86jhl"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_njgwi"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blurX.gdshader" id="2_t16tb"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blurY.gdshader" id="3_6nin8"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_kpd3d"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_xks6t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmfx"]
+shader = ExtResource("2_njgwi")
+shader_parameter/color_depth = 4
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
-shader = ExtResource("1_u508e")
+shader = ExtResource("2_t16tb")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ax85r"]
-shader = ExtResource("2_vjdb6")
+shader = ExtResource("3_6nin8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pli6x"]
-shader = ExtResource("3_2ga5m")
+shader = ExtResource("4_kpd3d")
 shader_parameter/noise_strength = 0.3
 shader_parameter/curve_power = 1.02
 shader_parameter/vignette_size = 6.0
@@ -23,15 +31,26 @@ shader_parameter/scanline_thickness = 3.0
 shader_parameter/brightness_multiplier = 1.2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pilqa"]
-shader = ExtResource("4_muj36")
+shader = ExtResource("5_xks6t")
 shader_parameter/BLOOM_THRESHOLD = 0.125
 shader_parameter/BLOOM_INTENSITY = 1.9
 shader_parameter/bloom_blur_iterations = 5
 shader_parameter/bloom_blur_size = 0.0024
 shader_parameter/bloom_blur_subdivisions = 8
 
-[node name="crt_pp" type="Control"]
+[node name="flowerwall_pp" type="Control"]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_86jhl")
+
+[node name="dithering" type="CanvasLayer" parent="."]
+
+[node name="dither" type="ColorRect" parent="dithering"]
+material = SubResource("ShaderMaterial_vcmfx")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
