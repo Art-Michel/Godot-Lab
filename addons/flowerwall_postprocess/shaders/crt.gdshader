@@ -12,7 +12,7 @@ uniform float scanline_opacity: hint_range(0, 1, 0.01) = 0.4;
 uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
 
 
-uniform float brightness_multiplier:hint_range(0.7,2.0, 0.05) = 1.2;
+uniform float brightness_multiplier:hint_range(0.7,2.0, 0.01) = 1.2;
 
 vec2 distort(vec2 p) 
 {

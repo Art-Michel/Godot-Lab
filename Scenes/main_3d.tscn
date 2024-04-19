@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=19 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Texture2D" uid="uid://upeof6jpbemu" path="res://Sprites/Tests/station square.png" id="8_kh6ls"]
+[ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="9_axh70"]
+[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="10_ajaqr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
 line_spacing = -8.0
@@ -210,3 +212,13 @@ visible = false
 position = Vector2(962, 545)
 scale = Vector2(1.0315, 1.0315)
 texture = ExtResource("8_kh6ls")
+
+[node name="Chrono" type="Sprite2D" parent="."]
+position = Vector2(216.189, 205.479)
+scale = Vector2(0.255666, 0.255666)
+texture = ExtResource("9_axh70")
+
+[node name="N5SwAull6m" type="Sprite2D" parent="."]
+position = Vector2(697, 288)
+scale = Vector2(0.91049, 0.91049)
+texture = ExtResource("10_ajaqr")

@@ -43,12 +43,12 @@ func _on_downscale_changed(value:float) -> void:
 
 func _on_noise_changed(value:float) -> void:
 	crt_shader.set("shader_parameter/noise_strength", value)
-	update_brightness()
+	#update_brightness()
 
 
 func _on_scanlines_changed(value:float) -> void:
 	crt_shader.set("shader_parameter/scanline_opacity", value)
-	update_brightness()
+	#update_brightness()
 
 
 func update_brightness() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cc1fomjf362h5"]
+[gd_scene load_steps=18 format=3 uid="uid://cc1fomjf362h5"]
 
 [ext_resource type="Script" path="res://addons/flowerwall_postprocess/flowerwall_pp_script.gd" id="1_86jhl"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_njgwi"]
@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmfx"]
 shader = ExtResource("2_njgwi")
-shader_parameter/color_depth = 4
+shader_parameter/color_depth = 8
 shader_parameter/dithering = true
 shader_parameter/resolution_scale = 1
 
@@ -38,6 +38,10 @@ shader_parameter/BLOOM_INTENSITY = 1.9
 shader_parameter/bloom_blur_iterations = 5
 shader_parameter/bloom_blur_size = 0.0024
 shader_parameter/bloom_blur_subdivisions = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0138"]
+font_size = 59
+font_color = Color(1, 0.247059, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weugb"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
@@ -133,13 +137,57 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1544.0
+offset_top = 390.0
+offset_right = 1902.0
+offset_bottom = 1000.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CRT"
+label_settings = SubResource("LabelSettings_d0138")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Preblur"
+label_settings = SubResource("LabelSettings_d0138")
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dithering"
+label_settings = SubResource("LabelSettings_d0138")
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Downscaling"
+label_settings = SubResource("LabelSettings_d0138")
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Noise"
+label_settings = SubResource("LabelSettings_d0138")
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scanlines"
+label_settings = SubResource("LabelSettings_d0138")
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Curve
+"
+label_settings = SubResource("LabelSettings_d0138")
+
 [node name="crt_toggle" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.847917
-anchor_top = 0.382407
-anchor_right = 0.879167
-anchor_bottom = 0.437963
+anchor_left = 0.734375
+anchor_top = 0.373611
+anchor_right = 0.777605
+anchor_bottom = 0.446759
+offset_bottom = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
@@ -158,10 +206,11 @@ metadata/_edit_use_anchors_ = true
 [node name="preblur_toggle" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.847917
-anchor_top = 0.461111
-anchor_right = 0.879167
-anchor_bottom = 0.516667
+anchor_left = 0.734375
+anchor_top = 0.452315
+anchor_right = 0.777605
+anchor_bottom = 0.525463
+offset_top = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
@@ -180,10 +229,10 @@ metadata/_edit_use_anchors_ = true
 [node name="dithering_toggle" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.847917
-anchor_top = 0.540741
-anchor_right = 0.879167
-anchor_bottom = 0.596296
+anchor_left = 0.734375
+anchor_top = 0.531944
+anchor_right = 0.777605
+anchor_bottom = 0.605093
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
@@ -196,15 +245,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1tp7g")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gkljj")
 theme_override_styles/focus = SubResource("StyleBoxFlat_mv3tv")
 toggle_mode = true
-button_pressed = true
 icon = ExtResource("7_w6ev1")
 metadata/_edit_use_anchors_ = true
 
 [node name="downscale_slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 1124.0
+offset_left = 944.0
 offset_top = 665.0
-offset_right = 1681.0
+offset_right = 1501.0
 offset_bottom = 736.0
 min_value = 0.02
 max_value = 1.0
@@ -213,9 +261,9 @@ value = 1.0
 
 [node name="noise_slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 1124.0
+offset_left = 944.0
 offset_top = 743.0
-offset_right = 1681.0
+offset_right = 1501.0
 offset_bottom = 814.0
 max_value = 1.0
 step = 0.1
@@ -223,9 +271,9 @@ value = 0.3
 
 [node name="scanlines_slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 1126.0
+offset_left = 946.0
 offset_top = 822.0
-offset_right = 1683.0
+offset_right = 1503.0
 offset_bottom = 895.0
 max_value = 1.0
 step = 0.1
@@ -233,9 +281,9 @@ value = 0.3
 
 [node name="curvature_slider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 1126.0
+offset_left = 946.0
 offset_top = 910.0
-offset_right = 1683.0
+offset_right = 1503.0
 offset_bottom = 983.0
 min_value = 1.0
 max_value = 1.05
