@@ -18,6 +18,7 @@ func _ready():
 	$scanlines_slider.connect("value_changed", _on_scanlines_changed)
 	$downscale_slider.connect("value_changed", _on_downscale_changed)
 	$curvature_slider.connect("value_changed", _on_curvature_changed)
+	$brightness_slider.connect("value_changed", _on_brightness_changed)
 
 
 func _on_crt_toggled(value:bool) -> void:
@@ -37,8 +38,8 @@ func _on_dithering_toggled(value:bool) -> void:
 
 
 func _on_downscale_changed(value:float) -> void:
-	dither_shader.set("shader_parameter/resolution_scale", 1/value)
-	get_window().scaling_3d_scale = value
+	dither_shader.set("shader_parameter/resolution_scale", value)
+	get_window().scaling_3d_scale = 1/value
 
 
 func _on_noise_changed(value:float) -> void:
@@ -49,6 +50,10 @@ func _on_noise_changed(value:float) -> void:
 func _on_scanlines_changed(value:float) -> void:
 	crt_shader.set("shader_parameter/scanline_opacity", value)
 	#update_brightness()
+
+
+func _on_brightness_changed(value:float) -> void:
+	crt_shader.set("shader_parameter/brightness_multiplier", value)
 
 
 func update_brightness() -> void:

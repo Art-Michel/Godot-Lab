@@ -40,7 +40,7 @@ shader_parameter/bloom_blur_size = 0.0024
 shader_parameter/bloom_blur_subdivisions = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_d0138"]
-font_size = 59
+font_size = 56
 font_color = Color(1, 0.247059, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_weugb"]
@@ -140,9 +140,9 @@ mouse_filter = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 1544.0
-offset_top = 390.0
+offset_top = 419.0
 offset_right = 1902.0
-offset_bottom = 1000.0
+offset_bottom = 1103.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -180,13 +180,18 @@ text = "Curve
 "
 label_settings = SubResource("LabelSettings_d0138")
 
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Brightness"
+label_settings = SubResource("LabelSettings_d0138")
+
 [node name="crt_toggle" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.734375
-anchor_top = 0.373611
+anchor_top = 0.380092
 anchor_right = 0.777605
-anchor_bottom = 0.446759
+anchor_bottom = 0.453241
 offset_bottom = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
@@ -207,9 +212,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.734375
-anchor_top = 0.452315
+anchor_top = 0.458796
 anchor_right = 0.777605
-anchor_bottom = 0.525463
+anchor_bottom = 0.531945
 offset_top = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
@@ -230,9 +235,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.734375
-anchor_top = 0.531944
+anchor_top = 0.538425
 anchor_right = 0.777605
-anchor_bottom = 0.605093
+anchor_bottom = 0.611575
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
@@ -254,17 +259,17 @@ offset_left = 944.0
 offset_top = 665.0
 offset_right = 1501.0
 offset_bottom = 736.0
-min_value = 0.02
-max_value = 1.0
-step = 0.05
+min_value = 1.0
+max_value = 32.0
 value = 1.0
 
 [node name="noise_slider" type="HSlider" parent="."]
 layout_mode = 0
 offset_left = 944.0
-offset_top = 743.0
+offset_top = 746.0
 offset_right = 1501.0
-offset_bottom = 814.0
+offset_bottom = 817.0
+pivot_offset = Vector2(1138, 124)
 max_value = 1.0
 step = 0.1
 value = 0.3
@@ -272,9 +277,9 @@ value = 0.3
 [node name="scanlines_slider" type="HSlider" parent="."]
 layout_mode = 0
 offset_left = 946.0
-offset_top = 822.0
+offset_top = 827.0
 offset_right = 1503.0
-offset_bottom = 895.0
+offset_bottom = 900.0
 max_value = 1.0
 step = 0.1
 value = 0.3
@@ -282,10 +287,20 @@ value = 0.3
 [node name="curvature_slider" type="HSlider" parent="."]
 layout_mode = 0
 offset_left = 946.0
-offset_top = 910.0
+offset_top = 906.0
 offset_right = 1503.0
-offset_bottom = 983.0
+offset_bottom = 979.0
 min_value = 1.0
 max_value = 1.05
 step = 0.005
 value = 1.02
+
+[node name="brightness_slider" type="HSlider" parent="."]
+offset_left = 946.0
+offset_top = 985.0
+offset_right = 1503.0
+offset_bottom = 1058.0
+min_value = 0.8
+max_value = 2.0
+step = 0.05
+value = 1.2
