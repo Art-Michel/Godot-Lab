@@ -1,15 +1,15 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float BLOOM_THRESHOLD:hint_range(0.0, 1.0, 0.01) = 0.125;
-uniform float BLOOM_INTENSITY:hint_range(0.0, 3.0, 0.01) = 1.90;
+uniform float bloom_threshold:hint_range(0.0, 1.0, 0.01) = 0.12;
+uniform float bloom_intensity:hint_range(0.0, 3.0, 0.01) = 1.90;
 
 uniform int bloom_blur_iterations: hint_range(1, 10, 1.0) = 5;
-uniform float bloom_blur_size: hint_range(0, 0.005, 0.0001) = 0.0024;
+uniform float bloom_blur_size: hint_range(0, 0.01 , 0.001) = 0.002;
 uniform int bloom_blur_subdivisions = 8;
 
 vec3 getHDR(vec3 tex) {
-    return max((tex - BLOOM_THRESHOLD) * BLOOM_INTENSITY, vec3(0.0));
+    return max((tex - bloom_threshold) * bloom_intensity, vec3(0.0));
 }
 
 vec3 gaussian(sampler2D sampler, vec2 uv) {
@@ -28,7 +28,7 @@ vec3 gaussian(sampler2D sampler, vec2 uv) {
     }
 
     sum /= float(bloom_blur_iterations * bloom_blur_subdivisions);
-    return sum * BLOOM_INTENSITY;
+    return sum * bloom_intensity;
 }
 
 vec3 blend(vec3 a, vec3 b) {

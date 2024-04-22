@@ -10,6 +10,7 @@ extends Control
 @onready var crt_shader: Material= crt.get_child(0).get_material()
 @onready var preblur_x_shader: Material= preblur_x.get_child(0).get_material()
 @onready var preblur_y_shader: Material= preblur_y.get_child(0).get_material()
+@onready var bloom_shader: Material= bloom.get_child(0).get_material()
 
 func _on_crt_toggled(value:bool) -> void:
 	crt.visible = value
@@ -43,11 +44,18 @@ func _on_scanlines_changed(value:float) -> void:
 func _on_brightness_changed(value:float) -> void:
 	crt_shader.set("shader_parameter/brightness_multiplier", value)
 
+func _on_curvature_changed(value: float) -> void:
+	crt_shader.set("shader_parameter/curve_power", value)
+	
 #func update_brightness() -> void:
 	#var noise_str: float = crt_shader.get("shader_parameter/noise_strength")
 	#var sc_opacity: float = crt_shader.get("shader_parameter/scanline_opacity")
 	#var value: float = 0.8 + sc_opacity * 0.5 + noise_str / 1.5
 	#crt_shader.set("shader_parameter/brightness_multiplier", value)
 
-func _on_curvature_changed(value: float) -> void:
-	crt_shader.set("shader_parameter/curve_power", value)
+
+func _on_bloom_threshold_changed(value:float) -> void:
+	bloom_shader.set("shader_parameter/bloom_threshold", value)
+
+func _on_bloom_intensity_changed(value:float) -> void:
+	bloom_shader.set("shader_parameter/bloom_intensity", value)

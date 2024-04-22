@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=19 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -6,9 +6,10 @@
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
+[ext_resource type="Texture2D" uid="uid://x00yjqxap7ij" path="res://Sprites/Tests/waterfall.png" id="8_a1lea"]
 [ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="9_axh70"]
+[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/dracula.png" id="10_kgd5b"]
 [ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="11_7hcud"]
-[ext_resource type="Texture2D" uid="uid://bi3oy3kdk1bmf" path="res://Sprites/Tests/2ni9FDGinl.png" id="11_g0qcb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -213,10 +214,12 @@ label_settings = SubResource("LabelSettings_lpu47")
 script = ExtResource("5_mfeuk")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_right = 627.0
-offset_bottom = 529.0
-texture = ExtResource("11_g0qcb")
-expand_mode = 1
+offset_left = 5.99997
+offset_top = 0.999985
+offset_right = 1295.0
+offset_bottom = 862.0
+scale = Vector2(0.564119, 0.564119)
+texture = ExtResource("8_a1lea")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
 offset_left = 630.0
@@ -225,4 +228,14 @@ offset_right = 2097.0
 offset_bottom = 1313.0
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("9_axh70")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect2"]
+layout_mode = 0
+offset_left = -2768.0
+offset_top = 2744.0
+offset_right = -1676.0
+offset_bottom = 4054.0
+scale = Vector2(2.60055, 2.60055)
+texture = ExtResource("10_kgd5b")
 stretch_mode = 4

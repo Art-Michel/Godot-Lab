@@ -1,7 +1,7 @@
 shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
-uniform float noise_strength: hint_range(0.0, 1.0, 0.05) = 0.25;
+uniform float noise_strength: hint_range(0.0, 1.0, 0.05) = 0.3;
 
 uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.02;
 uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 6.0;
