@@ -15,12 +15,12 @@ shader_parameter/resolution_scale = 1
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
 shader = ExtResource("3_j385i")
 shader_parameter/step = Vector2(1, 0)
-shader_parameter/radius = 6.0
+shader_parameter/radius = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ax85r"]
 shader = ExtResource("3_j385i")
 shader_parameter/step = Vector2(0, 1)
-shader_parameter/radius = 6.0
+shader_parameter/radius = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pli6x"]
 shader = ExtResource("4_8ls41")

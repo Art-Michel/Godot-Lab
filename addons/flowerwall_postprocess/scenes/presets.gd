@@ -44,19 +44,19 @@ func _on_preset_selected(value:int) -> void:
 			downscale.value = 1.0
 			blur.value = 3.0
 			noise.value = 0.0
-			scanline.value = 0.9
+			scanline.value = 0.5
 			curve.value = 0.0
-			brightness.value = 1.1
+			brightness.value = 1.3
 			bloom_t.value = 0.12
-			bloom_i.value = 2.3
+			bloom_i.value = 1.7
 		3: # CRT TV (Blurry, Noisy)
 			dither.button_pressed = false
 			crt.button_pressed = true
 			downscale.value = 1.0
-			blur.value = 6.0
+			blur.value = 3.0
 			noise.value = 0.3
-			scanline.value = 0.45
+			scanline.value = 0.4
 			curve.value = 1.02
-			brightness.value = 1.2
+			brightness.value = 1.3
 			bloom_t.value = 0.12
-			bloom_i.value = 1.9
+			bloom_i.value = 1.7

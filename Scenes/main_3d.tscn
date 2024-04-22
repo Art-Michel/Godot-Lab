@@ -214,28 +214,27 @@ label_settings = SubResource("LabelSettings_lpu47")
 script = ExtResource("5_mfeuk")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 5.99997
-offset_top = 0.999985
-offset_right = 1295.0
-offset_bottom = 862.0
+offset_left = -60.0
+offset_top = -122.0
+offset_right = 1229.0
+offset_bottom = 739.0
 scale = Vector2(0.564119, 0.564119)
 texture = ExtResource("8_a1lea")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
-offset_left = 630.0
-offset_top = 3.0
-offset_right = 2097.0
-offset_bottom = 1313.0
-scale = Vector2(0.125, 0.125)
-texture = ExtResource("9_axh70")
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+offset_left = 3.0
+offset_top = 192.0
+offset_right = 1095.0
+offset_bottom = 1502.0
+scale = Vector2(0.322398, 0.322398)
+texture = ExtResource("10_kgd5b")
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = -2768.0
-offset_top = 2744.0
-offset_right = -1676.0
-offset_bottom = 4054.0
-scale = Vector2(2.60055, 2.60055)
-texture = ExtResource("10_kgd5b")
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 356.0
+offset_top = 194.0
+offset_right = 1951.0
+offset_bottom = 1618.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("9_axh70")
 stretch_mode = 4
