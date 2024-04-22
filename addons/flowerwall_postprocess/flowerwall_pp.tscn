@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cc1fomjf362h5"]
+[gd_scene load_steps=17 format=3 uid="uid://cc1fomjf362h5"]
 
 [ext_resource type="Script" path="res://addons/flowerwall_postprocess/flowerwall_pp_script.gd" id="1_86jhl"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_njgwi"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blurX.gdshader" id="2_t16tb"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blurY.gdshader" id="3_6nin8"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_kpd3d"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_xks6t"]
 [ext_resource type="Texture2D" uid="uid://y8vvcnbk24yw" path="res://Scenes/153961.jpg" id="7_w6ev1"]
@@ -16,9 +15,13 @@ shader_parameter/resolution_scale = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
 shader = ExtResource("2_t16tb")
+shader_parameter/step = Vector2(0, 1)
+shader_parameter/radius = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ax85r"]
-shader = ExtResource("3_6nin8")
+shader = ExtResource("2_t16tb")
+shader_parameter/step = Vector2(1, 0)
+shader_parameter/radius = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pli6x"]
 shader = ExtResource("4_kpd3d")
@@ -208,28 +211,14 @@ button_pressed = true
 icon = ExtResource("7_w6ev1")
 metadata/_edit_use_anchors_ = true
 
-[node name="preblur_toggle" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.734375
-anchor_top = 0.458796
-anchor_right = 0.777605
-anchor_bottom = 0.531945
-offset_top = 3.05176e-05
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
-theme_override_colors/icon_pressed_color = Color(0.678431, 0.678431, 0.678431, 1)
-theme_override_colors/icon_hover_color = Color(0.627451, 0.627451, 0.627451, 1)
-theme_override_colors/icon_hover_pressed_color = Color(0.870588, 0.870588, 0.870588, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_weugb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_1tp7g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gkljj")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mv3tv")
-toggle_mode = true
-button_pressed = true
-icon = ExtResource("7_w6ev1")
-metadata/_edit_use_anchors_ = true
+[node name="blur_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 946.0
+offset_top = 500.0
+offset_right = 1503.0
+offset_bottom = 573.0
+max_value = 20.0
+value = 5.0
 
 [node name="dithering_toggle" type="Button" parent="."]
 layout_mode = 1
@@ -296,6 +285,7 @@ step = 0.005
 value = 1.02
 
 [node name="brightness_slider" type="HSlider" parent="."]
+layout_mode = 0
 offset_left = 946.0
 offset_top = 985.0
 offset_right = 1503.0

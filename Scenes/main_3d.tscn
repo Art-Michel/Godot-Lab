@@ -214,11 +214,11 @@ scale = Vector2(1.0315, 1.0315)
 texture = ExtResource("8_kh6ls")
 
 [node name="Chrono" type="Sprite2D" parent="."]
-position = Vector2(216.189, 205.479)
-scale = Vector2(0.255666, 0.255666)
+position = Vector2(652, 170)
+scale = Vector2(0.244383, 0.244383)
 texture = ExtResource("9_axh70")
 
 [node name="N5SwAull6m" type="Sprite2D" parent="."]
-position = Vector2(697, 288)
-scale = Vector2(0.91049, 0.91049)
+position = Vector2(233, 266)
+scale = Vector2(0.926484, 0.926484)
 texture = ExtResource("10_ajaqr")

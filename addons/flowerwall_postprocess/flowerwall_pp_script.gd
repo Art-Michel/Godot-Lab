@@ -8,11 +8,13 @@ extends Control
 
 @onready var dither_shader: Material = dither.get_child(0).get_material()
 @onready var crt_shader: Material= crt.get_child(0).get_material()
+@onready var preblur_x_shader: Material= preblur_x.get_child(0).get_material()
+@onready var preblur_y_shader: Material= preblur_y.get_child(0).get_material()
 
 
 func _ready():
 	$crt_toggle.connect("toggled", _on_crt_toggled)
-	$preblur_toggle.connect("toggled", _on_preblur_toggled)
+	$blur_slider.connect("value_changed", _on_preblur_changed)
 	$dithering_toggle.connect("toggled", _on_dithering_toggled)
 	$noise_slider.connect("value_changed", _on_noise_changed)
 	$scanlines_slider.connect("value_changed", _on_scanlines_changed)
@@ -25,9 +27,15 @@ func _on_crt_toggled(value:bool) -> void:
 	crt.visible = value
 	bloom.visible = value
 
-func _on_preblur_toggled(value:bool) -> void:
-	preblur_x.visible = value
-	preblur_y.visible = value
+func _on_preblur_changed(value:float) -> void:
+	preblur_x_shader.set("shader_parameter/radius", value)
+	preblur_y_shader.set("shader_parameter/radius", value)
+	if value > 0:
+		preblur_x.visible = true
+		preblur_y.visible = true
+	else: 
+		preblur_x.visible = false
+		preblur_y.visible = false
 
 func _on_dithering_toggled(value:bool) -> void:
 	dither_shader.set("shader_parameter/dithering", value)
