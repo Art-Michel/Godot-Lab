@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
-[ext_resource type="Shader" path="res://Blur.gdshader" id="3_j385i"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blur.gdshader" id="3_j385i"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_8ls41"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_h5wqk"]
 
