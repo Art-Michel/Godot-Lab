@@ -18,7 +18,7 @@ config/icon="res://Sprites/Tests/shinx.png"
 
 [autoload]
 
-flowerwall_pp_autoload="*res://addons/flowerwall_postprocess/flowerwall_pp.tscn"
+flowerwall_pp_autoload="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 
 [display]
 

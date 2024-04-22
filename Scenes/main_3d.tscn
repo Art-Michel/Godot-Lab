@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=20 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -10,11 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://upeof6jpbemu" path="res://Sprites/Tests/station square.png" id="8_kh6ls"]
 [ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="9_axh70"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="10_ajaqr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
-line_spacing = -8.0
-font = ExtResource("3_muouy")
-font_size = 96
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="11_7hcud"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -53,6 +49,11 @@ material = SubResource("StandardMaterial3D_vjtb4")
 inner_radius = 0.1
 outer_radius = 0.175
 
+[sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
+line_spacing = -8.0
+font = ExtResource("3_muouy")
+font_size = 96
+
 [node name="Node3D" type="Node3D"]
 
 [node name="CamManager" type="Node" parent="." node_paths=PackedStringArray("positions", "camera")]
@@ -85,15 +86,6 @@ transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.78
 transform = Transform3D(1, 0, 0, 0, 0.998695, -0.0510807, 0, 0.0510807, 0.998695, 1.63437, 1.91854, 0.0626006)
 current = true
 fov = 90.2
-
-[node name="fps counter" type="Label" parent="."]
-offset_left = 1346.0
-offset_top = 943.0
-offset_right = 1561.0
-offset_bottom = 1050.0
-text = "FPS: 144"
-label_settings = SubResource("LabelSettings_b3fj5")
-script = ExtResource("5_mfeuk")
 
 [node name="Décor" type="Node3D" parent="."]
 
@@ -222,3 +214,16 @@ texture = ExtResource("9_axh70")
 position = Vector2(233, 266)
 scale = Vector2(0.926484, 0.926484)
 texture = ExtResource("10_ajaqr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FlowerwallCrtConfigUi" parent="CanvasLayer" instance=ExtResource("11_7hcud")]
+
+[node name="fps counter" type="Label" parent="CanvasLayer"]
+offset_left = 31.0
+offset_top = 970.0
+offset_right = 246.0
+offset_bottom = 1077.0
+text = "FPS: 144"
+label_settings = SubResource("LabelSettings_b3fj5")
+script = ExtResource("5_mfeuk")

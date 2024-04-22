@@ -3,7 +3,7 @@ extends EditorPlugin
 
 
 func _enter_tree():
-	add_autoload_singleton("flowerwall_pp_autoload", "flowerwall_pp.tscn")
+	add_autoload_singleton("flowerwall_pp_autoload", "res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn")
 	pass
 
 

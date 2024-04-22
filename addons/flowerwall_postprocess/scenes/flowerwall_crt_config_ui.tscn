@@ -1,0 +1,190 @@
+[gd_scene load_steps=15 format=3 uid="uid://cn74tfmybnhix"]
+
+[ext_resource type="Texture2D" uid="uid://y8vvcnbk24yw" path="res://Scenes/153961.jpg" id="1_rwsbc"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/scanlines_slider.gd" id="2_7o34y"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/brightness_slider.gd" id="2_w8bx6"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/dithering_toggle.gd" id="2_yswg4"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/curvature_slider.gd" id="3_e705y"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/crt_toggle.gd" id="3_hpsg7"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/blur_slider.gd" id="4_tjngb"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/downscale_slider.gd" id="5_4xhw2"]
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/noise_slider.gd" id="6_gyjwn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4uar2"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfvus"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7twe"]
+bg_color = Color(0.65098, 0.65098, 0.65098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h515j"]
+bg_color = Color(0.466667, 0.466667, 0.466667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfrel"]
+bg_color = Color(0.533333, 0.494118, 0.498039, 1)
+
+[node name="FlowerwallCrtConfigUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 1590.0
+offset_top = 13.0
+offset_right = 1899.0
+offset_bottom = 481.0
+
+[node name="Dither" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Dithering"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="CRT" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "CRT"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Downscale" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Downscaling"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Blur" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Preblur"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Noise" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Noise"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Scanlines" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Scanlines"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Curve" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Curving"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Brightness" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Brightness"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="dithering_toggle" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7375
+anchor_top = 0.383333
+anchor_right = 0.78073
+anchor_bottom = 0.456483
+offset_top = -406.0
+offset_bottom = -406.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_colors/icon_pressed_color = Color(0.678431, 0.678431, 0.678431, 1)
+theme_override_colors/icon_hover_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.870588, 0.870588, 0.870588, 1)
+theme_override_colors/icon_focus_color = Color(1, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfvus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v7twe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h515j")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wfrel")
+toggle_mode = true
+icon = ExtResource("1_rwsbc")
+script = ExtResource("2_yswg4")
+metadata/_edit_use_anchors_ = true
+
+[node name="crt_toggle" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7375
+anchor_top = 0.464815
+anchor_right = 0.78073
+anchor_bottom = 0.537964
+offset_top = -406.0
+offset_bottom = -406.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/icon_normal_color = Color(0.219608, 0.219608, 0.219608, 1)
+theme_override_colors/icon_pressed_color = Color(0.678431, 0.678431, 0.678431, 1)
+theme_override_colors/icon_hover_color = Color(0.627451, 0.627451, 0.627451, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.870588, 0.870588, 0.870588, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cfvus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v7twe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h515j")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wfrel")
+toggle_mode = true
+button_pressed = true
+icon = ExtResource("1_rwsbc")
+script = ExtResource("3_hpsg7")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 973.0
+offset_top = 134.0
+offset_right = 1558.0
+offset_bottom = 481.0
+alignment = 1
+
+[node name="downscale_slider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 32.0
+value = 1.0
+script = ExtResource("5_4xhw2")
+
+[node name="blur_slider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 3.0
+max_value = 13.0
+value = 3.0
+script = ExtResource("4_tjngb")
+
+[node name="noise_slider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.1
+value = 0.3
+script = ExtResource("6_gyjwn")
+
+[node name="scanlines_slider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.1
+value = 0.3
+script = ExtResource("2_7o34y")
+
+[node name="curvature_slider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+
+[node name="brightness_slider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 0.8
+max_value = 2.0
+step = 0.05
+value = 1.2
+script = ExtResource("2_w8bx6")

@@ -9,7 +9,7 @@ const float DEFAULT_RADIUS = 10.000000;
 uniform vec2 step;
 
 // Desired blur radius.
-uniform float radius:hint_range(0.0, 10.0, 1) = 10;
+uniform float radius:hint_range(3.0, 13.0, 1) = 10;
 
 void fragment() {
 	vec2 s = radius / DEFAULT_RADIUS * step / vec2(textureSize(screen_texture, 0));
