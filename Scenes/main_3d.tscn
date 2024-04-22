@@ -1,16 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=18 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
-[ext_resource type="FontFile" uid="uid://c2b6djjjes10q" path="res://fonts/Silver.ttf" id="3_muouy"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
-[ext_resource type="Texture2D" uid="uid://upeof6jpbemu" path="res://Sprites/Tests/station square.png" id="8_kh6ls"]
 [ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="9_axh70"]
-[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/N5SwAull6m.png" id="10_ajaqr"]
 [ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="11_7hcud"]
+[ext_resource type="Texture2D" uid="uid://bi3oy3kdk1bmf" path="res://Sprites/Tests/2ni9FDGinl.png" id="11_g0qcb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -49,10 +47,8 @@ material = SubResource("StandardMaterial3D_vjtb4")
 inner_radius = 0.1
 outer_radius = 0.175
 
-[sub_resource type="LabelSettings" id="LabelSettings_b3fj5"]
-line_spacing = -8.0
-font = ExtResource("3_muouy")
-font_size = 96
+[sub_resource type="LabelSettings" id="LabelSettings_lpu47"]
+font_size = 48
 
 [node name="Node3D" type="Node3D"]
 
@@ -199,31 +195,34 @@ script = ExtResource("8_4hn4g")
 speed = 1.5
 amplitude = 0.1
 
-[node name="StationSquare" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(962, 545)
-scale = Vector2(1.0315, 1.0315)
-texture = ExtResource("8_kh6ls")
-
-[node name="Chrono" type="Sprite2D" parent="."]
-position = Vector2(652, 170)
-scale = Vector2(0.244383, 0.244383)
-texture = ExtResource("9_axh70")
-
-[node name="N5SwAull6m" type="Sprite2D" parent="."]
-position = Vector2(233, 266)
-scale = Vector2(0.926484, 0.926484)
-texture = ExtResource("10_ajaqr")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FlowerwallCrtConfigUi" parent="CanvasLayer" instance=ExtResource("11_7hcud")]
 
 [node name="fps counter" type="Label" parent="CanvasLayer"]
-offset_left = 31.0
-offset_top = 970.0
-offset_right = 246.0
-offset_bottom = 1077.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -101.0
+offset_right = 258.0
+offset_bottom = -34.0
+grow_vertical = 0
 text = "FPS: 144"
-label_settings = SubResource("LabelSettings_b3fj5")
+label_settings = SubResource("LabelSettings_lpu47")
 script = ExtResource("5_mfeuk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 627.0
+offset_bottom = 529.0
+texture = ExtResource("11_g0qcb")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+offset_left = 630.0
+offset_top = 3.0
+offset_right = 2097.0
+offset_bottom = 1313.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("9_axh70")
+stretch_mode = 4

@@ -13,7 +13,6 @@ config_version=5
 config/name="Lab"
 run/main_scene="res://Scenes/main_3d.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://Sprites/Tests/im not gonna sugarcoat it.png"
 config/icon="res://Sprites/Tests/shinx.png"
 
 [autoload]
@@ -22,14 +21,18 @@ flowerwall_pp_autoload="*res://addons/flowerwall_postprocess/scenes/flowerwall_p
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1536
+window/size/viewport_height=864
 window/stretch/mode="canvas_items"
-window/vsync/vsync_mode=0
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/flowerwall_postprocess/plugin.cfg")
+
+[physics]
+
+3d/image="res://Sprites/Tests/im not gonna sugarcoat it.png"
+3d/vsync/vsync_mode=0
 
 [rendering]
 

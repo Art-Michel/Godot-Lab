@@ -30,7 +30,7 @@ func _on_dithering_toggled(value:bool) -> void:
 
 func _on_downscale_changed(value:float) -> void:
 	dither_shader.set("shader_parameter/resolution_scale", value)
-	get_window().scaling_3d_scale = 1/value
+	#get_window().scaling_3d_scale = 1/value
 
 func _on_noise_changed(value:float) -> void:
 	crt_shader.set("shader_parameter/noise_strength", value)
