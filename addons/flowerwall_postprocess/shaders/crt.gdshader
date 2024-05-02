@@ -17,8 +17,8 @@ group_uniforms curving_settings;
 uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.02;
 
 group_uniforms vignette_settings;
-uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 6.0;
-uniform float vignette_smoothness: hint_range(0.05, 5.0, 0.05) = 2.0;
+uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 0.4;
+uniform float vignette_smoothness: hint_range(0.05, 5.0, 0.05) = 0.4;
 
 group_uniforms scanlines_settings;
 uniform float scanlines_interval: hint_range(0.0, 20.0, 1.0) = 6.0;
@@ -60,8 +60,8 @@ void fragment()
 	
 	if(enable_vhs_wiggle)
 	{
-		xy.x += (v2random(vec2(xy.y / 10.0, TIME / 10.0) / 1.0) - 0.5) * wiggle;
-		xy.x += (v2random(vec2(xy.y, TIME * 10.0)) - 0.5) * wiggle;
+		xy.x += (v2random(vec2(xy.y / 10.0, TIME / 10.0) / 1.0) - 0.5) * wiggle *0.1;
+		xy.x += (v2random(vec2(xy.y, TIME * 10.0)) - 0.5) * wiggle * 0.1;
 	}
 	
 	if(enable_curving)
@@ -120,8 +120,8 @@ void fragment()
 	{
 		vec2 uv = SCREEN_UV;
 		uv *=  1.0 - uv.yx;
-		float vig = uv.x*uv.y * vignette_size * 1000.0; 
-		vig = pow(vig, vignette_smoothness);
+		float vig = uv.x*uv.y / vignette_size * 1000.0; 
+		vig = pow(vig, 1.0/vignette_smoothness);
 		color.rgb -= 1.0-(clamp(vig,0,1));
 	}
 	
