@@ -3,5 +3,6 @@
 [resource]
 device = -1
 ctrl_pressed = true
+pressed = true
 keycode = 32
 unicode = 32

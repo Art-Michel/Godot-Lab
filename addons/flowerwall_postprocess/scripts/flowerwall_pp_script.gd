@@ -25,9 +25,9 @@ func _on_preblur_changed(value:float) -> void:
 func _on_dithering_toggled(value:bool) -> void:
 	dither_shader.set("shader_parameter/dithering", value)
 	var coldep: float
-	if value: coldep = 4
-	else: coldep = 8
-	dither_shader.set("shader_parameter/color_depth", coldep)
+	#if value: coldep = 4
+	#else: coldep = 8
+	#dither_shader.set("shader_parameter/color_depth", coldep)
 
 func _on_downscale_changed(value:float) -> void:
 	dither_shader.set("shader_parameter/resolution_scale", value)
