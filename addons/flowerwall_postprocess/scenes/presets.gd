@@ -60,3 +60,4 @@ func _on_preset_selected(value:int) -> void:
 			brightness.value = 1.3
 			bloom_t.value = 0.12
 			bloom_i.value = 1.7
+		4: # VHS Tape (

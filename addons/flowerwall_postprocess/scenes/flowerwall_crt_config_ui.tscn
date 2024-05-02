@@ -11,8 +11,11 @@
 [ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/bloom_threshold_slider.gd" id="9_o2frr"]
 [ext_resource type="Script" path="res://addons/flowerwall_postprocess/scenes/bloom_intensity_slider.gd" id="10_viuso"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_4uar2"]
+[sub_resource type="LabelSettings" id="LabelSettings_my6d0"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_4uar2"]
+font_size = 17
 
 [sub_resource type="GDScript" id="GDScript_ueuo1"]
 script/source = "extends HSlider
@@ -21,213 +24,69 @@ func _ready() -> void:
 	connect(\"value_changed\", flowerwall_pp_autoload._on_preblur_changed)
 "
 
-[sub_resource type="LabelSettings" id="LabelSettings_my6d0"]
-font_size = 32
-
 [node name="FlowerwallCrtConfigUi" type="ColorRect"]
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 816.0
-offset_right = 1.0
-offset_bottom = -348.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -576.0
+offset_bottom = 755.0
+grow_horizontal = 0
 color = Color(0.121569, 0.121569, 0.121569, 0.721569)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -185.5
-offset_right = -19.0
-offset_bottom = 202.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Dither" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Dithering"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="CRT" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "CRT"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Downscale" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Downscaling"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Blur" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Preblur"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Noise" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Noise"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Scanlines" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Scanlines"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Curve" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Curving"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Brightness" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Brightness"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Bloom Threshold" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Bloom Threshold"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Bloom Intensity" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Bloom Intensity"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="dithering_toggle" type="CheckButton" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 382.0
-offset_top = -223.0
-offset_right = 426.0
-offset_bottom = -199.0
-grow_vertical = 2
-script = ExtResource("2_yswg4")
-
-[node name="crt_toggle" type="CheckButton" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 382.0
-offset_top = -172.0
-offset_right = 426.0
-offset_bottom = -148.0
-grow_vertical = 2
-button_pressed = true
-script = ExtResource("3_hpsg7")
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 17.0
-offset_top = -133.5
-offset_right = 430.0
-offset_bottom = 250.5
-grow_vertical = 2
-alignment = 1
-
-[node name="downscale_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 1.0
-max_value = 32.0
-value = 1.0
-script = ExtResource("5_4xhw2")
-
-[node name="blur_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 9.0
-value = 6.0
-script = SubResource("GDScript_ueuo1")
-
-[node name="noise_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-value = 0.3
-script = ExtResource("6_gyjwn")
-
-[node name="scanlines_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-value = 0.45
-script = ExtResource("2_7o34y")
-
-[node name="curvature_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 1.0
-max_value = 1.05
-step = 0.005
-value = 1.02
-script = ExtResource("3_e705y")
-
-[node name="brightness_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 0.8
-max_value = 2.0
-step = 0.05
-value = 1.2
-script = ExtResource("2_w8bx6")
-
-[node name="bloom_threshold_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.01
-value = 0.12
-script = ExtResource("9_o2frr")
-
-[node name="bloom_intensity_slider" type="HSlider" parent="VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 3.0
-step = 0.1
-value = 1.9
-script = ExtResource("10_viuso")
-
 [node name="Presets" type="OptionButton" parent="." node_paths=PackedStringArray("dither", "crt", "downscale", "blur", "noise", "scanline", "curve", "brightness", "bloom_t", "bloom_i")]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 67.0
-offset_right = 265.0
-offset_bottom = 98.0
-item_count = 4
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.5
+offset_top = 55.0
+offset_right = 75.5
+offset_bottom = 86.0
+grow_horizontal = 2
+item_count = 5
 selected = 3
 popup/item_0/text = "Sharp"
 popup/item_0/id = 0
-popup/item_1/text = "Sharp low-res"
+popup/item_1/text = "Crisp low-res"
 popup/item_1/id = 1
 popup/item_2/text = "Sharp CRT"
 popup/item_2/id = 2
 popup/item_3/text = "CRT TV"
 popup/item_3/id = 3
+popup/item_4/text = "VHS Tape"
+popup/item_4/id = 4
 script = ExtResource("9_4i7tj")
-dither = NodePath("../dithering_toggle")
-crt = NodePath("../crt_toggle")
-downscale = NodePath("../VBoxContainer2/downscale_slider")
-blur = NodePath("../VBoxContainer2/blur_slider")
-noise = NodePath("../VBoxContainer2/noise_slider")
-scanline = NodePath("../VBoxContainer2/scanlines_slider")
-curve = NodePath("../VBoxContainer2/curvature_slider")
-brightness = NodePath("../VBoxContainer2/brightness_slider")
-bloom_t = NodePath("../VBoxContainer2/bloom_threshold_slider")
-bloom_i = NodePath("../VBoxContainer2/bloom_intensity_slider")
+dither = NodePath("../Buttons/dithering_toggle")
+crt = NodePath("../Buttons/RGB_grid_toggle")
+downscale = NodePath("../Buttons/downscale_slider")
+blur = NodePath("../Buttons/blur_slider")
+noise = NodePath("../Buttons/grain_slider")
+scanline = NodePath("../Buttons/scanlines_opacity_slider")
+curve = NodePath("../Buttons/curvature_slider")
+brightness = NodePath("../Buttons/brightness_modifier_slider")
+bloom_t = NodePath("../Buttons/bloom_threshold_slider")
+bloom_i = NodePath("../Buttons/bloom_intensity_slider")
+popup/item_0/text = "Sharp"
+popup/item_0/icon = null
+popup/item_0/id = 0
+popup/item_0/disabled = false
+popup/item_0/separator = false
+popup/item_1/text = "Crisp low-res"
+popup/item_1/icon = null
+popup/item_1/id = 1
+popup/item_1/disabled = false
+popup/item_1/separator = false
+popup/item_2/text = "Sharp CRT"
+popup/item_2/icon = null
+popup/item_2/id = 2
+popup/item_2/disabled = false
+popup/item_2/separator = false
+popup/item_3/text = "CRT TV"
+popup/item_3/icon = null
+popup/item_3/id = 3
+popup/item_3/disabled = false
+popup/item_3/separator = false
+popup/item_4/text = "VHS Tape"
 
 [node name="Preset" type="Label" parent="Presets"]
 layout_mode = 1
@@ -241,3 +100,491 @@ grow_vertical = 2
 text = "Preset"
 label_settings = SubResource("LabelSettings_my6d0")
 horizontal_alignment = 1
+
+[node name="Labels" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -244.0
+offset_top = -645.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Enable Dithering" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Dithering"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Color Depth" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Color Depth"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Downscaling" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Downscaling"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Pre-Blur" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Pre-Blur"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Pre-Blur Strength" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Pre-Blur Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Grain" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Grain"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Grain Strength" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Grain Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Scanlines" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Scanlines"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Scanlines Opacity" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Scanlines Opacity"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Curving" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Curving"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Curving Strength" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Curving Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Vignette" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Vignette"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Vignette Size" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Vignette Size"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Vignette smoothness" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Vignette smoothness"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable VHS Wiggle" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable VHS Wiggle"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="VHS Wiggle Strength" type="Label" parent="Labels"]
+layout_mode = 2
+text = "VHS Wiggle Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Chromatic Aberration" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Chromatic Aberration"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Chrom_ Aberration Strength" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Chrom. Aberration Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable RGB Grid" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable RGB Grid"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Brightness" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Brightness"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Enable Post-Bloom" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Enable Post-Bloom"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Bloom Threshold" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Bloom Threshold"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Bloom Intensity" type="Label" parent="Labels"]
+layout_mode = 2
+text = "Bloom Intensity"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -511.0
+offset_top = -645.0
+offset_right = -252.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="dithering_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="downscale_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 32.0
+value = 1.0
+script = ExtResource("5_4xhw2")
+
+[node name="color_depth_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 32.0
+value = 1.0
+script = ExtResource("5_4xhw2")
+
+[node name="preblur_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="blur_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 9.0
+value = 6.0
+script = SubResource("GDScript_ueuo1")
+
+[node name="grain_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="grain_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+value = 0.3
+script = ExtResource("6_gyjwn")
+
+[node name="scanlines_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="scanlines_opacity_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.05
+value = 0.45
+script = ExtResource("2_7o34y")
+
+[node name="curving_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="curvature_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+
+[node name="vignette_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="vignette_size" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+
+[node name="vignette_smoothness" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+
+[node name="VHS_wiggle_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="VHS_wiggle_strength" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+
+[node name="chroma_aberr_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="chroma_aberr_strength" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+
+[node name="RGB_grid_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("3_hpsg7")
+
+[node name="brightness_modifier_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+min_value = 0.8
+max_value = 2.0
+step = 0.05
+value = 1.2
+script = ExtResource("2_w8bx6")
+
+[node name="bloom_toggle" type="CheckButton" parent="Buttons"]
+layout_mode = 2
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+
+[node name="bloom_threshold_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+value = 0.12
+script = ExtResource("9_o2frr")
+
+[node name="bloom_intensity_slider" type="HSlider" parent="Buttons"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 3.0
+step = 0.1
+value = 1.9
+script = ExtResource("10_viuso")
+
+[node name="Number" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -645.0
+offset_right = 57.0
+offset_bottom = -5.0
+grow_vertical = 0
+
+[node name="Enable Dithering Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Color Depth Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Downscaling Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Pre-Blur Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Pre-Blur Strength Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Grain Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Grain Strength Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Scanlines Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Scanlines Opacity Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Curving Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Curving Strength Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Vignette Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Vignette Size Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Vignette smoothness Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable VHS Wiggle Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="VHS Wiggle Strength Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Chromatic Aberration Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Chrom_ Aberration Strength Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable RGB Grid Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Brightness Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Enable Post-Bloom Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "True"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Bloom Threshold Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
+
+[node name="Bloom Intensity Number" type="Label" parent="Number"]
+layout_mode = 2
+text = "110.0
+"
+label_settings = SubResource("LabelSettings_4uar2")
+horizontal_alignment = 2
