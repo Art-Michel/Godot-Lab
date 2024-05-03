@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=21 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -7,7 +7,11 @@
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Script" path="res://Scripts/Screenshaker.gd" id="8_hmmnb"]
+[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/dracula.png" id="9_aptmn"]
+[ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="10_fpk3h"]
 [ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="11_7hcud"]
+[ext_resource type="Texture2D" uid="uid://x00yjqxap7ij" path="res://Sprites/Tests/waterfall.png" id="11_f0at6"]
+[ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/yellowrat.png" id="12_tseb0"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -214,3 +218,24 @@ script = ExtResource("5_mfeuk")
 
 [node name="Screenshaker" type="Node" parent="."]
 script = ExtResource("8_hmmnb")
+
+[node name="Dracula" type="Sprite2D" parent="."]
+position = Vector2(228, 278)
+scale = Vector2(0.594255, 0.594255)
+texture = ExtResource("9_aptmn")
+
+[node name="Chrono" type="Sprite2D" parent="."]
+position = Vector2(591, 192)
+scale = Vector2(0.15988, 0.15988)
+texture = ExtResource("10_fpk3h")
+
+[node name="Waterfall" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(705, 673)
+scale = Vector2(0.492932, 0.492932)
+texture = ExtResource("11_f0at6")
+
+[node name="Yellowrat" type="Sprite2D" parent="."]
+position = Vector2(226, 658.641)
+scale = Vector2(0.247793, 0.247793)
+texture = ExtResource("12_tseb0")

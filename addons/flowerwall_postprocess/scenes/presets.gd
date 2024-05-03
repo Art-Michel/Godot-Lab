@@ -74,9 +74,9 @@ func _on_preset_selected(value:int) -> void:
 			bloom_i.value = 0.0
 
 		1: # (Dithered, pixelated)
-			dither.button_pressed = false
-			color_depth.value = 8
-			downscale.value = 1.0
+			dither.button_pressed = true
+			color_depth.value = 4
+			downscale.value = 5.0
 
 			preblur.button_pressed = false
 			preblur_sl.value = 0.0
@@ -112,68 +112,68 @@ func _on_preset_selected(value:int) -> void:
 			color_depth.value = 8
 			downscale.value = 1.0
 
-			preblur.button_pressed = false
-			preblur_sl.value = 0.0
+			preblur.button_pressed = true
+			preblur_sl.value = 3.0
 
 			grain.button_pressed = false
 			grain_sl.value = 0.0
 
-			scanlines.button_pressed = false
-			scanlines_sl.value = 0.0
+			scanlines.button_pressed = true
+			scanlines_sl.value = 0.6
 
 			curve.button_pressed = false
-			curve_sl.value = 1.0
+			curve_sl.value = 1.00
 
 			vignette.button_pressed = false;
 			vignette_size_sl.value = 0.1
 			vignette_smoothness_sl.value = 0.05
 
 			wiggle.button_pressed = false
-			wiggle_sl.value = 0.0
+			wiggle_sl.value = 0.02
 
-			chromaberr.button_pressed = false
-			chromaberr_sl.value = 0.0
+			chromaberr.button_pressed = true
+			chromaberr_sl.value = 1.0
 
-			rgb_grid.button_pressed = false
-			brightness.value = 1.0
+			rgb_grid.button_pressed = true
+			brightness.value = 1.
 
-			bloom.button_pressed = false
-			bloom_t.value = 0.0
-			bloom_i.value = 0.0
+			bloom.button_pressed = true
+			bloom_t.value = 0.14
+			bloom_i.value = 2.1
 
 		3: # CRT TV (Blurry, Noisy)
 			dither.button_pressed = false
 			color_depth.value = 8
 			downscale.value = 1.0
 
-			preblur.button_pressed = false
-			preblur_sl.value = 0.0
+			preblur.button_pressed = true
+			preblur_sl.value = 5.0
 
-			grain.button_pressed = false
-			grain_sl.value = 0.0
+			grain.button_pressed = true
+			grain_sl.value = 0.25
 
-			scanlines.button_pressed = false
-			scanlines_sl.value = 0.0
+			scanlines.button_pressed = true
+			scanlines_sl.value = 0.45
 
-			curve.button_pressed = false
-			curve_sl.value = 1.0
+			curve.button_pressed = true
+			curve_sl.value = 1.03
 
-			vignette.button_pressed = false;
-			vignette_size_sl.value = 0.1
-			vignette_smoothness_sl.value = 0.05
+			vignette.button_pressed = true;
+			vignette_size_sl.value = 0.4
+			vignette_smoothness_sl.value = 0.4
 
-			wiggle.button_pressed = false
-			wiggle_sl.value = 0.0
+			wiggle.button_pressed = true
+			wiggle_sl.value = 0.02
 
-			chromaberr.button_pressed = false
-			chromaberr_sl.value = 0.0
+			chromaberr.button_pressed = true
+			chromaberr_sl.value = 1.0
 
-			rgb_grid.button_pressed = false
-			brightness.value = 1.0
+			rgb_grid.button_pressed = true
+			brightness.value = 1.05
 
-			bloom.button_pressed = false
-			bloom_t.value = 0.0
-			bloom_i.value = 0.0
+			bloom.button_pressed = true
+			bloom_t.value = 0.14
+			bloom_i.value = 2.2
 
 		4: # VHS Tape (
 			dither.button_pressed = false
