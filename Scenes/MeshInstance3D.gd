@@ -8,5 +8,5 @@ func _ready() -> void:
 	initial_pos = position
 
 func _process(delta: float) -> void:
-	position.y = initial_pos.y + sin(Time.get_ticks_msec() *0.001 * speed) * amplitude
-	rotation.y = Time.get_ticks_msec() *0.001 * speed
+	position.y = initial_pos.y + sin(Time.get_ticks_msec() * Engine.time_scale *0.001 * speed) * amplitude
+	rotation.y = Time.get_ticks_msec() *0.001 * speed * Engine.time_scale

@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=24 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
+[ext_resource type="Script" path="res://Scenes/box.gd" id="5_fcgxb"]
 [ext_resource type="Script" path="res://Scripts/fps counter.gd" id="5_mfeuk"]
 [ext_resource type="Script" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Script" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="11_7hcud"]
 [ext_resource type="Texture2D" uid="uid://x00yjqxap7ij" path="res://Sprites/Tests/waterfall.png" id="11_f0at6"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/yellowrat.png" id="12_tseb0"]
+[ext_resource type="Script" path="res://Scripts/freezer.gd" id="13_mhuw3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -52,6 +54,10 @@ outer_radius = 0.175
 
 [sub_resource type="LabelSettings" id="LabelSettings_lpu47"]
 font_size = 48
+
+[sub_resource type="Curve" id="Curve_842pf"]
+_data = [Vector2(0, 0.001), 0.0, 0.0, 0, 0, Vector2(0.82, 0.001), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.4, 0.0, 0, 0]
+point_count = 3
 
 [node name="Node3D" type="Node3D"]
 
@@ -108,6 +114,7 @@ material = SubResource("StandardMaterial3D_2n0dr")
 [node name="Box" type="CSGBox3D" parent="Décor"]
 transform = Transform3D(0.871574, 0, -0.490265, 0, 1, 0, 0.490265, 0, 0.871574, 2.91117, 0.638542, -2.75153)
 material = SubResource("StandardMaterial3D_2n0dr")
+script = ExtResource("5_fcgxb")
 
 [node name="Box2" type="CSGBox3D" parent="Décor"]
 transform = Transform3D(0.99848, 0, -0.0551072, 0, 1, 0, 0.0551072, 0, 0.99848, 4.14201, 0.627497, -2.68423)
@@ -116,87 +123,99 @@ material = SubResource("StandardMaterial3D_2n0dr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -3.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -4.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -5.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -6.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -2.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0.970123, -1.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -3.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -4.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -5.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -6.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D11" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -2.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="MeshInstance3D12" type="MeshInstance3D" parent="Décor"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.187246, 0.970123, -1.92111)
+visible = false
 mesh = SubResource("TorusMesh_ju6hj")
 script = ExtResource("8_4hn4g")
-speed = 1.5
-amplitude = 0.1
+speed = 0.5
+amplitude = 0.05
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 110
@@ -239,3 +258,8 @@ texture = ExtResource("11_f0at6")
 position = Vector2(226, 658.641)
 scale = Vector2(0.247793, 0.247793)
 texture = ExtResource("12_tseb0")
+
+[node name="Timer" type="Node" parent="."]
+script = ExtResource("13_mhuw3")
+t_max = 1.0
+curve = SubResource("Curve_842pf")
