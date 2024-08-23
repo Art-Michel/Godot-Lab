@@ -15,7 +15,6 @@ func _init(speed: float, duration: float):
 	curve.add_point(Vector2(0.8,_speed))
 	curve.add_point(Vector2(1,1),10)
 	curve.bake()
-	get_tree().current_scene.add_child(self)
 
 func _process(delta: float) -> void:
 	delta /= Engine.time_scale

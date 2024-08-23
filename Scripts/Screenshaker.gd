@@ -11,6 +11,6 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		freezer.new(0.0001, 2.0)
+		get_tree().root.add_child(freezer.new(0.0001, 2.0))
 	if event.is_action_pressed("ui_cancel"):
-		freezer.new(0.5, 2.0)
+		get_tree().root.add_child(freezer.new(0.5, 2.0))
