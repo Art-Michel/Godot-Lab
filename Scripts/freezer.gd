@@ -1,21 +1,29 @@
-extends Node
+class_name freezer extends Node
 
-@export var t_max := 5.0
-var t := 0.0
+var _t_max : float
+var _t : float
+var _speed : float
 @export var curve : Curve
 
-func _enter_tree() -> void:
-	Engine.time_scale = 0.001
-	pass
+func _init(speed: float, duration: float):
+	_t_max = duration
+	_speed = speed
+	Engine.time_scale = _speed
+	#set up Curve
+	curve = Curve.new()
+	curve.add_point(Vector2(0,_speed))
+	curve.add_point(Vector2(0.8,_speed))
+	curve.add_point(Vector2(1,1),10)
+	curve.bake()
+	get_tree().current_scene.add_child(self)
 
 func _process(delta: float) -> void:
 	delta /= Engine.time_scale
 	update_freeze(delta)
 
 func update_freeze(delta: float) -> void:
-	t += delta
-	Engine.time_scale = curve.sample(remap(t, 0, t_max, 0.001, 1))
-	if t > t_max:
-		print("freeze over")
-		Engine.time_scale = 1
+	_t += delta
+	Engine.time_scale = curve.sample(_t)
+	if _t > _t_max:
+		Engine.time_scale = 1.0
 		get_parent().remove_child(self)

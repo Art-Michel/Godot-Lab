@@ -232,7 +232,6 @@ script = ExtResource("5_mfeuk")
 
 [node name="Screenshaker" type="Node" parent="."]
 script = ExtResource("8_hmmnb")
-i = 1.0
 
 [node name="Dracula" type="Sprite2D" parent="."]
 visible = false
