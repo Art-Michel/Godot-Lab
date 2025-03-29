@@ -3,10 +3,10 @@ extends Node
 
 func _process(delta: float) -> void:
 	i -= delta
-	print(delta)
+	#print(delta)
 	if i <= 0:
 		i = 2
-		print("over")
+		#print("over")
 
 
 func _input(event: InputEvent) -> void:
