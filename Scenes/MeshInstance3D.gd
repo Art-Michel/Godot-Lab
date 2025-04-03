@@ -1,7 +1,7 @@
 extends MeshInstance3D
 
 @export_range(0,2,0.1) var speed: float
-@export_range(0,1,0.05) var amplitude: float
+@export_range(-1,1,0.05) var amplitude: float
 var initial_pos: Vector3
 
 func _ready() -> void:
