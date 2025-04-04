@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=22 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d0rpaf7w7di6n" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Script" uid="uid://bytarhu8wr7qb" path="res://Scripts/Screenshaker.gd" id="8_hmmnb"]
 [ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/dracula.png" id="9_aptmn"]
+[ext_resource type="Shader" uid="uid://bxgchxp4h4ic" path="res://shaders/woob.gdshader" id="9_jfrqb"]
 [ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="10_fpk3h"]
 [ext_resource type="Texture2D" uid="uid://dtojqucwy6cne" path="res://Sprites/tumblr_ad5b56752939add79a6ca17ad015c08b_1954126f_1280.png" id="10_rnmgt"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/yellowrat.png" id="12_tseb0"]
@@ -26,7 +27,7 @@ background_color = Color(1, 1, 1, 1)
 sky = SubResource("Sky_j6wtq")
 ambient_light_source = 2
 ambient_light_color = Color(0.345098, 0.545098, 0.796078, 1)
-tonemap_mode = 4
+tonemap_mode = 2
 sdfgi_use_occlusion = true
 glow_enabled = true
 fog_light_color = Color(0.327621, 0.36289, 0.442149, 1)
@@ -54,6 +55,12 @@ outer_radius = 0.175
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jfrqb"]
 shader = ExtResource("7_rnmgt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cciro"]
+shader = ExtResource("9_jfrqb")
+shader_parameter/amplitude = 0.025
+shader_parameter/frequency = 10.825
+shader_parameter/speed = 3.835
 
 [node name="Node3D" type="Node3D"]
 
@@ -314,7 +321,6 @@ script = ExtResource("8_hmmnb")
 i = 1.0
 
 [node name="Dracula" type="Sprite2D" parent="."]
-visible = false
 texture_repeat = 2
 material = SubResource("ShaderMaterial_jfrqb")
 position = Vector2(223, 278)
@@ -322,19 +328,18 @@ scale = Vector2(0.594255, 0.594255)
 texture = ExtResource("9_aptmn")
 
 [node name="Chrono" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(848, 217)
+material = SubResource("ShaderMaterial_cciro")
+position = Vector2(930, 228)
 scale = Vector2(0.15988, 0.15988)
 texture = ExtResource("10_fpk3h")
+offset = Vector2(-10, -10)
 
 [node name="Waterfall" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(567, 320)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_rnmgt")
 
 [node name="Yellowrat" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(226, 658.641)
 scale = Vector2(0.247793, 0.247793)
 texture = ExtResource("12_tseb0")
