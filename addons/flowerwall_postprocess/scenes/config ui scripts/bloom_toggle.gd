@@ -1,10 +1,11 @@
 extends Button
 @export var mytext:Label
+@onready var flowerwall_pp: flowerwallPP = $"../../../.."
 
 func _ready() -> void:
-	connect("toggled", flowerwall_pp_autoload._on_bloom_enabled)
+	connect("toggled", flowerwall_pp._on_bloom_enabled)
 	connect("toggled", _on_value_changed)
-	button_pressed = flowerwall_pp_autoload.bloom.visible
+	button_pressed = flowerwall_pp.post_bloom.visible
 	mytext.text = str(button_pressed)
 	
 func _on_value_changed(a: bool) -> void:

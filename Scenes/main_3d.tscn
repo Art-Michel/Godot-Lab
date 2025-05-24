@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=23 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="10_fpk3h"]
 [ext_resource type="Texture2D" uid="uid://dtojqucwy6cne" path="res://Sprites/tumblr_ad5b56752939add79a6ca17ad015c08b_1954126f_1280.png" id="10_rnmgt"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/yellowrat.png" id="12_tseb0"]
+[ext_resource type="PackedScene" uid="uid://cc1fomjf362h5" path="res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn" id="13_cciro"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
 panorama = ExtResource("2_g2afp")
@@ -343,3 +344,5 @@ texture = ExtResource("10_rnmgt")
 position = Vector2(226, 658.641)
 scale = Vector2(0.247793, 0.247793)
 texture = ExtResource("12_tseb0")
+
+[node name="flowerwall_pp" parent="." instance=ExtResource("13_cciro")]

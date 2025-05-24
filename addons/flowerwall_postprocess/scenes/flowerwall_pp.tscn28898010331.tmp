@@ -37,7 +37,7 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_4uar2"]
 font_size = 17
 
-[node name="flowerwall_pp" type="Control" node_paths=PackedStringArray("flowerwall_crt_config_ui", "preblur_x", "preblur_y", "post_bloom")]
+[node name="flowerwall_pp" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,10 +47,6 @@ offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sc4md")
-flowerwall_crt_config_ui = NodePath("FlowerwallCrtConfigUi")
-preblur_x = NodePath("preblur_x")
-preblur_y = NodePath("preblur_y")
-post_bloom = NodePath("post_bloom")
 
 [node name="FlowerwallCrtConfigUi" type="ColorRect" parent="."]
 visible = false

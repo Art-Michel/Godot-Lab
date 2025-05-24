@@ -1,10 +1,11 @@
 extends HSlider
 @export var mytext:Label
+@onready var flowerwall_pp: flowerwallPP = $"../../../.."
 
 func _ready() -> void:
-	connect("value_changed", flowerwall_pp_autoload._on_curvature_changed)
+	connect("value_changed", flowerwall_pp._on_downscale_changed)
 	connect("value_changed", _on_value_changed)
-	value = flowerwall_pp_autoload.crt_shader.get("shader_parameter/curve_power")
+	value = flowerwallPP.DITHERING_SHADER.get("shader_parameter/resolution_scale")
 	mytext.text = str(value)
 	
 func _on_value_changed(a: float) -> void:

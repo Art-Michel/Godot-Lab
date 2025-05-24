@@ -7,13 +7,13 @@ var prevTrans: Transform3D
 var targetTrans: Transform3D
 var t: float = 0.0
 var moving: bool = false
+const DITHERING_SHADER = preload("res://addons/flowerwall_postprocess/shaders/dithering_shader.material")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_left"):
 		MoveCam(-1)
 	if event.is_action_pressed("ui_right"):
 		MoveCam(1)
-
 func _ready() -> void:
 	prevTrans = positions[0].transform
 	targetTrans = positions[0].transform
