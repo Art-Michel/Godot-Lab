@@ -8,7 +8,7 @@ void fragment() {
 	uv.y += sin((uv.x * frequency + TIME * speed)) * amplitude;
 	uv.y*= 1. + amplitude * 2.2;
 	uv.y-= amplitude *1.1;
-	
+
 	COLOR.rgba = texture(TEXTURE, uv);
 	COLOR.a = step(0.0, uv.y);
 	COLOR.a -= step(1.0, uv.y);

@@ -1,10 +1,11 @@
 class_name flowerwallPP
 extends Control
 
-@export var flowerwall_crt_config_ui: ColorRect
+@export var flowerwall_crt_config_ui: CanvasLayer
 @export var preblur_x: CanvasLayer
 @export var preblur_y: CanvasLayer
 @export var post_bloom: CanvasLayer
+@export var crt: CanvasLayer
 
 
 const BLOOM_SHADER = preload("res://addons/flowerwall_postprocess/shaders/bloom_shader.material")
@@ -13,9 +14,14 @@ const BLURY_SHADER = preload("res://addons/flowerwall_postprocess/shaders/blury_
 const CRT_SHADER = preload("res://addons/flowerwall_postprocess/shaders/crt_shader.material")
 const DITHERING_SHADER = preload("res://addons/flowerwall_postprocess/shaders/dithering_shader.material")
 
-func _unhandled_input(event):
+func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_F7:
+		if event.pressed and event.keycode == KEY_F1:
+			flowerwall_crt_config_ui.visible = !flowerwall_crt_config_ui.visible
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventAction:
+		if event.pressed and event.action == "crt_menu":
 			flowerwall_crt_config_ui.visible = !flowerwall_crt_config_ui.visible
 
 func _on_dithering_toggled(value:bool) -> void:
@@ -84,3 +90,12 @@ func _on_bloom_threshold_changed(value:float) -> void:
 	BLOOM_SHADER.set("shader_parameter/bloom_threshold", value)
 func _on_bloom_intensity_changed(value:float) -> void:
 	BLOOM_SHADER.set("shader_parameter/bloom_intensity", value)
+
+
+#func _on_visibility_changed() -> void:
+	#flowerwall_crt_config_ui.visible = is_visible_in_tree()
+	#preblur_x.visible = is_visible_in_tree()
+	#preblur_y.visible = is_visible_in_tree()
+	#crt.visible = is_visible_in_tree()
+	#post_bloom.visible = is_visible_in_tree()
+	#pass # Replace with function body.
