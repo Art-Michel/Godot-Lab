@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
-[ext_resource type="Texture2D" uid="uid://hgjf0m5bro0s" path="res://Sprites/Tests/skybox.png" id="2_g2afp"]
+[ext_resource type="Script" uid="uid://05tiuwucku10" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="2_p4mam"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
 [ext_resource type="Script" uid="uid://cbmnqje25kmr" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
 [ext_resource type="Shader" uid="uid://bjcvw0ax85sbk" path="res://Scenes/main_3d.tres" id="7_rnmgt"]
@@ -12,20 +12,15 @@
 [ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="10_fpk3h"]
 [ext_resource type="Texture2D" uid="uid://dtojqucwy6cne" path="res://Sprites/tumblr_ad5b56752939add79a6ca17ad015c08b_1954126f_1280.png" id="10_rnmgt"]
 [ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/yellowrat.png" id="12_tseb0"]
-[ext_resource type="PackedScene" uid="uid://cc1fomjf362h5" path="res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn" id="13_cciro"]
+[ext_resource type="Script" uid="uid://yduu3nrae050" path="res://Scenes/node.gd" id="15_p4mam"]
+[ext_resource type="Resource" uid="uid://cvklw5ika1tao" path="res://addons/shaker/data/resources/shaker_earthquake3D.tres" id="16_vgrj3"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xnnwy"]
-panorama = ExtResource("2_g2afp")
-filter = false
-energy_multiplier = 1.15
-
-[sub_resource type="Sky" id="Sky_j6wtq"]
-sky_material = SubResource("PanoramaSkyMaterial_xnnwy")
+[sub_resource type="Sky" id="Sky_vgrj3"]
 
 [sub_resource type="Environment" id="Environment_vl8a5"]
 background_mode = 2
 background_color = Color(1, 1, 1, 1)
-sky = SubResource("Sky_j6wtq")
+sky = SubResource("Sky_vgrj3")
 ambient_light_source = 2
 ambient_light_color = Color(0.345098, 0.545098, 0.796078, 1)
 tonemap_mode = 2
@@ -92,9 +87,18 @@ transform = Transform3D(0.266582, 0.73217, -0.626786, 0, 0.65032, 0.75966, 0.963
 transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.783956, 0.469915, -0.405701, -1.35126, 2.94185, -1.33015)
 
 [node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.986274, 0.165117, 0, -0.165117, 0.986274, 1.63437, 1.91854, 0.782473)
+transform = Transform3D(1, 1.23535e-16, 0, -1.21839e-16, 0.986274, 0.165118, 2.03978e-17, -0.165118, 0.986274, 1.63437, 1.91852, 0.782473)
 current = true
 fov = 90.2
+
+[node name="ShakerComponent3D" type="Node3D" parent="Camera3D2"]
+script = ExtResource("2_p4mam")
+AutoPlay = true
+duration = 1.0
+fade_in = 1e-05
+fade_out = 0.933033
+shakerPreset = ExtResource("16_vgrj3")
+metadata/_custom_type_script = "uid://05tiuwucku10"
 
 [node name="Décor" type="Node3D" parent="."]
 
@@ -341,8 +345,9 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_rnmgt")
 
 [node name="Yellowrat" type="Sprite2D" parent="."]
-position = Vector2(226, 658.641)
+position = Vector2(995, 518)
 scale = Vector2(0.247793, 0.247793)
 texture = ExtResource("12_tseb0")
 
-[node name="flowerwall_pp" parent="." instance=ExtResource("13_cciro")]
+[node name="Node" type="Node" parent="."]
+script = ExtResource("15_p4mam")

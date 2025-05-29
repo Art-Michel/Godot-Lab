@@ -15,12 +15,20 @@ run/main_scene="res://Scenes/main_3d.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Sprites/Tests/shinx.png"
 
+[autoload]
+
+Shaker="*res://addons/shaker/src/Shaker.gd"
+flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/resizable=false
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [input]
 
@@ -38,5 +46,7 @@ ui_cancel={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 rendering/scaling_3d/mode=1

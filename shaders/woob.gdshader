@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform float amplitude = 0.1;
 uniform float frequency = 6.0;
 uniform float speed = 10.0;
+
 void fragment() {
 	vec2 uv = UV;
 	uv.y += sin((uv.x * frequency + TIME * speed)) * amplitude;
