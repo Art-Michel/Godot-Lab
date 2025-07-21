@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://k10d3tvvdjgs"]
+
+[ext_resource type="Texture2D" uid="uid://b8dwjif4xrcsu" path="res://assets/3d/BOB/textures/1B46C8C_c.png" id="1_fbooo"]
+
+[resource]
+resource_name = "Shape.017"
+cull_mode = 2
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_fbooo")
+emission_enabled = true
+texture_filter = 0

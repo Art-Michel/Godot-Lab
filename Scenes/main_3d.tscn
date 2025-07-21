@@ -1,23 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://bngl1nwkr7fdv"]
+[gd_scene load_steps=25 format=3 uid="uid://bngl1nwkr7fdv"]
 
 [ext_resource type="Texture2D" uid="uid://dir0wq0ywxd3a" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_07.png" id="1_lvnyt"]
 [ext_resource type="Script" uid="uid://05tiuwucku10" path="res://addons/shaker/src/Vector3/shaker_component3D.gd" id="2_p4mam"]
 [ext_resource type="Texture2D" uid="uid://wsbtrss7n6g1" path="res://addons/kenney_prototype-textures/PNG/Dark/texture_02.png" id="2_s43xh"]
+[ext_resource type="PackedScene" uid="uid://du8lfcvrniqh" path="res://assets/3D/BOB/bob.tscn" id="4_bnwrw"]
 [ext_resource type="Script" uid="uid://cbmnqje25kmr" path="res://Scripts/cam_manager.gd" id="7_ong2f"]
-[ext_resource type="Shader" uid="uid://bjcvw0ax85sbk" path="res://Scenes/main_3d.tres" id="7_rnmgt"]
 [ext_resource type="Script" uid="uid://d0rpaf7w7di6n" path="res://Scenes/MeshInstance3D.gd" id="8_4hn4g"]
 [ext_resource type="Script" uid="uid://bytarhu8wr7qb" path="res://Scripts/Screenshaker.gd" id="8_hmmnb"]
-[ext_resource type="Texture2D" uid="uid://cm5vjjf0qigef" path="res://Sprites/Tests/dracula.png" id="9_aptmn"]
-[ext_resource type="Shader" uid="uid://bxgchxp4h4ic" path="res://shaders/woob.gdshader" id="9_jfrqb"]
-[ext_resource type="Texture2D" uid="uid://dfhx5agqf21q8" path="res://Sprites/Tests/chrono.png" id="10_fpk3h"]
-[ext_resource type="Texture2D" uid="uid://dtojqucwy6cne" path="res://Sprites/tumblr_ad5b56752939add79a6ca17ad015c08b_1954126f_1280.png" id="10_rnmgt"]
-[ext_resource type="Texture2D" uid="uid://dutn6fxrdrmfb" path="res://Sprites/Tests/yellowrat.png" id="12_tseb0"]
-[ext_resource type="Script" uid="uid://yduu3nrae050" path="res://Scenes/node.gd" id="15_p4mam"]
-[ext_resource type="Texture2D" uid="uid://dkb4wejxcba8m" path="res://Sprites/xZXx6PBmyZ.png" id="15_vgrj3"]
-[ext_resource type="Script" uid="uid://cw7avcqhr05yw" path="res://Scenes/h_slider.gd" id="16_r4ket"]
+[ext_resource type="Script" uid="uid://b0gtfwa87jejd" path="res://Scripts/rgb_shader.gd" id="9_txsha"]
+[ext_resource type="Material" uid="uid://ds6tminpidfav" path="res://shaders/rgb_diff.material" id="10_rnmgt"]
+[ext_resource type="Texture2D" uid="uid://3qu3iikmgoqs" path="res://assets/Sprites/colors.png" id="11_jfrqb"]
+[ext_resource type="Texture2D" uid="uid://b2jv5v5s0kqjc" path="res://assets/Sprites/col.png" id="12_cciro"]
 [ext_resource type="Resource" uid="uid://cvklw5ika1tao" path="res://addons/shaker/data/resources/shaker_earthquake3D.tres" id="16_vgrj3"]
-[ext_resource type="Texture2D" uid="uid://dhww0tuwhvkue" path="res://Sprites/9izNRFqRcT.png" id="17_r4ket"]
-[ext_resource type="Texture2D" uid="uid://btiaugibpt0g2" path="res://Sprites/3176.png" id="18_0541i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p4mam"]
 sky_top_color = Color(0.255873, 0.417454, 0.528286, 1)
@@ -59,15 +53,6 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_vjtb4")
 inner_radius = 0.1
 outer_radius = 0.175
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfrqb"]
-shader = ExtResource("7_rnmgt")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cciro"]
-shader = ExtResource("9_jfrqb")
-shader_parameter/amplitude = 0.025
-shader_parameter/frequency = 10.825
-shader_parameter/speed = 3.835
 
 [sub_resource type="Gradient" id="Gradient_p4mam"]
 
@@ -116,22 +101,10 @@ transform = Transform3D(0.266582, 0.73217, -0.626786, 0, 0.65032, 0.75966, 0.963
 [node name="Position7" type="Node3D" parent="CamManager"]
 transform = Transform3D(-0.620817, 0.5934, -0.512312, 0, 0.653496, 0.75693, 0.783956, 0.469915, -0.405701, -1.35126, 2.94185, -1.33015)
 
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 1.23535e-16, 0, -1.21839e-16, 0.986274, 0.165118, 2.03978e-17, -0.165118, 0.986274, 1.63437, 1.91852, 0.782473)
-current = true
-fov = 90.2
-far = 40000.0
-
-[node name="ShakerComponent3D" type="Node3D" parent="Camera3D2"]
-script = ExtResource("2_p4mam")
-AutoPlay = true
-duration = 1.0
-fade_in = 1e-05
-fade_out = 0.933033
-shakerPreset = ExtResource("16_vgrj3")
-metadata/_custom_type_script = "uid://05tiuwucku10"
-
 [node name="Décor" type="Node3D" parent="."]
+
+[node name="Bob Omb Battlefield" parent="Décor" instance=ExtResource("4_bnwrw")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -26.0769, 0.223173, -21.3743)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Décor"]
 environment = SubResource("Environment_vl8a5")
@@ -352,76 +325,70 @@ transform = Transform3D(0.99848, 0, -0.0551072, 0, 1, 0, 0.0551072, 0, 0.99848, 
 size = Vector3(1, 1, 2)
 material = SubResource("StandardMaterial3D_2n0dr")
 
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 1.23535e-16, -8.27181e-24, -1.21839e-16, 0.986274, 0.165118, 2.03978e-17, -0.165118, 0.986274, 1.63437, 1.91852, 0.782473)
+current = true
+fov = 90.2
+far = 40000.0
+
+[node name="ShakerComponent3D" type="Node3D" parent="Camera3D2"]
+script = ExtResource("2_p4mam")
+AutoPlay = true
+duration = 1.0
+fade_in = 1e-05
+fade_out = 0.933033
+shakerPreset = ExtResource("16_vgrj3")
+metadata/_custom_type_script = "uid://05tiuwucku10"
+
 [node name="Screenshaker" type="Node" parent="."]
 script = ExtResource("8_hmmnb")
 i = 1.0
-
-[node name="Dracula" type="Sprite2D" parent="."]
-visible = false
-texture_repeat = 2
-material = SubResource("ShaderMaterial_jfrqb")
-position = Vector2(223, 278)
-scale = Vector2(0.594255, 0.594255)
-texture = ExtResource("9_aptmn")
-
-[node name="Chrono" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_cciro")
-position = Vector2(930, 228)
-scale = Vector2(0.15988, 0.15988)
-texture = ExtResource("10_fpk3h")
-offset = Vector2(-10, -10)
-
-[node name="Waterfall" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(567, 320)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("10_rnmgt")
-
-[node name="Yellowrat" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(995, 518)
-scale = Vector2(0.247793, 0.247793)
-texture = ExtResource("12_tseb0")
-
-[node name="Node" type="Node" parent="."]
-script = ExtResource("15_p4mam")
-
-[node name="XZXx6pBmyZ" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(682, 370)
-texture = ExtResource("15_vgrj3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-5.20966e-06, 25.8819, -96.5926, -100, -4.37114e-06, 4.2222e-06, -3.12941e-06, 96.5926, 25.8819, -1594.33, 11135.2, 1095.94)
 mesh = SubResource("SphereMesh_bnwrw")
 
-[node name="HSlider" type="HSlider" parent="."]
-offset_left = 783.0
-offset_top = 533.0
-offset_right = 993.0
-offset_bottom = 631.0
-script = ExtResource("16_r4ket")
+[node name="Colors" type="Sprite2D" parent="."]
+position = Vector2(1167.42, 850.5)
+scale = Vector2(1.43092, 1.43092)
+texture = ExtResource("11_jfrqb")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-visible = false
+[node name="Col" type="Sprite2D" parent="."]
+position = Vector2(1158, 528)
+texture = ExtResource("12_cciro")
+
+[node name="rgb shader" type="CanvasLayer" parent="."]
+script = ExtResource("9_txsha")
+rgb_diff_shader = ExtResource("10_rnmgt")
+
+[node name="ColorRect" type="ColorRect" parent="rgb shader"]
+material = ExtResource("10_rnmgt")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(2560, 1440)
-render_target_update_mode = 0
-
-[node name="9IzNrFqRcT" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
-position = Vector2(1280, 720)
-texture = ExtResource("17_r4ket")
-
-[node name="3176" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+[node name="ColorRect3" type="ColorRect" parent="."]
 visible = false
-position = Vector2(1372, 442)
-scale = Vector2(4, 4)
-texture = ExtResource("18_0541i")
+offset_left = 528.0
+offset_top = 678.0
+offset_right = 568.0
+offset_bottom = 718.0
+color = Color(0, 0, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+offset_left = 600.0
+offset_top = 652.0
+offset_right = 640.0
+offset_bottom = 692.0
+color = Color(0, 1, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 454.0
+offset_top = 657.0
+offset_right = 494.0
+offset_bottom = 697.0
+color = Color(1, 0, 0, 1)

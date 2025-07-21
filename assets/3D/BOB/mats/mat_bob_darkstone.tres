@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://btk437ssrmfr3"]
+
+[ext_resource type="Texture2D" uid="uid://bf8heu6hkhmg2" path="res://assets/3d/BOB/textures/C1DF883_c.png" id="1_iitbj"]
+
+[resource]
+resource_name = "Shape.014"
+cull_mode = 2
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_iitbj")
+emission_enabled = true
+texture_filter = 0

@@ -1,0 +1,159 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://gwbljd4vllv7"
+path="res://.godot/imported/bobomb battlefield.fbx-3cb620b056c5a740201bb34c49c78a4e.scn"
+
+[deps]
+
+source_file="res://assets/3D/BOB/bobomb battlefield.fbx"
+dest_files=["res://.godot/imported/bobomb battlefield.fbx-3cb620b056c5a740201bb34c49c78a4e.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=false
+meshes/generate_lods=false
+meshes/create_shadow_meshes=false
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=true
+skins/use_named_skins=true
+animation/import=false
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Shape.009": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.009.tres"
+},
+"Shape.010": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.010.tres"
+},
+"Shape.011": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.011.tres"
+},
+"Shape.012": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.012.tres"
+},
+"Shape.013": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.013.tres"
+},
+"Shape.014": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.014.tres"
+},
+"Shape.015": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.015.tres"
+},
+"Shape.016": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.016.tres"
+},
+"Shape.017": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.017.tres"
+},
+"Shape.018": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.018.tres"
+},
+"Shape.019": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.019.tres"
+},
+"Shape.022": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.022.tres"
+},
+"Shape.023": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.023.tres"
+},
+"Shape.024": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.024.tres"
+},
+"Shape.025": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.025.tres"
+},
+"Shape.026": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.026.tres"
+},
+"Shape.027": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.027.tres"
+},
+"Shape.028": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.028.tres"
+},
+"Shape.029": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.029.tres"
+},
+"Shape.064": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.064.tres"
+},
+"Shape.065": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/3d/BOB/Shape.065.tres"
+}
+},
+"meshes": {
+"Shape_IndexedFaceSet_009": {
+"generate/lightmap_uv": 2,
+"generate/lods": 2,
+"generate/shadow_meshes": 2,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"Shape_IndexedFaceSet_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 1,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"Shape_IndexedFaceSet_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"Shape_IndexedFaceSet_065": {
+"generate/lightmap_uv": 2,
+"generate/lods": 2,
+"generate/shadow_meshes": 2,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1

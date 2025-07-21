@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://du3j11wyxv7de"]
+
+[ext_resource type="Texture2D" uid="uid://d7mr0lbr1o4t" path="res://assets/3d/BOB/textures/6C631877_c.png" id="1_mlwmx"]
+
+[resource]
+resource_name = "Shape.016"
+cull_mode = 2
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_mlwmx")
+emission_enabled = true
+texture_filter = 0

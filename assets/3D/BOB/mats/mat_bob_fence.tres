@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ddq03qxg26hq6"]
+
+[ext_resource type="Texture2D" uid="uid://d4cwi7qpxrnbe" path="res://assets/3d/BOB/textures/574B138E_c.png" id="1_vjxxq"]
+
+[resource]
+resource_name = "Shape.065"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_vjxxq")
+texture_filter = 0

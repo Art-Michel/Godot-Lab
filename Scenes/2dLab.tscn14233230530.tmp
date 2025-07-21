@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chti4pdx021hg"]
+
+[ext_resource type="Script" uid="uid://bu55adrqf4xc8" path="res://mobile joystick/input_handler.gd" id="1_mnxp8"]
+
+[node name="2dLab" type="Node2D"]
+
+[node name="Input handler" type="Node" parent="."]
+script = ExtResource("1_mnxp8")

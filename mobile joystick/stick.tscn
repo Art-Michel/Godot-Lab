@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://3js0iasa22qn"]
+
+[ext_resource type="Script" uid="uid://bu55adrqf4xc8" path="res://mobile joystick/input_handler.gd" id="1_ophbs"]
+[ext_resource type="Texture2D" uid="uid://b3gx5f3ibjtf2" path="res://assets/Sprites/BG.png" id="1_rr8p8"]
+[ext_resource type="Texture2D" uid="uid://cebuax8lex7bk" path="res://assets/Sprites/Button.png" id="2_ophbs"]
+
+[node name="joystick_handler" type="Node2D" node_paths=PackedStringArray("stick_button", "stick")]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_ophbs")
+stick_button = NodePath("joystick_button")
+stick = NodePath("joystick_background")
+stick_range = 240.0
+
+[node name="joystick_background" type="Sprite2D" parent="."]
+texture = ExtResource("1_rr8p8")
+
+[node name="joystick_button" type="Sprite2D" parent="."]
+texture = ExtResource("2_ophbs")

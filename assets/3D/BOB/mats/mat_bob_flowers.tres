@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfg8txkds4x06"]
+
+[ext_resource type="Texture2D" uid="uid://c2wvaf8jjhoqk" path="res://assets/3d/BOB/textures/4020CDFE_c.png" id="1_dp0dt"]
+
+[resource]
+resource_name = "Shape.018"
+cull_mode = 2
+shading_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_dp0dt")
+emission_enabled = true
+texture_filter = 0
