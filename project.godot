@@ -22,6 +22,7 @@ buses/default_bus_layout=""
 [autoload]
 
 Shaker="*res://addons/shaker/src/Shaker.gd"
+flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 
 [display]
 
@@ -29,7 +30,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [input]
 
@@ -62,4 +63,5 @@ b={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true

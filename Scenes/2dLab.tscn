@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://chti4pdx021hg"]
+[gd_scene load_steps=3 format=3 uid="uid://chti4pdx021hg"]
 
 [ext_resource type="PackedScene" uid="uid://3js0iasa22qn" path="res://mobile joystick/stick.tscn" id="1_mnxp8"]
+[ext_resource type="PackedScene" uid="uid://bn02xqihdm3sc" path="res://Scenes/Scamp.tscn" id="2_ggn6x"]
 
 [node name="2dLab" type="Node2D"]
 
 [node name="Joystick handler" parent="." instance=ExtResource("1_mnxp8")]
-scale = Vector2(0.73, 0.73)
+scale = Vector2(0.485, 0.485)
 stick_range = 220.0
+
+[node name="Scamp" parent="." instance=ExtResource("2_ggn6x")]
+position = Vector2(527, 281)
