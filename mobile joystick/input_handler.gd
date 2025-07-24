@@ -5,6 +5,7 @@ extends Node2D
 @export var stick: Sprite2D
 
 @export_group("Properties")
+@export var stuck_after_spawn: bool = false
 @export var notched: bool = true
 @export var dpad: bool = false
 @export var enable_edge_rumbling: bool = true
@@ -21,6 +22,7 @@ var passed_center: bool = true
 var previous_normal: Vector2
 var normal: Vector2
 var angle : float
+var relation: Vector2
 
 func _ready():
 	instantiate_stick()
@@ -59,26 +61,38 @@ func spawn():
 			stick_button.visible = true
 
 func move():
+	relation = get_global_mouse_position() - stick.global_position
+	if dpad:
+		update_dpad_visuals()
+	else:
+		update_stick_visuals()
+	rumble()
+
+func update_stick_visuals():
 	stick_button.global_position = get_global_mouse_position()
-	var relation := stick_button.global_position - stick.global_position
 	if relation.length() > stick_range:
-		stick.global_position += relation.normalized() * (relation.length() - stick_range -1)
-	rumble(relation)
+		if stuck_after_spawn:
+			stick_button.global_position -= relation.normalized() * (relation.length() - stick_range - 1)
+		else:
+			stick.global_position += relation.normalized() * (relation.length() - stick_range -1)
+
+func update_dpad_visuals():
+	return
 
 func round_to_diagonals(number: float, increment: float):
 	number = round(number*100)
 	increment = round(increment*100)
 	return (round(number / increment ) * increment) /100
 
-func rumble(relation: Vector2):
+func rumble():
 	if enable_edge_rumbling:
-		edge_rumble(relation)
+		edge_rumble()
 	if enable_cardinal_rumbling:
-		cardinal_rumble(relation)
+		cardinal_rumble()
 	if enable_center_rumbling:
-		center_rumble(relation)
+		center_rumble()
 
-func edge_rumble(relation: Vector2):
+func edge_rumble():
 	if relation.length() >= stick_range * 0.9:
 		if !edging:
 			Input.vibrate_handheld(1, rumble_strength)
@@ -88,13 +102,13 @@ func edge_rumble(relation: Vector2):
 	else:
 		edging = false
 
-func cardinal_rumble(relation: Vector2):
+func cardinal_rumble():
 	if edging:
 		if abs(angle_difference(angle, relation.angle())) > PI/6:
 			Input.vibrate_handheld(1, rumble_strength)
 			angle = round_to_diagonals(relation.angle(), PI/4)
 
-func center_rumble(relation: Vector2):
+func center_rumble():
 	previous_normal = normal
 	normal = relation.normalized()
 	if relation.length() <= stick_range * 0.2:
