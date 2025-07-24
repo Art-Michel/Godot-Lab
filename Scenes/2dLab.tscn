@@ -6,8 +6,8 @@
 [node name="2dLab" type="Node2D"]
 
 [node name="Joystick handler" parent="." instance=ExtResource("1_mnxp8")]
-scale = Vector2(0.485, 0.485)
-stuck_after_spawn = false
+scale = Vector2(1, 1)
+stuck_after_spawn = true
 stick_range = 220.0
 
 [node name="Scamp" parent="." instance=ExtResource("2_ggn6x")]

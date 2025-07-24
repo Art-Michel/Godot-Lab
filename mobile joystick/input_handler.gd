@@ -1,8 +1,8 @@
 extends Node2D
 
 @export_group("References")
-@export var stick_button: Sprite2D
-@export var stick: Sprite2D
+@export var stick_sprite: Sprite2D
+@export var stick_bg: Sprite2D
 
 @export_group("Properties")
 @export var stuck_after_spawn: bool = false
@@ -22,6 +22,9 @@ var passed_center: bool = true
 var previous_normal: Vector2
 var normal: Vector2
 var angle : float
+
+var finger: Vector2
+var stick: Vector2
 var relation: Vector2
 
 func _ready():
@@ -32,36 +35,40 @@ func _process(delta):
 	input()
 
 func instantiate_stick():
-	stick.visible = false
+	stick_bg.visible = false
 	stick_range *= scale.x
 
 func input():
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		if !stick.visible:
+		if !stick_bg.visible:
 			spawn()
 		else:
 			move()
 	else:
-		if stick.visible:
+		if stick_bg.visible:
 			despawn()
 
 func despawn():
-	stick.visible = false
-	stick_button.visible = false
+	stick_bg.visible = false
+	stick_sprite.visible = false
 	passed_center = false
-	stick_button.position = Vector2.ZERO
-	stick.position = Vector2.ZERO
+	stick_sprite.position = Vector2.ZERO
+	stick_bg.position = Vector2.ZERO
 	Input.vibrate_handheld(1, rumble_strength /2)
 
 func spawn():
-	if !stick.visible:
-			stick.global_position = get_global_mouse_position()
-			stick_button.global_position = get_global_mouse_position()
-			stick.visible = true
-			stick_button.visible = true
+	if !stick_bg.visible:
+			stick = get_global_mouse_position()
+			finger = get_global_mouse_position()
+			stick_bg.global_position = stick
+			stick_sprite.global_position = finger
+			stick_bg.visible = true
+			stick_sprite.visible = true
 
 func move():
-	relation = get_global_mouse_position() - stick.global_position
+	finger = get_global_mouse_position()
+	relation = finger - stick
+	
 	if dpad:
 		update_dpad_visuals()
 	else:
@@ -69,12 +76,13 @@ func move():
 	rumble()
 
 func update_stick_visuals():
-	stick_button.global_position = get_global_mouse_position()
+	stick_sprite.global_position = finger
 	if relation.length() > stick_range:
 		if stuck_after_spawn:
-			stick_button.global_position -= relation.normalized() * (relation.length() - stick_range - 1)
+			stick_sprite.global_position -= relation.normalized() * (relation.length() - stick_range - 1)
 		else:
-			stick.global_position += relation.normalized() * (relation.length() - stick_range -1)
+			stick += relation.normalized() * (relation.length() - stick_range -1)
+			stick_bg.global_position = stick
 
 func update_dpad_visuals():
 	return

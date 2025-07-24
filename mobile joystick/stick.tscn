@@ -4,12 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cebuax8lex7bk" path="res://mobile joystick/Button.png" id="2_ophbs"]
 [ext_resource type="Texture2D" uid="uid://dmdv7fiikna5a" path="res://mobile joystick/BG_Notched.png" id="2_rwt57"]
 
-[node name="joystick_handler" type="Node2D" node_paths=PackedStringArray("stick_button", "stick")]
+[node name="joystick_handler" type="Node2D" node_paths=PackedStringArray("stick_sprite", "stick_bg")]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ophbs")
-stick_button = NodePath("joystick_button")
-stick = NodePath("joystick_background")
-stuck_after_spawn = true
+stick_sprite = NodePath("joystick_button")
+stick_bg = NodePath("joystick_background")
 stick_range = 240.0
 
 [node name="joystick_background" type="Sprite2D" parent="."]
