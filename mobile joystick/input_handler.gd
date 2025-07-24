@@ -80,6 +80,10 @@ func update_stick_visuals():
 	if relation.length() > stick_range:
 		if stuck_after_spawn:
 			stick_sprite.global_position -= relation.normalized() * (relation.length() - stick_range - 1)
+			if notched:
+				var i: float = round_to_diagonals(relation.angle())
+				var j: float = abs(angle_difference(i, relation.angle()))
+				stick_sprite.global_position -= relation.normalized() * j * 10
 		else:
 			stick += relation.normalized() * (relation.length() - stick_range -1)
 			stick_bg.global_position = stick
@@ -87,9 +91,9 @@ func update_stick_visuals():
 func update_dpad_visuals():
 	return
 
-func round_to_diagonals(number: float, increment: float):
+func round_to_diagonals(number: float) -> float:
 	number = round(number*100)
-	increment = round(increment*100)
+	var increment = round(PI/4*100)
 	return (round(number / increment ) * increment) /100
 
 func rumble():
@@ -106,7 +110,7 @@ func edge_rumble():
 			Input.vibrate_handheld(1, rumble_strength)
 			edging = true
 			if enable_cardinal_rumbling:
-				angle = round_to_diagonals(relation.angle(), PI/4)
+				angle = round_to_diagonals(relation.angle())
 	else:
 		edging = false
 
@@ -114,7 +118,7 @@ func cardinal_rumble():
 	if edging:
 		if abs(angle_difference(angle, relation.angle())) > PI/6:
 			Input.vibrate_handheld(1, rumble_strength)
-			angle = round_to_diagonals(relation.angle(), PI/4)
+			angle = round_to_diagonals(relation.angle())
 
 func center_rumble():
 	previous_normal = normal
