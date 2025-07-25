@@ -1,18 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://3js0iasa22qn"]
+[gd_scene load_steps=5 format=3 uid="uid://3js0iasa22qn"]
 
 [ext_resource type="Script" uid="uid://bu55adrqf4xc8" path="res://mobile joystick/input_handler.gd" id="1_ophbs"]
 [ext_resource type="Texture2D" uid="uid://cebuax8lex7bk" path="res://mobile joystick/Button.png" id="2_ophbs"]
 [ext_resource type="Texture2D" uid="uid://dmdv7fiikna5a" path="res://mobile joystick/BG_Notched.png" id="2_rwt57"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ophbs"]
+radius = 4.0
 
 [node name="joystick_handler" type="Node2D" node_paths=PackedStringArray("stick_sprite", "stick_bg")]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ophbs")
 stick_sprite = NodePath("joystick_button")
 stick_bg = NodePath("joystick_background")
-stick_range = 240.0
+stuck_after_spawn = true
+notched = false
+stick_range = 245.0
 
 [node name="joystick_background" type="Sprite2D" parent="."]
 texture = ExtResource("2_rwt57")
 
 [node name="joystick_button" type="Sprite2D" parent="."]
 texture = ExtResource("2_ophbs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="joystick_button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="joystick_button/StaticBody2D"]
+shape = SubResource("CircleShape2D_ophbs")

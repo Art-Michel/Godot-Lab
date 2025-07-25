@@ -3,6 +3,10 @@ extends Node2D
 @export_group("References")
 @export var stick_sprite: Sprite2D
 @export var stick_bg: Sprite2D
+@export var stick_bg_sprite: Texture2D
+@export var notched_stick_bg_sprite: Texture2D
+@export var dpad_sprite: Texture2D
+@export var dpad_pressed_sprite: Texture2D
 
 @export_group("Properties")
 @export var stuck_after_spawn: bool = false
@@ -14,7 +18,7 @@ extends Node2D
 
 @export_group("Tweaking")
 @export_range(0.0,1,0.1) var rumble_strength: float = 0.5
-@export var stick_range: float = 220.0
+@export var stick_range: float = 245.0
 
 var edging: bool = false
 var passed_cardinal: bool = true
@@ -48,6 +52,15 @@ func input():
 		if stick_bg.visible:
 			despawn()
 
+func spawn():
+	if !stick_bg.visible:
+		stick = get_global_mouse_position()
+		finger = get_global_mouse_position()
+		stick_bg.global_position = stick
+		stick_sprite.global_position = finger
+		stick_bg.visible = true
+		stick_sprite.visible = true
+
 func despawn():
 	stick_bg.visible = false
 	stick_sprite.visible = false
@@ -55,15 +68,6 @@ func despawn():
 	stick_sprite.position = Vector2.ZERO
 	stick_bg.position = Vector2.ZERO
 	Input.vibrate_handheld(1, rumble_strength /2)
-
-func spawn():
-	if !stick_bg.visible:
-			stick = get_global_mouse_position()
-			finger = get_global_mouse_position()
-			stick_bg.global_position = stick
-			stick_sprite.global_position = finger
-			stick_bg.visible = true
-			stick_sprite.visible = true
 
 func move():
 	finger = get_global_mouse_position()
@@ -83,10 +87,16 @@ func update_stick_visuals():
 			if notched:
 				var i: float = round_to_diagonals(relation.angle())
 				var j: float = abs(angle_difference(i, relation.angle()))
-				stick_sprite.global_position -= relation.normalized() * j * 10
+				stick_sprite.global_position -= relation.normalized() * j * stick_range * 0.1
 		else:
 			stick += relation.normalized() * (relation.length() - stick_range -1)
-			stick_bg.global_position = stick
+			if notched:
+				var i: float = round_to_diagonals(relation.angle())
+				var j: float = abs(angle_difference(i, relation.angle()))
+				stick_bg.global_position = stick + relation.normalized() * j * stick_range * 0.1
+			else:
+				stick_bg.global_position = stick
+			
 
 func update_dpad_visuals():
 	return

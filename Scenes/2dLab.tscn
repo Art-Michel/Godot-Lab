@@ -7,8 +7,7 @@
 
 [node name="Joystick handler" parent="." instance=ExtResource("1_mnxp8")]
 scale = Vector2(0.3, 0.3)
-stuck_after_spawn = true
-stick_range = 220.0
+notched = true
 
 [node name="Scamp" parent="." instance=ExtResource("2_ggn6x")]
 position = Vector2(527, 281)
