@@ -20,6 +20,7 @@ dpad_down = NodePath("DPad/down")
 dpad_left = NodePath("DPad/left")
 dpad_right = NodePath("DPad/right")
 stuck_after_spawn = true
+rumble_strength = 0.6
 
 [node name="joystick_background" type="Sprite2D" parent="."]
 visible = false

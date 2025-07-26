@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chti4pdx021hg"]
+[gd_scene load_steps=10 format=3 uid="uid://chti4pdx021hg"]
 
 [ext_resource type="PackedScene" uid="uid://3js0iasa22qn" path="res://mobile joystick/stick.tscn" id="1_mnxp8"]
 [ext_resource type="PackedScene" uid="uid://bn02xqihdm3sc" path="res://Scenes/Scamp.tscn" id="2_ggn6x"]
@@ -20,6 +20,9 @@ b = Vector2(0, 0)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_nnmi8"]
 a = Vector2(9000, 0)
 b = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4bdqn"]
+font_size = 36
 
 [node name="2dLab" type="Node2D"]
 
@@ -64,7 +67,7 @@ offset_right = 824.0
 offset_bottom = 75.0
 scale = Vector2(2, 2)
 alignment = 1
-selected = 0
+selected = 1
 item_count = 3
 popup/item_0/text = "Joystick"
 popup/item_0/id = 0
@@ -79,11 +82,32 @@ offset_top = 175.0
 offset_right = 866.0
 offset_bottom = 206.0
 scale = Vector2(2, 2)
+button_pressed = true
 text = "Ancrer stick"
 
 [node name="Joystick handler" parent="CanvasLayer" instance=ExtResource("1_mnxp8")]
 scale = Vector2(0.7, 0.7)
-stuck_after_spawn = false
+type = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 846.0
+offset_top = 379.0
+offset_right = 938.0
+offset_bottom = 429.0
+text = "Taille"
+label_settings = SubResource("LabelSettings_4bdqn")
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+offset_left = 727.0
+offset_top = 261.0
+offset_right = 895.0
+offset_bottom = 321.0
+scale = Vector2(2, 2)
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 0.6
 
 [connection signal="item_selected" from="CanvasLayer/OptionButton" to="CanvasLayer/Joystick handler" method="_on_option_button_item_selected"]
 [connection signal="toggled" from="CanvasLayer/CheckButton" to="CanvasLayer/Joystick handler" method="_on_check_button_toggled"]
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="CanvasLayer/Joystick handler" method="_on_h_slider_value_changed"]

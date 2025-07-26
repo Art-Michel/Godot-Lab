@@ -243,3 +243,9 @@ func _on_option_button_item_selected(index):
 
 func _on_check_button_toggled(toggled_on):
 	stuck_after_spawn = toggled_on
+
+
+func _on_h_slider_value_changed(value):
+	scale.x = value
+	scale.y = value
+	stick_range = 245 * value
