@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2dtv1awc3yp7"
-path="res://.godot/imported/Switch_Dpad_Down.png-4576e5bbd8e8bebb3f182867653b548e.ctex"
+uid="uid://fms14evqhffo"
+path="res://.godot/imported/dpad_pressed.png-25d34713e4014412fd630030869aff14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mobile joystick/Switch_Dpad_Down.png"
-dest_files=["res://.godot/imported/Switch_Dpad_Down.png-4576e5bbd8e8bebb3f182867653b548e.ctex"]
+source_file="res://mobile joystick/dpad_pressed.png"
+dest_files=["res://.godot/imported/dpad_pressed.png-25d34713e4014412fd630030869aff14.ctex"]
 
 [params]
 

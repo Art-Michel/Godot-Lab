@@ -6,7 +6,9 @@
 [node name="2dLab" type="Node2D"]
 
 [node name="Joystick handler" parent="." instance=ExtResource("1_mnxp8")]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
+type = 1
+stuck_after_spawn = false
 
 [node name="Scamp" parent="." instance=ExtResource("2_ggn6x")]
 position = Vector2(527, 281)

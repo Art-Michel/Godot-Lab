@@ -1,28 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://3js0iasa22qn"]
+[gd_scene load_steps=7 format=3 uid="uid://3js0iasa22qn"]
 
 [ext_resource type="Script" uid="uid://bu55adrqf4xc8" path="res://mobile joystick/input_handler.gd" id="1_ophbs"]
+[ext_resource type="Texture2D" uid="uid://b3gx5f3ibjtf2" path="res://mobile joystick/BG.png" id="2_avsv5"]
 [ext_resource type="Texture2D" uid="uid://cebuax8lex7bk" path="res://mobile joystick/Button.png" id="2_ophbs"]
 [ext_resource type="Texture2D" uid="uid://dmdv7fiikna5a" path="res://mobile joystick/BG_Notched.png" id="2_rwt57"]
+[ext_resource type="Texture2D" uid="uid://c4ejfqt2bhbxt" path="res://mobile joystick/Switch_Dpad.png" id="4_rpqwj"]
+[ext_resource type="Texture2D" uid="uid://fms14evqhffo" path="res://mobile joystick/dpad_pressed.png" id="5_avsv5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ophbs"]
-radius = 4.0
-
-[node name="joystick_handler" type="Node2D" node_paths=PackedStringArray("stick_sprite", "stick_bg")]
+[node name="joystick_handler" type="Node2D" node_paths=PackedStringArray("stick_sprite", "stick_bg", "dpad", "dpad_up", "dpad_down", "dpad_left", "dpad_right")]
 scale = Vector2(0.75, 0.75)
 script = ExtResource("1_ophbs")
 stick_sprite = NodePath("joystick_button")
 stick_bg = NodePath("joystick_background")
+dpad = NodePath("DPad")
+stick_sprite_tex = ExtResource("2_avsv5")
+notched_stick_tex = ExtResource("2_rwt57")
+dpad_up = NodePath("DPad/up")
+dpad_down = NodePath("DPad/down")
+dpad_left = NodePath("DPad/left")
+dpad_right = NodePath("DPad/right")
+type = 2
 stuck_after_spawn = true
-notched = false
-stick_range = 245.0
 
 [node name="joystick_background" type="Sprite2D" parent="."]
-texture = ExtResource("2_rwt57")
+visible = false
+texture = ExtResource("2_avsv5")
 
 [node name="joystick_button" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_ophbs")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="joystick_button"]
+[node name="DPad" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(5, 5)
+texture = ExtResource("4_rpqwj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="joystick_button/StaticBody2D"]
-shape = SubResource("CircleShape2D_ophbs")
+[node name="up" type="Sprite2D" parent="DPad"]
+visible = false
+position = Vector2(0, -26.5)
+rotation = 3.14159
+texture = ExtResource("5_avsv5")
+
+[node name="down" type="Sprite2D" parent="DPad"]
+visible = false
+position = Vector2(0, 26.5)
+texture = ExtResource("5_avsv5")
+
+[node name="left" type="Sprite2D" parent="DPad"]
+visible = false
+position = Vector2(-26.5, 0)
+rotation = 1.57079
+texture = ExtResource("5_avsv5")
+
+[node name="right" type="Sprite2D" parent="DPad"]
+visible = false
+position = Vector2(26.5, 0)
+rotation = -1.57079
+texture = ExtResource("5_avsv5")
