@@ -1,4 +1,5 @@
 extends Node2D
+class_name Joystick
 
 @export_group("References")
 @export var stick_sprite: Sprite2D
@@ -15,9 +16,6 @@ extends Node2D
 enum TYPE{Stick, Notched_Stick, DPad}
 @export var type: TYPE
 @export var stuck_after_spawn: bool = false
-@export var enable_edge_rumbling: bool = true
-@export var enable_center_rumbling: bool = true
-@export var enable_cardinal_rumbling: bool = true
 
 @export_group("Tweaking")
 @export_range(0.0,1,0.1) var rumble_strength: float = 0.5
@@ -35,6 +33,7 @@ var stick_pos: Vector2
 var relation: Vector2
 
 func _ready():
+	stick_range *= scale.x
 	initiate_stick()
 	despawn()
 
@@ -43,7 +42,6 @@ func _process(delta):
 
 func initiate_stick():
 	stick_bg.visible = false
-	stick_range *= scale.x
 	if type == TYPE.DPad:
 		dpad.visible = true
 		stick_sprite.visible = false
@@ -84,6 +82,9 @@ func spawn():
 
 func despawn():
 	passed_center = false
+	stick_pos = Vector2.ZERO
+	finger = Vector2.ZERO
+	relation = Vector2.ZERO
 	stick_sprite.position = Vector2.ZERO
 	stick_bg.position = Vector2.ZERO
 	dpad.position = Vector2.ZERO
@@ -123,7 +124,6 @@ func update_stick_visuals():
 				stick_bg.global_position = stick_pos + relation.normalized() * j * stick_range * 0.1
 			else:
 				stick_bg.global_position = stick_pos
-			
 
 func update_dpad_visuals():
 	if relation.length() > stick_range:
@@ -176,12 +176,9 @@ func round_to_diagonals(number: float) -> float:
 	return (round(number / increment ) * increment) /100
 
 func rumble():
-	if enable_edge_rumbling:
 		edge_rumble()
-	if enable_cardinal_rumbling:
-		if type == TYPE.Stick or type== TYPE.Notched_Stick:
+		if  type== TYPE.Notched_Stick:
 			cardinal_rumble()
-	if enable_center_rumbling:
 		center_rumble()
 
 func edge_rumble():
@@ -194,20 +191,18 @@ func edge_rumble():
 		if !edging:
 			Input.vibrate_handheld(1, rumble_strength)
 			edging = true
-			if enable_cardinal_rumbling:
-				angle = round_to_diagonals(relation.angle())
+			angle = round_to_diagonals(relation.angle())
 	else:
 		edging = false
 
 func cardinal_rumble():
 	if edging:
-		if abs(angle_difference(angle, relation.angle())) > PI/6:
+		if abs(angle_difference(angle, relation.angle())) > PI/5:
 			Input.vibrate_handheld(1, rumble_strength)
 			angle = round_to_diagonals(relation.angle())
 
 func cardinal_dpad_rumble(dir: Sprite2D, visible: bool):
 	if dir.visible == visible:
-		print("wahoo")
 		Input.vibrate_handheld(1, rumble_strength)
 
 func center_rumble():
@@ -221,3 +216,30 @@ func center_rumble():
 		if previous_normal.dot(normal) < 0 and !passed_center:
 			Input.vibrate_handheld(1, rumble_strength/2)
 		passed_center = false
+
+func movement_direction() -> Vector2:
+	var movement: Vector2 = Vector2.ZERO
+	if type == TYPE.DPad:
+		if dpad_up.visible: movement += Vector2(0,-1)
+		if dpad_down.visible: movement += Vector2(0,1)
+		if dpad_left.visible: movement += Vector2(-1,0)
+		if dpad_right.visible: movement += Vector2(1,0)
+		movement = movement.normalized()
+	else:
+		movement = relation.normalized() * clamp(inverse_lerp(0, stick_range, relation.length()), 0.0, 1.0)
+	return movement
+
+
+func _on_option_button_item_selected(index):
+	match index:
+		0:
+			type = TYPE.Stick
+		1:
+			type = TYPE.Notched_Stick
+		2:
+			type = TYPE.DPad
+	initiate_stick()
+
+
+func _on_check_button_toggled(toggled_on):
+	stuck_after_spawn = toggled_on

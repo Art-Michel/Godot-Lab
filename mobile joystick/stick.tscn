@@ -19,7 +19,6 @@ dpad_up = NodePath("DPad/up")
 dpad_down = NodePath("DPad/down")
 dpad_left = NodePath("DPad/left")
 dpad_right = NodePath("DPad/right")
-type = 2
 stuck_after_spawn = true
 
 [node name="joystick_background" type="Sprite2D" parent="."]

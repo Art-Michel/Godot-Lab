@@ -58,10 +58,10 @@ shape = SubResource("SegmentShape2D_nnmi8")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="OptionButton" type="OptionButton" parent="CanvasLayer"]
-offset_left = 628.0
-offset_top = 44.0
-offset_right = 824.0
-offset_bottom = 75.0
+offset_left = 120.0
+offset_top = 100.0
+offset_right = 316.0
+offset_bottom = 131.0
 scale = Vector2(2, 2)
 alignment = 1
 selected = 0
@@ -74,15 +74,15 @@ popup/item_2/text = "DPad"
 popup/item_2/id = 2
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
-offset_left = 726.0
-offset_top = 175.0
-offset_right = 866.0
-offset_bottom = 206.0
+offset_left = 83.0
+offset_top = 286.0
+offset_right = 223.0
+offset_bottom = 317.0
 scale = Vector2(2, 2)
 text = "Ancrer stick"
 
 [node name="Joystick handler" parent="CanvasLayer" instance=ExtResource("1_mnxp8")]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.5, 0.5)
 stuck_after_spawn = false
 
 [connection signal="item_selected" from="CanvasLayer/OptionButton" to="CanvasLayer/Joystick handler" method="_on_option_button_item_selected"]
